@@ -13,7 +13,7 @@ class CreateBiodataUsers extends Migration
      */
     public function up()
     {
-        Schema::create('biodata_users', function (Blueprint $table) {
+        Schema::create('biodata_user', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('nim');

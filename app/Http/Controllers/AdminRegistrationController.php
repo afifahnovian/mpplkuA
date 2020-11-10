@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
-use App\User;
+use App\Admin;
  
-class UsersRegistrationController extends Controller
+class AdminRegistrationController extends Controller
 {
     public function create()
     {
@@ -15,16 +15,11 @@ class UsersRegistrationController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'nama' => 'required',
-            'nim' => 'required',
-            'departemen' => 'required',
             'email' => 'required|email',
             'password' => 'required',
         ]);
         
-        $user = User::create(request(['nama', 'nim', 'departemen', 'email', 'password']));
-        
-        auth()->login($user);
+        $admin = Admin::create(request(['email', 'password']));
         
         return redirect()->to('/?');
     }
