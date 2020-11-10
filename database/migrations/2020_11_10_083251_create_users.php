@@ -18,7 +18,7 @@ class CreateUsers extends Migration
             $table->string('nama');
             $table->string('nim');
             $tabel->string('jurusan');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password');
             $table->timestamps();
         });

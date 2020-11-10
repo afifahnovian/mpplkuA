@@ -23,7 +23,7 @@ class CreateBiodataUsers extends Migration
             $table->string('departemen');
             $table->integer('semester');
             $table->integer('tahun_Akademik');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamps();
         });
     }
