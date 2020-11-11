@@ -16,8 +16,8 @@ class CreateSuratPengunduranDiri extends Migration
     {
         Schema::create('surat_pengunduran_diri', function (Blueprint $table) {
             $table->id();
-            $table->string('tahunAkademikPengunduran');
-            $table->string('tanggalPengunduran');
+            $table->integer('tahunAkademikPengunduran');
+            $table->date('tanggalPengunduran');
 
             $table->string('fileSuratPengajuanMahasiswa');
             $table->string('fileSuratPengantarDept');

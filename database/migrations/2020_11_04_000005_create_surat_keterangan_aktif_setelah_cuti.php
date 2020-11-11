@@ -16,10 +16,10 @@ class CreateSuratKeteranganAktifSetelahCuti extends Migration
     {
         Schema::create('surat_keterangan_aktif_setelah_cuti', function (Blueprint $table) {
             $table->id();
-            $table->string('waktuCuti_TahunAkademik');
+            $table->integer('waktuCuti_TahunAkademik');
             $table->string('waktuCuti_Semester');
             $table->string('alasanCuti');
-            $table->string('waktuAktif_TahunAkademik');
+            $table->integer('waktuAktif_TahunAkademik');
             $table->string('waktuAktif_Semester');
 
             $table->string('fileSuratCuti');

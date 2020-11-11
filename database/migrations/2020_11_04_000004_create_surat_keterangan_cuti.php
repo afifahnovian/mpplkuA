@@ -16,7 +16,7 @@ class CreateSuratKeteranganCuti extends Migration
     {
         Schema::create('surat_keterangan_cuti', function (Blueprint $table) {
             $table->id();
-            $table->string('waktuCuti_TahunAkademik');
+            $table->integer('waktuCuti_TahunAkademik');
             $table->string('waktuCuti_Semester');
             $table->text('alasanCuti');
 

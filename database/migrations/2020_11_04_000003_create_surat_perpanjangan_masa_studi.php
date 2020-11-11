@@ -16,8 +16,8 @@ class CreateSuratPerpanjanganMasaStudi extends Migration
     {
         Schema::create('surat_perpanjangan_masa_studi', function (Blueprint $table) {
             $table->id();
-            $table->string('waktuAkhirPerpanjangan');
-            $table->string('waktuAkhirPerpanjangan_TahunAkademik');
+            $table->date('waktuAkhirPerpanjangan');
+            $table->integer('waktuAkhirPerpanjangan_TahunAkademik');
 
             $table->string('fileTabelRencanaStudi');
         });
