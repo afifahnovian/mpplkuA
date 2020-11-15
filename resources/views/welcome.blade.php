@@ -91,7 +91,7 @@
                                 <i class="mdi mdi-numeric-5 text-primary"></i>
                             </div>
                             <div class="content mt-2">
-                                <h4 class="title mb-0">Surat Keterangan Aktif Setelah Cuti</h4>
+                                <h4 class="title mb-0">Surat Keterangan  Cuti Mahasiswa</h4>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -102,7 +102,7 @@
                                 <i class="mdi mdi-numeric-6 text-primary"></i>
                             </div>
                             <div class="content mt-2">
-                                <h4 class="title mb-0">Surat Keterangan Cuti Mahasiswa</h4>
+                                <h4 class="title mb-0">Surat Keterangan Aktif Setelah Cuti</h4>
                             </div>
                         </div>
                     </div><!--end col-->
