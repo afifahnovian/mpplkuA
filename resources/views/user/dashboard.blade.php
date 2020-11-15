@@ -2,5 +2,5 @@
 @extends('layouts.usr-dashboard')
 
 @section('content')
-    <h2>Ini dashboard</h2>
+    <h2>Dashboard</h2>
 @endsection
