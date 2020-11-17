@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,14 +14,28 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//admin
 Route::get('/adminlogin', function () {
-    return view('adminlogin');
+    return view('admin.adminlogin');
 });
 
-Route::get('/dashboard', function () {
-    return view('admindashboard');
+Route::get('/admin/admindashboard', function () {
+    return view('admin.admindashboard');
 });
+
+Route::prefix('admin')->group( function(){
+    Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
+    Route::get('/suratdiproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
+    Route::get('/suratmasuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
+    Route::get('/suratselesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
+    Route::get('/suratditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
+    Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
+    Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
+    
+});
+   
+    //user
+
 Route::get('/user/dashboard', function () {
     return view('user.dashboard');
 });
@@ -38,10 +54,3 @@ Route::prefix('user')->group( function(){
     Route::get('surat/surat-keterangan-aktif-cuti', [UserController::class,'viewSuratKeteranganAktifCuti'])->name('user-surat-keterangan-aktif-cuti');
     Route::get('surat/legalisir-transkrip', [UserController::class,'viewLegalisirTranskrip'])->name('user-legalisir-transkrip');
 });
-
-<<<<<<< HEAD
-=======
-// Route::get('/index', function () {
-//     return view('index');
-// });
->>>>>>> 4710250bb31778a220261e37f05723d93f2daa24
