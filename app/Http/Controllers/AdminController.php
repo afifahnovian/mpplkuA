@@ -40,4 +40,9 @@ class AdminController extends Controller
     {
         return view('admin.adminlogin');
     }
+
+    public function viewPengajuan()
+    {
+        return view('admin.pengajuansurat');
+    }
 }

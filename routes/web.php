@@ -31,6 +31,7 @@ Route::prefix('admin')->group( function(){
     Route::get('/suratditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
     Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
+    Route::get('/suratmasuk/pengajuansurat', [AdminController::class, 'viewPengajuan'])->name('admin-pengajuan');
     
 });
    
