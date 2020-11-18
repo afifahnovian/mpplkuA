@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +15,43 @@ use App\Http\Controllers\UserController;
 |
 */
 
+    //landing page
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/user/dashboard', function () {
-    return view('user.dashboard');
+
+    //admin
+Route::get('/adminlogin', function () {
+    return view('admin.adminlogin');
 });
-Route::get('/user/biodata', function () {
-    return view('user.biodata');
+
+Route::get('/admin/admindashboard', function () {
+    return view('admin.admindashboard');
+});
+
+Route::prefix('admin')->group( function(){
+    Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
+    Route::get('/suratdiproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
+    Route::get('/suratmasuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
+    Route::get('/suratselesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
+    Route::get('/suratditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
+    Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
+    Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
+    
+});
+   
+    //user
+
+Route::get('/user/login', function () {
+    return view('auth.user-login');
+});
+
+Route::get('/user/register', function () {
+    return view('auth.user-register');
+});
+
+Route::get('/user/biodata/edit', function () {
+    return view('user.biodata-edit');
 });
 
 Route::prefix('user')->group( function(){
@@ -34,7 +65,3 @@ Route::prefix('user')->group( function(){
     Route::get('surat/surat-keterangan-aktif-cuti', [UserController::class,'viewSuratKeteranganAktifCuti'])->name('user-surat-keterangan-aktif-cuti');
     Route::get('surat/legalisir-transkrip', [UserController::class,'viewLegalisirTranskrip'])->name('user-legalisir-transkrip');
 });
-
-// Route::get('/index', function () {
-//     return view('index');
-// });

@@ -11,9 +11,9 @@
         </div>
         <!-- User box -->
         <div class="user-box">
-            <img src="{{asset('highdamin/light/assets/images/users/avatar-1.jpg')}}" alt="user-img" title="Mat Helme" class="rounded-circle" height="48">
+            <img src="{{asset('highdamin/light/assets/images/users/avatar-7.jpg')}}" alt="user-img" title="Mat Helme" class="rounded-circle" height="48">
             <div class="dropdown">
-                <a href="#" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown">Nama User</a>
+                <a href="#" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown">John Doe</a>
             </div>
             <p class="text-muted">G64170000</p>
         </div>
