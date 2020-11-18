@@ -14,6 +14,12 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+    //landing page
+Route::get('/', function () {
+    return view('welcome');
+});
+
     //admin
 Route::get('/adminlogin', function () {
     return view('admin.adminlogin');
@@ -36,8 +42,16 @@ Route::prefix('admin')->group( function(){
    
     //user
 
+Route::get('/user/login', function () {
+    return view('auth.user-login');
+});
+
+Route::get('/user/register', function () {
+    return view('auth.user-register');
+});
+
 Route::get('/user/biodata/edit', function () {
-    return view('user.editbiodata');
+    return view('user.biodata-edit');
 });
 
 Route::prefix('user')->group( function(){
