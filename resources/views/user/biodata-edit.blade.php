@@ -151,7 +151,7 @@
                                                     </div>
                                                     -->
                                                     <br>
-                                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                    <button href="{{route('user-biodata')}}" type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                                 </form>
                                             </div>
                                         </div>

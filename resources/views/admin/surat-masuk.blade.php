@@ -1,5 +1,5 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
-    <h2>create admin</h2>
+    <h2>Surat Masuk</h2>
 @endsection

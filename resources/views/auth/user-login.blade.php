@@ -61,7 +61,7 @@
     
                                     <div class="form-group row text-center">
                                         <div class="col-12">
-                                            <button class="btn btn-block btn-primary waves-effect waves-light" type="submit">Masuk</button>
+                                            <button href="{{route('user-dashboard')}}" class="btn btn-block btn-primary waves-effect waves-light" type="submit">Masuk</button>
                                         </div>
                                     </div>
     
@@ -69,7 +69,7 @@
     
                                 <div class="row mt-4">
                                     <div class="col-sm-12 text-center">
-                                        <p class="text-muted">Belum Punya Akun?<a href="page-register.html" class="text-dark ml-1"><b>Daftar</b></a></p>
+                                        <p class="text-muted">Belum Punya Akun?<a href="{{route('user-register')}}" class="text-dark ml-1"><b>Daftar</b></a></p>
                                     </div>
                                 </div>
 
