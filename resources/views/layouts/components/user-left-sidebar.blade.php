@@ -41,7 +41,7 @@
                         <span> Pengajuan Surat </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <ul class="nav-second-level" aria-expanded="false">
+                    <ul class="nav-second-level" aria-expanded="true">
                         <li><a href="{{route('user-surat-keterangan-aktif')}}">Surat Keterangan Mahasiswa Aktif</a></li>
                         <li><a href="{{route('user-surat-keterangan-lulus')}}">Surat Keterangan Lulus</a></li>
                         <li><a href="{{route('user-surat-perpanjangan-masa-studi')}}">Surat Perpanjangan Masa Studi</a></li>

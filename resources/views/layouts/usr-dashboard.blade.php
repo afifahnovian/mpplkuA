@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>User Dashboard - SIMARSIP</title>
+        <title> SIMARSIP User Dashboard - @yield('page-name')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
@@ -41,11 +41,10 @@
                             </button>
                         </li>
                         <li>
-                            <h4 class="page-title-main">Dashboard</h4>
+                            <h4 class="page-title-main">@yield('page-name')</h4>
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">SIMARSIP</a></li>
-                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="/">SIMARSIP</a></li>
+                                <li class="breadcrumb-item active">@yield('page-name')</li>
                             </ol>
                         </li>
                     </ul>
