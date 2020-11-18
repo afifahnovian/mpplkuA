@@ -1,102 +1,95 @@
-@extends('layouts.app') 
-
-@section('content')
 <!DOCTYPE html>
 <html lang="en">
-<style>
-span {width:100%; display:inline-block;}
-span.align-right {text-align:right;}
-</style>
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" >
-    <title>SIMARSIP FMIPA IPB</title>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <title>User - Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="/highdamin/light/assets/images/favicon.ico">
 
-<body>
-<div class="container">
-    <div class="mt-log">
-        <div class="card mb-8" >
-            <div class="row no-gutters">
-                <div class="col-md-6">
-                    <img src="{{asset('/landrick/images/user/login.png')}}" alt="Logo" class="img-responsive logo">
-                </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <div class="mt-5">
-                            <h5 class="card-title">MASUK</h5>
-                                <p class="card-text"><div class="panel panel-default">
+        <!-- App css -->
+        <link href="{{asset('highdamin/light/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('highdamin/light/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('highdamin/light/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    </head>
 
-                                    <div class="panel-body">
-                                        <form class="form-horizontal" role="form" method="POST">
-                                        {{ csrf_field() }}
-
-                                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                                                <label for="username" class="col-md-4 control-label">Username</label>
-
-                                                <div class="col-md-10">
-                                                    <input id="username" type="username" class="form-control" name="email" value="{{ old('username') }}" required autofocus>
-
-                                                    @if ($errors->has('username'))
-                                                    <span class="help-block">
-                                                    <strong>{{ $errors->first('username') }}</strong>
-                                                    </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                <label for="password" class="col-md-4 control-label">Kata Sandi</label>
-
-                                                <div class="col-md-10">
-                                                    <input id="password" type="password" class="form-control" name="password" required>
-
-                                                    @if ($errors->has('password'))
-                                                    <span class="help-block">
-                                                    <strong>{{ $errors->first('password') }}</strong>
-                                                    </span>
-                                                    @endif
-                                                </div>
-
-                                                <a class="btn btn-link" style="padding: 0px 0px 0px 300px;font-size:12px;">Masuk sebagai Admin</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-6 col-md-offset-4">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Ingat Saya
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-8 col-md-offset-4">
-                                                    <button type="submit" class="btn btn-primary">
-                                                        Masuk
-                                                    </button>
-                                                    <a class="btn btn-link">Daftar Baru</a>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                <a class="btn btn-link">Lupa Kata Sandi?</a>
-                                                </div>
-                                            </div>
-                                        </form>
+    <body class="account-pages">
+            <!-- Begin page -->
+            <div class="accountbg" style="background: url('/highdamin/light/assets/images/bg-1.jpg');background-size: cover;background-position: center;"></div>
+    
+            <div class="wrapper-page account-page-full">
+                <div class="card shadow-none">
+                    <div class="card-block">
+                        <div class="account-box">
+                            <div class="card-box shadow-none p-4 mt-2">
+                                <h2 class="text-uppercase text-center pb-3">
+                                    <a href="index.html" class="text-success">
+                                        <span><img src="/highdamin/light/assets/images/logo-dark.png" alt="" height="26"></span>
+                                    </a>
+                                </h2>
+    
+                                <form class="" action="#">
+    
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <label for="username">Email</label>
+                                            <input class="form-control" type="email" id="email" required="" placeholder="Masukan Email">
+                                        </div>
                                     </div>
-                                </div> </p>
+    
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <a href="page-recoverpw.html" class="text-muted float-right"><small>Lupa Kata Sandi?</small></a>
+                                            <label for="password">Kata Sandi</label>
+                                            <input class="form-control" type="password" required="" id="password" placeholder="Masukan Kata Sandi">
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row">
+                                        <div class="col-12">
+    
+                                            <div class="checkbox checkbox-primary">
+                                                <input id="remember" type="checkbox" checked="">
+                                                <label for="remember">
+                                                    Ingatkan Saya
+                                                </label>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group row text-center">
+                                        <div class="col-12">
+                                            <button href="{{route('user-dashboard')}}" class="btn btn-block btn-primary waves-effect waves-light" type="submit">Masuk</button>
+                                        </div>
+                                    </div>
+    
+                                </form>
+    
+                                <div class="row mt-4">
+                                    <div class="col-sm-12 text-center">
+                                        <p class="text-muted">Belum Punya Akun?<a href="{{route('user-register')}}" class="text-dark ml-1"><b>Daftar</b></a></p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+    
                     </div>
                 </div>
+    
+                <div class="text-center">
+                    <p class="account-copyright">2018 - 2019 © Highdmin. <span class="d-none d-sm-inline-block"> - Coderthemes.com</span></p>
+                </div>
+
             </div>
-        </div>
-    </div>
-</div>
-<script src="/js/bootstrap.min.js"></script>
-</body>
+    
+        <!-- Vendor js -->
+        <script src="/highdamin/light/assets/js/vendor.min.js"></script>
+
+        <!-- App js -->
+        <script src="/highdamin/light/assets/js/app.min.js"></script>
+        
+    </body>
 </html>
-@endsection

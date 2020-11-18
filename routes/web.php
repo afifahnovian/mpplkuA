@@ -14,16 +14,16 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//admin
-Route::get('/adminlogin', function () {
-    return view('admin.adminlogin');
+
+    //landing page
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/admin/admindashboard', function () {
-    return view('admin.admindashboard');
-});
+    //admin
 
 Route::prefix('admin')->group( function(){
+<<<<<<< HEAD
     Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
     Route::get('/suratdiproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
     Route::get('/suratmasuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
@@ -32,21 +32,26 @@ Route::prefix('admin')->group( function(){
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
     Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
     Route::get('/suratmasuk/pengajuansurat', [AdminController::class, 'viewPengajuan'])->name('admin-pengajuan');
+=======
+    Route::get('/dashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
+    Route::get('/surat/diproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
+    Route::get('/surat/masuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
+    Route::get('/surat/selesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
+    Route::get('/surat/ditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
+    Route::get('/create/admin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
+    Route::get('/login', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
+>>>>>>> f98fad8fe38ac6af74d622fe71584e5ae5c4f08b
     
 });
    
     //user
 
-Route::get('/user/dashboard', function () {
-    return view('user.dashboard');
-});
-Route::get('/user/biodata', function () {
-    return view('user.biodata');
-});
-
 Route::prefix('user')->group( function(){
+    Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
+    Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
     Route::get('/dashboard', [UserController::class, 'viewDashboard'])->name('user-dashboard');
     Route::get('/biodata', [UserController::class,'viewBiodata'])->name('user-biodata');
+    Route::get('/biodata/edit', [UserController::class,'viewBiodataEdit'])->name('user-biodata-edit');
     Route::get('surat/surat-keterangan-aktif', [UserController::class,'viewSuratKeteranganAktif'])->name('user-surat-keterangan-aktif');
     Route::get('surat/surat-keterangan-lulus', [UserController::class,'viewSuratKeteranganLulus'])->name('user-surat-keterangan-lulus');
     Route::get('surat/surat-perpanjangan-masa-studi', [UserController::class,'viewSuratPerpanjanganMasaStudi'])->name('user-surat-perpanjangan-masa-studi');
