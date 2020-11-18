@@ -9,12 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="highdamin/light/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="/highdamin/light/assets/images/favicon.ico">
 
         <!-- App css -->
-        <link href="highdamin/light/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="highdamin/light/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="highdamin/light/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+        <link href="/highdamin/light/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/highdamin/light/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/highdamin/light/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -36,11 +36,11 @@
                                 <div class="profile-user-box card-box bg-primary">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <span class="float-left mr-2"><img src="highdamin/light/assets/images/users/avatar-4.jpg" alt="" class="avatar-xl rounded-circle"></span>
+                                            <span class="float-left mr-2"><img src="/highdamin/light/assets/images/users/avatar-7.jpg" alt="" class="avatar-xl rounded-circle"></span>
                                             <div class="media-body text-white">
                                                 <h4 class="mt-1 mb-1 text-white font-18">John Doe</h4>
                                                 <p class="font-13"> G64170000</p>
-                                                <p class="mb-0">Bogor, Jawa Barat</p>
+                                                <p class="mb-0">Departemen Ilmu Komputer</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -62,7 +62,7 @@
                             <div class="col-xl-12">
                                 <!-- Personal-Information -->
                                 <div class="card-box">
-                                    <h1 class="header-title">Biodata</h1>
+                                    <h1 class="header-title{font-size:40px}">Biodata</h1>
                                     <div class="panel-body">
                                         <div class="text-left">
                                             <p class="text-muted font-28"><strong>Nama :</strong> <span>John Doe</span></p>
@@ -81,7 +81,7 @@
 
                                             <p class="text-muted font-28"><strong>Asal Departemen :</strong> <span>Ilmu Komputer</span></p>
 
-                                            <p class="text-muted font-28"><strong>Tahun Akademik:</strong> <span>2017/2018</span></p>
+                                            <p class="text-muted font-28"><strong>Tahun Akademik :</strong> <span>2017/2018</span></p>
 
                                         </div>
 
@@ -128,10 +128,10 @@
         <!-- END wrapper -->
 
         <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
+        <script src="/highdamin/light/assets/js/vendor.min.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
+        <script src="/highdamin/light/assets/js/app.min.js"></script>
         
     </body>
 </html>

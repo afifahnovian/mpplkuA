@@ -55,8 +55,8 @@
 
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <label for="departement">Departemen</label>
-                                            <input class="form-control" type="departement" required="" id="departement" placeholder="Masukan Nama Departemen">
+                                            <label for="department">Departemen</label>
+                                            <input class="form-control" type="department" required="" id="department" placeholder="Masukan Nama Departemen">
                                         </div>
                                     </div>
 
