@@ -43,21 +43,12 @@ Route::prefix('admin')->group( function(){
    
     //user
 
-Route::get('/user/login', function () {
-    return view('auth.user-login');
-});
-
-Route::get('/user/register', function () {
-    return view('auth.user-register');
-});
-
-Route::get('/user/biodata/edit', function () {
-    return view('user.biodata-edit');
-});
-
 Route::prefix('user')->group( function(){
+    Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
+    Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
     Route::get('/dashboard', [UserController::class, 'viewDashboard'])->name('user-dashboard');
     Route::get('/biodata', [UserController::class,'viewBiodata'])->name('user-biodata');
+    Route::get('/biodata/edit', [UserController::class, 'viewBiodataEdit'])->name('user-biodata-edit');
     Route::get('surat/surat-keterangan-aktif', [UserController::class,'viewSuratKeteranganAktif'])->name('user-surat-keterangan-aktif');
     Route::get('surat/surat-keterangan-lulus', [UserController::class,'viewSuratKeteranganLulus'])->name('user-surat-keterangan-lulus');
     Route::get('surat/surat-perpanjangan-masa-studi', [UserController::class,'viewSuratPerpanjanganMasaStudi'])->name('user-surat-perpanjangan-masa-studi');
