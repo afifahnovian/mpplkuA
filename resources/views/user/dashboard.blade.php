@@ -72,49 +72,49 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>Legalisir Transkrip Mahasiswa Aktif</td>
+                                            <td>Legalisir Transkrip</td>
                                             <td>15 November 2020</td>
                                             <td><span class="badge label-table badge-warning">Diproses</span></td>
                                             <td><a href = "{{route('user-legalisir-transkrip-detail')}}" span class="btn btn-link btn">Lihat Pengajuan</a> </span></td>
                                         </tr>
                                         <tr>
-                                            <td>Surat Keterangan Aktif Mahasiswa</td>
+                                            <td>Surat Keterangan Mahasiswa Aktif</td>
                                             <td>10 November 2020</td>
                                             <td><span class="badge label-table badge-success">Selesai</span></td>
                                             <td><a href = "{{route('user-surat-keterangan-aktif-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
                                         </tr>
                                         <tr>
-                                            <td>Legalisir Transkrip Mahasiswa Aktif</td>
+                                            <td>Legalisir Transkrip</td>
                                             <td>28 Oktober 2020</td>
                                             <td><span class="badge label-table badge-danger">Ditolak</span></td>
-                                            <td><a href = "#" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
+                                            <td><a href = "{{route('user-legalisir-transkrip-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
                                         </tr>
                                         <tr>
-                                            <td>Surat Keterangan Lulus Mahasiswa</td>
+                                            <td>Surat Keterangan Lulus</td>
                                             <td>26 Oktober 2020</td>
                                             <td><span class="badge label-table badge-success">Selesai</span></td>
-                                            <td><a href = "{{route('user-surat-keterangan-lulus')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
+                                            <td><a href = "{{route('user-surat-keterangan-lulus-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
                                         </tr>
                                         <tr>
-                                            <td>Surat Perpanjangan Masa Studi Mahasiswa</td>
+                                            <td>Surat Perpanjangan Masa Studi</td>
                                             <td>19 Juni 2020</td>
                                             <td><span class="badge label-table badge-success">Selesai</span></td>
                                             <td><a href = "{{route('user-surat-perpanjangan-masa-studi-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
                                         </tr>
                                         <tr>
-                                            <td>Surat Pengunduran Diri Mahasiswa</td>
+                                            <td>Surat Pengunduran Diri</td>
                                             <td>17 Januari 2019</td>
                                             <td><span class="badge label-table badge-danger">Ditolak</span></td>
                                             <td><a href = "{{route('user-surat-pengunduran-diri-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
                                         </tr>
                                         <tr>
-                                            <td>Surat Keterangan Aktif Setelah Cuti Mahasiswa</td>
+                                            <td>Surat Keterangan Aktif Setelah Cuti</td>
                                             <td>8 Desember 2018</td>
                                             <td><span class="badge label-table badge-danger">Ditolak</span></td>
                                             <td><a href = "{{route('user-surat-keterangan-aktif-cuti-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
                                         </tr>
                                         <tr>
-                                            <td>Surat Keterangan Cuti Mahasiswa</td>
+                                            <td>Surat Keterangan Cuti</td>
                                             <td>31 Mei 2018</td>
                                             <td><span class="badge label-table badge-danger">Ditolak</span></td>
                                             <td><a href = "{{route('user-surat-keterangan-cuti-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>

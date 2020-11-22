@@ -16,6 +16,8 @@
                             <input type="text" id="keperluan" class="form-control" placeholder="Keperluan pengajuan surat">
                         </div>
                     </div>
+                    <!-- File yang dibutuhkan -->
+                    <br>
                     <div class="form-group col">
                         <div class="col">
                             <h5 class="sub-header title" style="color:info">File yang dibutuhkan</h5>
@@ -32,7 +34,7 @@
 
                     <!-- Transkrip -->
                     <div class="form-group col">
-                        <label class="col" for="transkripfile">Transkrip yang akan dilegalisir</label>
+                        <label class="col" for="transkripfile">Unggah Transkrip yang akan Dilegalisir</label>
                         <div class="col">
                             <input type="file" id="transkripfile" class="form-control" placeholder=".pdf">
                         </div>

@@ -43,6 +43,6 @@ class AdminController extends Controller
 
     public function viewPengajuan()
     {
-        return view('admin.detail.detailmasuk');
+        return view('admin.detail.detail-masuk');
     }
 }

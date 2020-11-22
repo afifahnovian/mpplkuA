@@ -89,7 +89,7 @@ class UserController extends Controller
 
     public function viewSuratKeteranganCutiDetail()
     {
-        return view('user.surat.detail.surat-cuti-detail');
+        return view('user.surat.detail.surat-keterangan-cuti-detail');
     }
 
     public function viewSuratKeteranganAktifCutiDetail()
