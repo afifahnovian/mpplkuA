@@ -45,7 +45,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div>
-                                                <form class="form-horizontal" role="form">
+                                                <form class="form-horizontal" role="form", action = "/user/biodata">
                                                     <div class="form-group row">
                                                         <label class="col-md-2 col-form-label" for="name">Nama</label>
                                                         <div class="col-md-10">
@@ -151,7 +151,7 @@
                                                     </div>
                                                     -->
                                                     <br>
-                                                    <button href="{{route('user-biodata')}}" type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                    <td> <button onclick="location.href='{{url('user/biodata.blade.php')}}'" type="submit" class="btn btn-primary">Simpan Perubahan</button></td>
                                                 </form>
                                             </div>
                                         </div>

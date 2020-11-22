@@ -53,16 +53,52 @@ class UserController extends Controller
 
     public function viewSuratKeteranganCuti()
     {
-        return view('user.surat.surat-cuti');
+        return view('user.surat.surat-keterangan-cuti');
     }
 
     public function viewSuratKeteranganAktifCuti()
     {
-        return view('user.surat.surat-aktif-cuti');
+        return view('user.surat.surat-keterangan-aktif-cuti');
     }
 
     public function viewLegalisirTranskrip()
     {
         return view('user.surat.legalisir-transkrip');
+    }  
+
+    // detail view
+    public function viewSuratKeteranganAktifDetail()
+    {
+        return view('user.surat.detail.surat-keterangan-aktif-detail');
+    }
+
+    public function viewSuratKeteranganLulusDetail()
+    {
+        return view('user.surat.detail.surat-keterangan-lulus-detail');
+    }
+
+    public function viewSuratPerpanjanganMasaStudiDetail()
+    {
+        return view('user.surat.detail.surat-perpanjangan-masa-studi-detail');
+    }
+
+    public function viewSuratPengunduranDiriDetail()
+    {
+        return view('user.surat.detail.surat-pengunduran-diri-detail');
+    }
+
+    public function viewSuratKeteranganCutiDetail()
+    {
+        return view('user.surat.detail.surat-cuti-detail');
+    }
+
+    public function viewSuratKeteranganAktifCutiDetail()
+    {
+        return view('user.surat.detail.surat-keterangan-aktif-cuti-detail');
+    }
+
+    public function viewLegalisirTranskripDetail()
+    {
+        return view('user.surat.detail.legalisir-transkrip-detail');
     }  
 }

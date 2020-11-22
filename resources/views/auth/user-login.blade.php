@@ -16,20 +16,22 @@
 
     <body class="account-pages">
             <!-- Begin page -->
-            <div class="accountbg" style="background: url('/highdamin/light/assets/images/bg-1.jpg');background-size: cover;background-position: center;"></div>
-    
+            <div class="accountbg" style="background: url('/landrick/images/user/login-new.png');background-size: cover;background-position: center;"></div>
             <div class="wrapper-page account-page-full">
                 <div class="card shadow-none">
                     <div class="card-block">
                         <div class="account-box">
                             <div class="card-box shadow-none p-4 mt-2">
-                                <h2 class="text-uppercase text-center pb-3">
+                                <h1 class="text-uppercase text-center pb-3">
+                                    <a class="logo">SIMARSIP</a>
+                                    <!-- Please do not delete it until next sprint review
                                     <a href="index.html" class="text-success">
                                         <span><img src="/highdamin/light/assets/images/logo-dark.png" alt="" height="26"></span>
                                     </a>
-                                </h2>
+                                    -->
+                                </h1>
     
-                                <form class="" action="#">
+                                <form class="" action="/user/dashboard">
     
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -58,13 +60,13 @@
     
                                         </div>
                                     </div>
-    
+                                    
                                     <div class="form-group row text-center">
                                         <div class="col-12">
                                             <button href="{{route('user-dashboard')}}" class="btn btn-block btn-primary waves-effect waves-light" type="submit">Masuk</button>
                                         </div>
                                     </div>
-    
+
                                 </form>
     
                                 <div class="row mt-4">
