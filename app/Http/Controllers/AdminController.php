@@ -41,8 +41,38 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function viewPengajuan()
+    public function viewSuratKeteranganAktif()
     {
-        return view('admin.detail.detailmasuk');
+        return view('admin.detail.surat-keterangan-aktif-detail');
+    }
+
+    public function viewLegalisir()
+    {
+        return view('admin.detail.legalisir-transkrip-detail');
+    }
+
+    public function viewSuratKeteranganCuti()
+    {
+        return view('admin.detail.surat-keterangan-cuti-detail');
+    }
+
+    public function viewSuratKeteranganAktifSetelahCuti()
+    {
+        return view('admin.detail.surat-keterangan-aktif-setelah-cuti-detail');
+    }
+
+    public function viewSuratKeteranganLulus()
+    {
+        return view('admin.detail.surat-keterangan-lulus-detail');
+    }
+
+    public function viewSuratPengunduranDiri()
+    {
+        return view('admin.detail.surat-pengunduran-diri-detail');
+    }
+
+    public function viewSuratPerpanjanganMasa()
+    {
+        return view('admin.detail.surat-perpanjangan-masa-studi-detail');
     }
 }

@@ -37,7 +37,14 @@ Route::prefix('admin')->group( function(){
     Route::get('/suratditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
     Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
-    Route::get('/suratmasuk/pengajuansurat', [AdminController::class, 'viewPengajuan'])->name('admin-pengajuan');
+    Route::get('/surat-keterangan-aktif-detail', [AdminController::class, 'viewSuratKeteranganAktif'])->name('admin-suratketeranganaktif');
+    Route::get('/legalisir', [AdminController::class, 'viewLegalisir'])->name('admin-legalisir');
+    Route::get('/surat-keterangan-cuti-detail', [AdminController::class, 'viewSuratKeteranganCuti'])->name('admin-suratketerangancuti');
+    Route::get('/surat-keterangan-aktif-setelah-cuti', [AdminController::class, 'viewSuratKeteranganAktifSetelahCuti'])->name('admin-suratketeranganaktifsetelahcuti');
+    Route::get('/surat-keterangan-lulus', [AdminController::class, 'viewSuratKeteranganLulus'])->name('admin-suratketeranganlulus');
+    Route::get('/surat-pengunduran-diri', [AdminController::class, 'viewSuratPengunduranDiri'])->name('admin-suratpengundurandiri');
+    Route::get('/surat-perpanjangan-masa', [AdminController::class, 'viewSuratPerpanjanganMasa'])->name('admin-suratperpanjanganmasa');
+    
     
 });
    

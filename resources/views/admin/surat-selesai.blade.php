@@ -34,21 +34,21 @@
     <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>May 26, 2019</td>
       <td><span class="badge label-table badge-success">Selesai</span></td>
-      <td><a href="{{route('admin-pengajuan')}}"> DETAIL</a></td>
+      <td><a href="{{route('admin-suratketeranganaktif')}}"> DETAIL</a></td>
     </tr>
     
     <tr>
     <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>May 26, 2019</td>
       <td><span class="badge label-table badge-success">Selesai</span></td>
-      <td><a href="{{route('admin-pengajuan')}}"> DETAIL</a></td>
+      <td><a href="{{route('admin-suratketeranganaktif')}}"> DETAIL</a></td>
     </tr>
 
     <tr>
     <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>May 26, 2019</td>
       <td><span class="badge label-table badge-success">Selesai</span></td>
-      <td><a href="{{route('admin-pengajuan')}}"> DETAIL</a></td>
+      <td><a href="{{route('admin-suratketeranganaktif')}}"> DETAIL</a></td>
     </tr>
 
 
