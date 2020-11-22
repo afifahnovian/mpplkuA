@@ -29,7 +29,7 @@
         </h4>
       </div>
 
- <form class="form-signin" action="/admin/admindashboard">
+ <form action="/admin/admindashboard">
     <div class="mx-auto" style="width: 400px;">
       <div class="form-group">
          <label for="exampleDropdownFormEmail2">

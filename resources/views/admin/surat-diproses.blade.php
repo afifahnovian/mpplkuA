@@ -1,7 +1,7 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
-<<<<<<< HEAD:resources/views/admin/suratdiproses.blade.php
+<h3>Surat Diproses</h3>
 <div>
 <li class="d-none d-sm-block">
                             <form class="app-search">
@@ -22,35 +22,36 @@
 <table class="table table-striped table-dark">
   <thead>
     <tr>
-      <th scope="col"><h4>No</h4></th>
-      <th scope="col"><h4>Nama</h4></th>
       <th scope="col"><h4>Surat</h4></th>
+      <th scope="col"><h4>Tanggal</h4></th>
       <th scope="col"><h4>Status</h4></th>
+      <th scope="col"><h4>Tindakan</h4></th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Jimmi Afriando Akbar</td>
-      <td>Surat Keterangan Mahasiswa Aktif</td>
-      <td><a href="{{route('admin-dashboard')}}">Diproses</a></td>
+
+  <tr>
+    <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
+      <td>May 26, 2019</td>
+      <td><span class="badge label-table badge-warning">Diproses</span></td>
+      <td><a href="{{route('admin-pengajuan')}}"> DETAIL</a></td>
     </tr>
+    
     <tr>
-      <th scope="row">2</th>
-      <td>Jimmi Afriando Akbar</td>
-      <td>Surat Keterangan Mahasiswa Aktif</td>
-      <td><a href="{{route('admin-dashboard')}}">Diproses</a></td>
+    <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
+      <td>May 26, 2019</td>
+      <td><span class="badge label-table badge-warning">Diproses</span></td>
+      <td><a href="{{route('admin-pengajuan')}}"> DETAIL</a></td>
     </tr>
+
     <tr>
-      <th scope="row">3</th>
-      <td>Jimmi Afriando Akbar</td>
-      <td>Surat Keterangan Mahasiswa Aktif</td>
-      <td><a href="{{route('admin-dashboard')}}">Diproses</a></td>
+    <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
+      <td>May 26, 2019</td>
+      <td><span class="badge label-table badge-warning">Diproses</span></td>
+      <td><a href="{{route('admin-pengajuan')}}"> DETAIL</a></td>
     </tr>
+
+
   </tbody>
-</table>
 </div>
-=======
-    <h2>Surat Diproses</h2>
->>>>>>> f98fad8fe38ac6af74d622fe71584e5ae5c4f08b:resources/views/admin/surat-diproses.blade.php
 @endsection

@@ -23,7 +23,6 @@ Route::get('/', function () {
     //admin
 
 Route::prefix('admin')->group( function(){
-<<<<<<< HEAD
     Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
     Route::get('/suratdiproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
     Route::get('/suratmasuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
@@ -32,15 +31,6 @@ Route::prefix('admin')->group( function(){
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
     Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
     Route::get('/suratmasuk/pengajuansurat', [AdminController::class, 'viewPengajuan'])->name('admin-pengajuan');
-=======
-    Route::get('/dashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
-    Route::get('/surat/diproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
-    Route::get('/surat/masuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
-    Route::get('/surat/selesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
-    Route::get('/surat/ditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
-    Route::get('/create/admin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
-    Route::get('/login', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
->>>>>>> f98fad8fe38ac6af74d622fe71584e5ae5c4f08b
     
 });
    

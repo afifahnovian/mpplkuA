@@ -2,20 +2,13 @@
 <div class="left-side-menu">
     <div class="slimscroll-menu">
         <!-- LOGO -->
-        <div class="logo-box">
-            <a href="#" class="logo">
-                <span class="logo-lg">
-                    <img src="{{asset('highdamin/light/assets/images/logo-dark.png')}}" alt="" height="22">
-                </span>
-            </a>
-        </div>
+
         <!-- User box -->
         <div class="user-box">
             <img src="{{asset('highdamin/light/assets/images/users/avatar-1.jpg')}}" alt="user-img" title="Mat Helme" class="rounded-circle" height="48">
             <div class="dropdown">
-                <a href="#" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown">Nama User</a>
+                <a href="#" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown">Afifah Noviani</a>
             </div>
-            <p class="text-muted">G64170000</p>
         </div>
 
         <!--- Sidemenu -->
@@ -29,37 +22,23 @@
                 </li>
 
                 <li>
-                    <a href="{{route('admin-diproses')}}">
-                        <i class="fe-airplay"></i>
-                        <span> Surat Diproses </span>
+                    <a href="javascript: void(0);">
+                        <i class="fe-mail"></i>
+                        <span> Pengajuan Surat </span>
+                        <span class="menu-arrow"></span>
                     </a>
-                </li>
-
-                <li>
-                    <a href="{{route('admin-masuk')}}">
-                        <i class="fe-airplay"></i>
-                        <span> Surat Masuk </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{route('admin-selesai')}}">
-                        <i class="fe-airplay"></i>
-                        <span> Surat Selesai </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{route('admin-ditolak')}}">
-                        <i class="fe-airplay"></i>
-                        <span> Surat Ditolak </span>
-                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('admin-masuk')}}">Surat Masuk</a></li>
+                        <li><a href="{{route('admin-diproses')}}">Surat Diproses</a></li>
+                        <li><a href="{{route('admin-selesai')}}">Surat Selesai</a></li>
+                        <li><a href="{{route('admin-ditolak')}}">Surat Ditolak</a></li>
+                    </ul>
                 </li>
 
                 <li>
                     <a href="{{route('admin-create')}}">
                         <i class="fe-airplay"></i>
-                        <span> Create Admin </span>
+                        <span> Pengaturan Admin </span>
                     </a>
                 </li>
 
