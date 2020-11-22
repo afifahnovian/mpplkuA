@@ -23,7 +23,7 @@ Route::get('/', function () {
     //admin
 
 Route::prefix('admin')->group( function(){
-<<<<<< HEAD
+
     Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
     Route::get('/suratdiproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
     Route::get('/suratmasuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
@@ -32,15 +32,6 @@ Route::prefix('admin')->group( function(){
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
     Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
     Route::get('/suratmasuk/pengajuansurat', [AdminController::class, 'viewPengajuan'])->name('admin-pengajuan');
-=======
-    Route::get('/dashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
-    Route::get('/surat/diproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
-    Route::get('/surat/masuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
-    Route::get('/surat/selesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
-    Route::get('/surat/ditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
-    Route::get('/create/admin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
-    Route::get('/login', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
->>>>>>> f98fad8fe38ac6af74d622fe71584e5ae5c4f08b
     
 });
    
@@ -59,4 +50,13 @@ Route::prefix('user')->group( function(){
     Route::get('surat/surat-keterangan-cuti', [UserController::class, 'viewSuratKeteranganCuti'])->name('user-surat-keterangan-cuti');
     Route::get('surat/surat-keterangan-aktif-cuti', [UserController::class,'viewSuratKeteranganAktifCuti'])->name('user-surat-keterangan-aktif-cuti');
     Route::get('surat/legalisir-transkrip', [UserController::class,'viewLegalisirTranskrip'])->name('user-legalisir-transkrip');
+
+        //view detail
+    Route::get('surat/surat-keterangan-aktif/detail', [UserController::class,'viewSuratKeteranganAktifDetail'])->name('user-surat-keterangan-aktif-detail');
+    Route::get('surat/surat-keterangan-lulus/detail', [UserController::class,'viewSuratKeteranganLulusDetail'])->name('user-surat-keterangan-lulus');
+    Route::get('surat/surat-perpanjangan-masa-studi/detail', [UserController::class,'viewSuratPerpanjanganMasaStudiDetail'])->name('user-surat-perpanjangan-masa-studi-detail');
+    Route::get('surat/surat-pengunduran-diri/detail', [UserController::class,'viewSuratPengunduranDiriDetail'])->name('user-surat-pengunduran-diri-detail');
+    Route::get('surat/surat-keterangan-cuti/detail', [UserController::class, 'viewSuratKeteranganCutiDetail'])->name('user-surat-keterangan-cuti-detail');
+    Route::get('surat/surat-keterangan-aktif-cuti/detail', [UserController::class,'viewSuratKeteranganAktifCutiDetail'])->name('user-surat-keterangan-aktif-cuti-detail');
+    Route::get('surat/legalisir-transkrip/detail', [UserController::class,'viewLegalisirTranskripDetail'])->name('user-legalisir-transkrip-detail');
 });
