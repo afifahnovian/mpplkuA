@@ -3,11 +3,16 @@
     <div class="slimscroll-menu">
         <!-- LOGO -->
         <div class="logo-box">
+            <h1 class="text-uppercase text-center pb-3">
+                <a class="logo">SIMARSIP</a>            
+            </h1>
+            <!-- Logo not used
             <a href="#" class="logo">
                 <span class="logo-lg">
                     <img src="{{asset('highdamin/light/assets/images/logo-dark.png')}}" alt="" height="22">
                 </span>
             </a>
+            -->
         </div>
         <!-- User box -->
         <div class="user-box">

@@ -1,10 +1,10 @@
 <!-- extends user-dashboar layout -->
 @extends('layouts.usr-dashboard')
-@section('page-name','Surat Keterangan Aktif') <!-- Page name in breadcrumb -->
+@section('page-name','Surat Keterangan Mahasiswa Aktif') <!-- Page name in breadcrumb -->
 
 @section('content')        
     <div class="card-box">
-        <h4 class="header-title">Surat Keterangan Aktif</h4>
+        <h4 class="header-title">Surat Keterangan Mahasiswa Aktif</h4>
         <br>
         <div class="row">
             <div class="col">
@@ -16,6 +16,9 @@
                             <input type="text" id="keperluan" class="form-control" placeholder="Keperluan pengajuan surat">
                         </div>
                     </div>
+
+                    <!-- File yang dibutuhkan -->
+                    <br>
                     <div class="form-group col">
                         <div class="col">
                             <h5 class="sub-header title" style="color:info">File yang dibutuhkan</h5>
@@ -32,11 +35,12 @@
 
                     <!-- Transkrip -->
                     <div class="form-group col">
-                        <label class="col" for="buktispp">Unggah Pembayaran SPP</label>
+                        <label class="col" for="buktispp">Unggah Bukti Pembayaran SPP</label>
                         <div class="col">
                             <input type="file" id="buktispp" class="form-control" placeholder=".jpg /.png /.pdf">
                         </div>
                     </div>
+                    
                     <!-- Submit -->
                     <div class="form-group col">
                         <div class="col">

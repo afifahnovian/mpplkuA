@@ -1,6 +1,7 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
+<h3>Surat Ditolak</h3>
 <div>
 <li class="d-none d-sm-block">
                             <form class="app-search">

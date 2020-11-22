@@ -30,14 +30,20 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <span class="pro-user-name ml-1">
-                                        Nama User <i class="mdi mdi-chevron-down"></i> 
+                                        Afifah Noviani<i class="mdi mdi-chevron-down"></i> 
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
+                                
+                                <!--
                                 <a href="{{route('admin-keluar')}}">
                                         <span> Keluar </span>
                                  </a>
+                                -->
+                                 <a href="{{route('admin-keluar')}}" class="dropdown-item notify-item">
+                                    <i class="fi-power"></i> <span>Keluar</span>
+                                </a>
                             </div>
                         </li>
                     </ul>

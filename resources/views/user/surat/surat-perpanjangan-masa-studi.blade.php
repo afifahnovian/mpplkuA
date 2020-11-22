@@ -34,6 +34,7 @@
                     </div>
                     
                     <!-- File yang dibutuhkan -->
+                    <br>
                     <div>
                         <div class="form-group col">
                             <div class="col">
@@ -41,6 +42,7 @@
                                 <hr style="color:gray">
                             </div>
                         </div>
+
                         <!-- KTM -->
                         <div class="form-group col">
                             <label class="col" for="ktmfile">Unggah File KTM</label>
@@ -48,9 +50,10 @@
                                 <input type="file" id="ktmfile" class="form-control" placeholder=".jpg / .png">
                             </div>
                         </div>
+
                         <!-- Surat Pengajuan Mahasiswa -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengajuanmhs">Surat Pengajuan Mahasiswa</label>
+                            <label class="col" for="suratpengajuanmhs">Unggah Surat Pengajuan Mahasiswa</label>
                             <div class="col">
                                 <input type="file" id="suratpengajuanmhs" class="form-control" placeholder=".pdf">
                             </div>
@@ -58,7 +61,7 @@
                         
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Surat Pengantar Departemen</label>
+                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
                                 <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
                             </div>

@@ -1,12 +1,14 @@
 <!-- extends user-dashboar layout -->
 @extends('layouts.usr-dashboard')
+@section('page-name','Surat Keterangan Aktif Setelah Cuti') <!-- Page name in breadcrumb -->
 
+<!-- Content Here -->
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>User - Biodata</title>
+        <title>User - Surat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- App favicon -->
@@ -209,6 +211,7 @@
                                                     6
                                                     </div>
                                                 </div>
+                                                <br>
                                                 <h5> File yang Dibutuhkan : </h5>
                                                 <br>
                                                 <div class="row">

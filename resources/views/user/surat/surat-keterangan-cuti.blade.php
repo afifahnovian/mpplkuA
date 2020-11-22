@@ -37,12 +37,13 @@
                         <div class="form-group col">
                             <label class="col" for="alasancuti">Alasan Cuti</label>
                             <div class="col">
-                                <input type="text" id="alasancuti" class="form-control" placeholder="Alasan cuti..">
+                                <input type="text" id="alasancuti" class="form-control" placeholder="Alasan cuti">
                             </div>
                         </div>
                     </div>
                     
                     <!-- File yang dibutuhkan -->
+                    <br>
                     <div>
                         <div class="form-group col">
                             <div class="col">
@@ -50,9 +51,10 @@
                                 <hr style="color:gray">
                             </div>
                         </div>
+
                         <!-- KTM -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengajuanmhs">Surat Pengajuan Mahasiswa</label>
+                            <label class="col" for="suratpengajuanmhs">Unggah Surat Pengajuan Mahasiswa</label>
                             <div class="col">
                                 <input type="file" id="suratpengajuanmhs" class="form-control" placeholder=".pdf">
                             </div>
@@ -60,14 +62,15 @@
 
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Surat Pengantar Departemen</label>
+                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
                                 <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- Surat Dokter -->
                         <div class="form-group col">
-                            <label class="col" for="suratdokter">Surat Keterangan Dokter</label>
+                            <label class="col" for="suratdokter">Unggah Surat Keterangan Dokter</label>
                             <div class="col">
                                 <input type="file" id="suratdokter" class="form-control" placeholder=".pdf">
                             </div>

@@ -40,6 +40,7 @@
                     </div>
                     
                     <!-- File yang dibutuhkan -->
+                    <br>
                     <div>
                         <div class="form-group col">
                             <div class="col">
@@ -57,14 +58,15 @@
 
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Surat Pengantar Departemen</label>
+                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
                                 <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- Surat Pengajuan Mahasiswa -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengajuanmhs">Surat Pengajuan Mahasiswa</label>
+                            <label class="col" for="suratpengajuanmhs">Unggah Surat Pengajuan Mahasiswa</label>
                             <div class="col">
                                 <input type="file" id="suratpengajuanmhs" class="form-control" placeholder=".pdf">
                             </div>

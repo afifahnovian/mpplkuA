@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>User - Login</title>
+        <title>SIMARSIP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <!-- App favicon -->
@@ -72,6 +72,12 @@
                                 <div class="row mt-4">
                                     <div class="col-sm-12 text-center">
                                         <p class="text-muted">Belum Punya Akun?<a href="{{route('user-register')}}" class="text-dark ml-1"><b>Daftar</b></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="row mt">
+                                    <div class="col-sm-12 text-center">
+                                        <a href="{{route('admin-keluar')}}" class="text-dark ml-1"><b>Masuk sebagai Admin</b></a>
                                     </div>
                                 </div>
 

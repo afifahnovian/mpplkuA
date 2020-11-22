@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title> SIMARSIP User Dashboard - @yield('page-name')</title>
+        <title> SIMARSIP - @yield('page-name')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
@@ -27,7 +27,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{route('user-login')}}" class="dropdown-item notify-item">
                                     <i class="fi-power"></i> <span>Keluar</span>
                                 </a>
                             </div>

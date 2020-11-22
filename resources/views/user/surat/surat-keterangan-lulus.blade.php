@@ -2,7 +2,7 @@
 @extends('layouts.usr-dashboard')
 @section('page-name','Surat Keterangan Lulus') <!-- Page name in breadcrumb -->
 
-@section('content')        
+@section('content')   
     <div class="card-box">
         <h4 class="header-title">Surat Keterangan Lulus</h4>
         <br>
@@ -32,7 +32,9 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- File yang dibutuhkan -->
+                    <br>
                     <div>
                         <div class="form-group col">
                             <div class="col">
@@ -43,49 +45,55 @@
                     
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Surat Pengantar Departemen</label>
+                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
                                 <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- Lembar Pengesahan -->
                         <div class="form-group col">
-                            <label class="col" for="lembarpengesahan">Lembar Pengesahan</label>
+                            <label class="col" for="lembarpengesahan">Unggah Lembar Pengesahan</label>
                             <div class="col">
                                 <input type="file" id="lembarpengesahan" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- File Transkrip -->
                         <div class="form-group col">
-                            <label class="col" for="filetranskrip">File Transkrip</label>
+                            <label class="col" for="filetranskrip">Unggah File Transkrip</label>
                             <div class="col">
                                 <input type="file" id="filetranskrip" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- File Skripsi -->
                         <div class="form-group col">
-                            <label class="col" for="fileskripsi">File Skripsi</label>
+                            <label class="col" for="fileskripsi">Unggah File Skripsi</label>
                             <div class="col">
                                 <input type="file" id="fileskripsi" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- Bukti Pembayaran SPP -->
                         <div class="form-group col">
-                            <label class="col" for="buktispp">File Bukti Pembayaran SPP</label>
+                            <label class="col" for="buktispp">Unggah File Bukti Pembayaran SPP</label>
                             <div class="col">
                                 <input type="file" id="buktispp" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- Bukti Pembayaran Wisuda -->
                         <div class="form-group col">
-                            <label class="col" for="buktibayarwisuda">File Bukti Pembayaran Wisuda</label>
+                            <label class="col" for="buktibayarwisuda">Unggah File Bukti Pembayaran Wisuda</label>
                             <div class="col">
                                 <input type="file" id="buktibayarwisuda" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- Foto -->
                         <div class="form-group col">
-                            <label class="col" for="foto">Pas Foto</label>
+                            <label class="col" for="foto">Unggah Pas Foto</label>
                             <div class="col">
                                 <input type="file" id="foto" class="form-control" placeholder=".jpg / .png">
                             </div>

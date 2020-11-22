@@ -20,6 +20,11 @@ class CreateSuratPerpanjanganMasaStudi extends Migration
             $table->integer('waktuAkhirPerpanjangan_TahunAkademik');
 
             $table->string('fileTabelRencanaStudi');
+
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            
+            $table->timestamps();
         });
     }
 

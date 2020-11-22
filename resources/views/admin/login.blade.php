@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,7 +28,7 @@
         </h4>
       </div>
 
- <form action="/admin/admindashboard">
+ <form action="/admin/dashboard">
     <div class="mx-auto" style="width: 400px;">
       <div class="form-group">
          <label for="exampleDropdownFormEmail2">
@@ -39,7 +38,7 @@
       </div>
            <div class="form-group">
                <label for="exampleDropdownFormPassword2">
-               <div class="pt-3"><p class="text-white">Kata sandi</p></div>
+               <div class="pt-3"><p class="text-white">Kata Sandi</p></div>
                </label>
               <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Masukan kata sandi">
         </div>

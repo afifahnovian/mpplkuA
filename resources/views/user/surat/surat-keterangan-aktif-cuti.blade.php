@@ -42,6 +42,7 @@
                         </div>
                     </div>
                     <!-- Waktu Aktif Setelah Cuti -->
+                    <br>
                     <div>
                         <div class="form-group col">
                             <div class="col">
@@ -76,6 +77,7 @@
                         </div>
                     </div>
                     <!-- File yang dibutuhkan -->
+                    <br>
                     <div>
                         <div class="form-group col">
                             <div class="col">
@@ -83,9 +85,10 @@
                                 <hr style="color:gray">
                             </div>
                         </div>
-                        <!-- KTM -->
+
+                        <!-- Surat Cuti -->
                         <div class="form-group col">
-                            <label class="col" for="suratcuti">Surat Cuti</label>
+                            <label class="col" for="suratcuti">Unggah Surat Cuti</label>
                             <div class="col">
                                 <input type="file" id="suratcuti" class="form-control" placeholder=".pdf">
                             </div>
@@ -93,14 +96,15 @@
 
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Surat Pengantar Departemen</label>
+                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
                                 <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
+
                         <!-- Bukti Pembayaran SPP -->
                         <div class="form-group col">
-                            <label class="col" for="pembayaranspp">Bukti Pembayaran SPP</label>
+                            <label class="col" for="pembayaranspp">Unggah Bukti Pembayaran SPP</label>
                             <div class="col">
                                 <input type="file" id="pembayaranspp" class="form-control" placeholder=".pdf">
                             </div>

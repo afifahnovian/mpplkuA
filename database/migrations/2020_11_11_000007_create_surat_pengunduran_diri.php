@@ -21,6 +21,11 @@ class CreateSuratPengunduranDiri extends Migration
 
             $table->string('fileSuratPengajuanMahasiswa');
             $table->string('fileSuratPengantarDept');
+
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            
+            $table->timestamps();
         });
     }
 

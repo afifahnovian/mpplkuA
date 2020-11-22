@@ -1,5 +1,7 @@
 @extends('layouts.usr-dashboard')
+@section('page-name','Biodata') <!-- Page name in breadcrumb -->
 
+<!-- Content Here -->
 @section('content')
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,8 @@
 <!-- extends user-dashboar layout -->
 @extends('layouts.usr-dashboard')
+@section('page-name','Surat Perpanjangan Masa Studi') <!-- Page name in breadcrumb -->
 
+<!-- Content Here -->
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
