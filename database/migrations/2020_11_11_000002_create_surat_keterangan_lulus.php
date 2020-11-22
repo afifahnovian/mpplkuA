@@ -26,6 +26,11 @@ class CreateSuratKeteranganLulus extends Migration
             $table->string('fileBayarSPP');
             $table->string('fileBuktiBayarWisuda');
             $table->string('fileFoto');
+
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            
+            $table->timestamps();
         });
     }
 
