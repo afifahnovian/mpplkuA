@@ -76,7 +76,7 @@
                                     
                                     <div class="form-group row text-center">
                                         <div class="col-12">
-                                            <button class="btn btn-block btn-primary waves-effect waves-light" type="submit">Daftar</button>
+                                            <button href="{{route('user-dashboard')}}" class="btn btn-block btn-primary waves-effect waves-light" type="submit">Daftar</button>
                                         </div>
                                     </div>
     
@@ -84,7 +84,7 @@
     
                                 <div class="mt-4 row">
                                     <div class="col-sm-12 text-center">
-                                        <p class="text-muted">Sudah Mempunyai Akun?  <a href="page-login.html" class="text-dark ml-1"><b>Masuk</b></a></p>
+                                        <p class="text-muted">Sudah Mempunyai Akun?  <a href="{{route('user-login')}}" class="text-dark ml-1"><b>Masuk</b></a></p>
                                     </div>
                                 </div>
     

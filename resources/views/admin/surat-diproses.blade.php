@@ -1,6 +1,7 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
+<<<<<<< HEAD:resources/views/admin/suratdiproses.blade.php
 <div>
 <li class="d-none d-sm-block">
                             <form class="app-search">
@@ -32,21 +33,24 @@
       <th scope="row">1</th>
       <td>Jimmi Afriando Akbar</td>
       <td>Surat Keterangan Mahasiswa Aktif</td>
-      <td> <p class="text-success"> Selesai </p></td>
+      <td><a href="{{route('admin-dashboard')}}">Diproses</a></td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Jimmi Afriando Akbar</td>
       <td>Surat Keterangan Mahasiswa Aktif</td>
-      <td> <p class="text-success"> Selesai </p></td>
+      <td><a href="{{route('admin-dashboard')}}">Diproses</a></td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Jimmi Afriando Akbar</td>
       <td>Surat Keterangan Mahasiswa Aktif</td>
-      <td> <p class="text-success"> Selesai </p></td>
+      <td><a href="{{route('admin-dashboard')}}">Diproses</a></td>
     </tr>
   </tbody>
 </table>
 </div>
+=======
+    <h2>Surat Diproses</h2>
+>>>>>>> f98fad8fe38ac6af74d622fe71584e5ae5c4f08b:resources/views/admin/surat-diproses.blade.php
 @endsection

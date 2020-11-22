@@ -8,36 +8,41 @@ class AdminController extends Controller
 {
     public function viewAdminDashboard()
     {
-        return view('admin.admindashboard');
+        return view('admin.dashboard');
     }
 
     public function viewSuratDiproses()
     {
-        return view('admin.suratdiproses');
+        return view('admin.surat-diproses');
     }
 
     public function viewSuratMasuk()
     {
-        return view('admin.suratmasuk');
+        return view('admin.surat-masuk');
     }
     
     public function viewSuratSelesai()
     {
-        return view('admin.suratselesai');
+        return view('admin.surat-selesai');
     }
     
     public function viewSuratDitolak()
     {
-        return view('admin.suratditolak');
+        return view('admin.surat-ditolak');
     }
     
     public function viewCreateAdmin()
     {
-        return view('admin.createadmin');
+        return view('admin.create-admin');
     }
 
     public function viewKeluar()
     {
-        return view('admin.adminlogin');
+        return view('admin.login');
+    }
+
+    public function viewPengajuan()
+    {
+        return view('admin.pengajuansurat');
     }
 }

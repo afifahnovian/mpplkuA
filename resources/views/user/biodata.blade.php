@@ -38,15 +38,18 @@
                                         <div class="col-sm-6">
                                             <span class="float-left mr-2"><img src="/highdamin/light/assets/images/users/avatar-7.jpg" alt="" class="avatar-xl rounded-circle"></span>
                                             <div class="media-body text-white">
-                                                <h4 class="mt-1 mb-1 text-white font-18">John Doe</h4>
+                                                <h4 class="mt-1 mb-1 text-white font-18"> John Doe </h4>
                                                 <p class="font-13"> G64170000</p>
-                                                <p class="mb-0">Departemen Ilmu Komputer</p>
+                                                <p class="mb-0"> Departemen Ilmu Komputer </p>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="text-right">
                                                 <button type="button" class="btn btn-light waves-effect">
-                                                    <i class="mdi mdi-account-settings mr-1"></i> Ubah Biodata
+                                                <a href="{{route('user-biodata-edit')}}">
+                                                    <i class="mdi mdi-account-settings mr-1"></i>
+                                                    <span> Ubah Biodata </span>
+                                                </a>
                                                 </button>
                                             </div>
                                         </div>

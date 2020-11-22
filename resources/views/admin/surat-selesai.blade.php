@@ -1,5 +1,5 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
-    <h2>surat ditolak</h2>
+    <h2>Surat Selesai</h2>
 @endsection

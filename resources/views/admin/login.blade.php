@@ -9,14 +9,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/admin.min.css" >
 
-    <title>Hello, world!</title>
+    <title>SIMARSIP</title>
   </head>
   <body>
 
       <div class="card">
         <div class="pt-3">
             <div class="ml-5">
-               <h4 >SIMARSIP ADMIN</h4>
+               <h4 > <p class="text-dark">SIMARSIP ADMIN</p></h4>
             </div>
          </div>
       </div>
@@ -24,24 +24,30 @@
     <div class="container">
 
       <div class="pt-5">
-        <h4 class="text-center">Masuk</h4>
+        <h4 class="text-center">
+        <div class="mt-5"><p class="text-white">Masuk</p></div>
+        </h4>
       </div>
 
  <form class="form-signin" action="/admin/admindashboard">
     <div class="mx-auto" style="width: 400px;">
       <div class="form-group">
-         <label for="exampleDropdownFormEmail2">Email</label>
+         <label for="exampleDropdownFormEmail2">
+         <p class="text-white">Email</p>
+         </label>
          <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="Masukan email IPB">
       </div>
            <div class="form-group">
-               <label for="exampleDropdownFormPassword2">Kata sandi</label>
+               <label for="exampleDropdownFormPassword2">
+               <div class="pt-3"><p class="text-white">Kata sandi</p></div>
+               </label>
               <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Masukan kata sandi">
         </div>
         
-  <button type="submit" class="btn btn-dark btn-block">MASUK</button>
+  <div class="pt-3"> <button type="submit" class="btn btn-primary btn-block">MASUK</button> </div>
   </div>
 </form>
-    </div>
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
