@@ -53,12 +53,12 @@ class UserController extends Controller
 
     public function viewSuratKeteranganCuti()
     {
-        return view('user.surat.surat-cuti');
+        return view('user.surat.surat-keterangan-cuti');
     }
 
     public function viewSuratKeteranganAktifCuti()
     {
-        return view('user.surat.surat-aktif-cuti');
+        return view('user.surat.surat-keterangan-aktif-cuti');
     }
 
     public function viewLegalisirTranskrip()
