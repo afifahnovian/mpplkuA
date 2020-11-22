@@ -23,9 +23,10 @@ class SuratPengunduranDiriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'waktuAkhirPerpanjangan' => 'required',
-            'waktuAkhirPerpanjangan_Tahun' => 'required',
-            'fileTabelRencanaStudi' => 'required',
+            'tahunAkademikPengunduran' => 'required',
+            'tanggalPengunduran' => 'required',
+            'fileSuratPengajuanMahasiswa' => 'required',
+            'fileSuratPengantarDept' => 'required',
         ]);
  
         SuratPengunduranDiri::create($request->all());
