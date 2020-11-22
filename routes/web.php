@@ -23,7 +23,7 @@ Route::get('/', function () {
     //admin
 
 Route::prefix('admin')->group( function(){
-<<<<<<< HEAD
+<<<<<< HEAD
     Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
     Route::get('/suratdiproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
     Route::get('/suratmasuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');

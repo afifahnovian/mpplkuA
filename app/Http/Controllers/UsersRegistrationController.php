@@ -18,11 +18,12 @@ class UsersRegistrationController extends Controller
             'nama' => 'required',
             'nim' => 'required',
             'departemen' => 'required',
+            'asal_Prodi' => 'required',
             'email' => 'required|email',
             'password' => 'required',
         ]);
         
-        $user = User::create(request(['nama', 'nim', 'departemen', 'email', 'password']));
+        $user = User::create(request(['nama', 'nim', 'asal_Prodi', 'departemen', 'email', 'password']));
         
         auth()->login($user);
         
