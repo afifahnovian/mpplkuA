@@ -6,19 +6,25 @@
 <div class="col-md-8">
            <div class="card-header"> <h1> STATUS SURAT </h1></div></div> 
             <div class="col-6 col-md-2">
-<label><h1><span class="badge label-table badge-info">Pending</span></h1></label>
+<label><h1><span class="badge label-table badge-danger">Ditolak</span></h1></label>
 
-</div>
-<div class="col-6 col-md-2" >
-<div class="my-2"><a href="{{route('admin-suratdiproses')}}">
-<button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
-</a></div>
-
-    <a href="{{route('admin-suratditolak')}}">
-        <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
-    </a>
 </div>
   </div>
+
+<div>
+  <label class="col"><h3>Alasan Penolakan</h3></label>
+</div>
+
+<div class="row">
+    <div class="col">
+        <input type="text" id="alamatasal" class="form-control" placeholder="Ketik Disini">
+    </div>
+    <div class="col">
+    <a href="{{route('admin-ditolak')}}"> 
+        <button style="max-width: 10rem;" type="submit" class="btn btn-success btn-block">UBAH STATUS</button>
+    </a>
+    </div>
+</div>
 
 
   <body>
@@ -32,7 +38,7 @@
                             <div class="col-xl-12">
                                 <!-- Personal-Information -->
                                 <div class="card-box">
-                                    <h2 class="header-title{font-size:40px}">Surat Keterangan Aktif Mahasiswa</h2> <br>
+                                    <h2 class="header-title{font-size:40px}">Surat Legalisir Transkip</h2> <br>
                                         <div class="panel-body">
                                             <div class="container">
                                                 <div class="row">

@@ -37,7 +37,7 @@
 
                 <li>
                     <a href="{{route('admin-create')}}">
-                        <i class="fe-airplay"></i>
+                        <i class="fe-user"></i>
                         <span> Pengaturan Admin </span>
                     </a>
                 </li>

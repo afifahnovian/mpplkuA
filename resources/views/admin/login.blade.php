@@ -28,7 +28,7 @@
         </h4>
       </div>
 
- <form action="/admin/dashboard">
+ <form action="/admin/admindashboard">
     <div class="mx-auto" style="width: 400px;">
       <div class="form-group">
          <label for="exampleDropdownFormEmail2">

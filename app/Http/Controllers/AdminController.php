@@ -43,7 +43,6 @@ class AdminController extends Controller
 
     public function viewSuratKeteranganAktif()
     {
-<<<<<<< HEAD
         return view('admin.detail.surat-keterangan-aktif-detail');
     }
 
@@ -75,8 +74,17 @@ class AdminController extends Controller
     public function viewSuratPerpanjanganMasa()
     {
         return view('admin.detail.surat-perpanjangan-masa-studi-detail');
-=======
-        return view('admin.detail.detail-masuk');
->>>>>>> fbc5a81e5be026e127ff0a5acc279e7c7afb3252
     }
+
+    public function viewDiproses()
+    {
+        return view('admin.detail.diproses.diproses');
+    }
+
+    public function viewDitolak()
+    {
+        return view('admin.detail.ditolak.ditolak');
+    }
+    
 }
+

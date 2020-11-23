@@ -10,8 +10,13 @@
 
 </div>
 <div class="col-6 col-md-2" >
+<div class="my-2"><a href="{{route('admin-suratdiproses')}}">
 <button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
-<button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
+</a></div>
+
+    <a href="{{route('admin-suratditolak')}}">
+        <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
+    </a>
 </div>
   </div>
 
@@ -27,7 +32,7 @@
                             <div class="col-xl-12">
                                 <!-- Personal-Information -->
                                 <div class="card-box">
-                                    <h2 class="header-title{font-size:40px}">Surat Keterangan Aktif Mahasiswa</h2> <br>
+                                    <h2 class="header-title{font-size:40px}">Surat Keterangan Aktif Setelah Cuti</h2> <br>
                                         <div class="panel-body">
                                             <div class="container">
                                                 <div class="row">
