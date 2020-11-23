@@ -17,8 +17,6 @@ class UsersRegistrationController extends Controller
         $this->validate(request(), [
             'nama' => 'required',
             'nim' => 'required',
-            'departemen' => 'required',
-            'asal_Prodi' => 'required',
             'email' => 'required|email',
             'password' => 'required',
         ]);
