@@ -15,15 +15,14 @@ class CreateBiodataUsers extends Migration
     {
         Schema::create('biodata_user', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('nim');
             $table->string('jenis_Kelamin');
             $table->string('nomor_Telepon');
             $table->string('asal_Prodi');
             $table->string('departemen');
             $table->integer('semester');
             $table->integer('tahun_Akademik');
-            $table->string('email');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->timestamps();
         });
     }
