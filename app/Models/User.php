@@ -21,7 +21,7 @@ use Illuminate\Notifications\Notifiable;
 
 
     protected $fillable = [
-        'nama', 'nim', 'asal_Prodi', 'departemen', 'email', 'password',
+        'nama', 'nim', 'email', 'password',
     ];
 
     /**
