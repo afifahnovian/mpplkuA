@@ -33,53 +33,59 @@
                                     -->
                                 </h1>
     
-                                <form class="form-horizontal" action="/user/dashboard">
-    
+                                <form class="form-horizontal" method="POST" role="form" action="{{route('user-register')}}">
+                                    {{ csrf_field() }}
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="name">Nama</label>
-                                            <input class="form-control" type="name" id="name" required="" placeholder="Masukan Nama Lengkap">
+                                            <input class="form-control" type="name" id="nama" name="nama" value="{{ old('nama') }}" required autofocus placeholder="Masukan Nama Lengkap">
+                                            @if ($errors->has('nama'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('nama') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
     
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="id">NIM</label>
-                                            <input class="form-control" type="id" id="id" required="" placeholder="Masukan NIM">
+                                            <input class="form-control" type="id" id="nim" name="nim" value="{{ old('nim') }}" required autofocus placeholder="Masukan NIM">
+                                            @if ($errors->has('nim'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('nim') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
     
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <label for="major">Program Studi</label>
-                                            <input class="form-control" type="major" required="" id="major" placeholder="Masukan Nama Program Studi">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-12">
-                                            <label for="department">Departemen</label>
-                                            <input class="form-control" type="department" required="" id="department" placeholder="Masukan Nama Departemen">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-12">
                                             <label for="email">Email</label>
-                                            <input class="form-control" type="email" required="" id="email" placeholder="Masukan Email IPB">
+                                            <input class="form-control" type="email" id="email" name="email" value="{{ old('email') }}" required autofocus placeholder="Masukan Email IPB">
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="major">Kata Sandi</label>
-                                            <input class="form-control" type="password" required="" id="password" placeholder="Masukan Kata Sandi">
+                                            <input class="form-control" type="password" id="password" name="password" value="{{ old('password') }}" required autofocus placeholder="Masukan Kata Sandi">
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row text-center">
                                         <div class="col-12">
-                                            <button href="{{route('user-dashboard')}}" class="btn btn-block btn-primary waves-effect waves-light" type="submit">Daftar</button>
+                                            <button class="btn btn-block btn-primary waves-effect waves-light" type="submit">Daftar</button>
                                         </div>
                                     </div>
     
