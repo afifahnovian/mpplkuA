@@ -4,67 +4,87 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\SuratPengunduranDiri;
- 
+use App\Models\User;
+use App\Models\Biodata;
 class SuratPengunduranDiriController extends Controller
-{
+{ 
+    //view data
     public function index()
     {
-        $surat_pengunduran_diri = SuratPengunduranDiri::latest()->paginate(5);
- 
-        return view('surat_pengunduran_diri.index',compact('surat_pengunduran_diri'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $legalisasi_transkrip = SuratPengunduranDiri::all();
+        return view('user.surat.suratpengundurandiri');
     }
  
     public function create()
     {
-        return view('surat_pengunduran_diri.create');
+        return view('user/surat/surat-pengunduran-diri');
     }
  
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'tahunAkademikPengunduran' => 'required',
             'tanggalPengunduran' => 'required',
             'fileSuratPengajuanMahasiswa' => 'required',
             'fileSuratPengantarDept' => 'required',
         ]);
+        
+        $dataa                               = new SuratPengunduranDiri(); //object surat pengunduran diri
+        $data->user_id                      = User('id');
+        $data->biodata_user_id              = Biodata('id');
+        $data->tahunAkademikPengunduran     = $request->tahunAkademikPengunduran;
+        $data->tanggalPengunduran           = $request->tanggalPengunduran;
+        $data->fileSuratPengajuanMahasiswa  = $request->fileSuratPengajuanMahasiswa;
+        $data->fileSuratPengantarDept       = $request->fileSuratPengantarDept;
+        $data->save();
+
+         //Validasi and request
+         if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
+         {
+             $file = $request->fileSuratPengajuanMahasiswa;
+             $filename = 'SuratPengajuanMahasiswa - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $path = "SuratPengunduranDiri/SuratPengajuanMahasiswa/";
  
-        SuratPengunduranDiri::create($request->all());
+             Storage::disk('local')->put($path.$filename,file_get_contents($file));
+             $fileSuratPengajuanMahasiswa                       = $request->fileSuratPengajuanMahasiswa; //name form
+             $data->fileSuratPengajuanMahasiswa            = 'SuratPengunduranDiri/SuratPengajuanMahasiswa/'.$fileSuratPengajuanMahasiswa->getClientOriginalName();
+         }
+
+         if ($request->hasFile('fileSuratPengantarDept')) //name di form
+         {
+             $file = $request->fileSuratPengantarDept;
+             $filename = 'SuratPengantarDept - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $path = "SuratPengunduranDiri/SuratPengantarDept/";
  
-        return redirect()->route('surat_pengunduran_diri.index')
-                        ->with('success','Created successfully.');
+             Storage::disk('local')->put($path.$filename,file_get_contents($file));
+             $fileSuratPengantarDept                       = $request->fileSuratPengantarDept; //name form
+             $data->fileSuratPengantarDept            = 'SuratPengunduranDiri/SuratPengantarDept/'.$fileSuratPengantarDept->getClientOriginalName();
+         }
+
+        return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
+    }
+
+    //show detail
+    public function show($id)
+    {
+        $data           = SuratPengunduranDiri::where('id',$id)->first();
+        return view('user/dashboard/detail-surat-pengunduran-diri',compact('data'));
     }
  
-    public function show(SuratPengunduranDiri $surat)
+    public function update(Request $request, $id)
     {
-        return view('surat_pengunduran_diri.show',compact('surat'));
+        $data                      = surat_pengunduran_diri::where('id',$request->id)->first(); //object surat pengunduran diri
+        $data->status_surat        = $request->status_surat;
+        $data->save();
+
+        return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya
     }
  
-    public function edit(SuratPengunduranDiri $surat)
+    public function destroy($id)
     {
-        return view('surat_pengunduran_diri.edit',compact('surat'));
-    }
+        $data = SuratPengunduranDiri::findOrFail($id);
+        $data->delete();
  
-    public function update(Request $request, SuratPengunduranDiri $surat)
-    {
-        $request->validate([
-            'tahunAkademikPengunduran' => 'required',
-            'tanggalPengunduran' => 'required',
-            'fileSuratPengajuanMahasiswa' => 'required',
-            'fileSuratPengantarDept' => 'required',
-        ]);
- 
-        $surat->update($request->all());
- 
-        return redirect()->route('surat_pengunduran_diri.index')
-                        ->with('success','Updated successfully');
-    }
- 
-    public function destroy(SuratPengunduranDiri $surat)
-    {
-        $surat->delete();
- 
-        return redirect()->route('surat_pengunduran_diri.index')
-                        ->with('success','Deleted successfully');
+        return redirect('/admin/dashboard')->with('success','Deleted successfully');//belum fix route redirectnya
     }
 }

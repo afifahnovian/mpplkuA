@@ -4,65 +4,74 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\SuratPerpanjanganMasaStudi;
- 
+use App\Models\User;
+use App\Models\Biodata;
 class SuratPerpanjanganMasaStudiController extends Controller
-{
+{ 
+    //view data
     public function index()
     {
-        $surat_perpanjangan_masa_studi = SuratPerpanjanganMasaStudi::latest()->paginate(5);
- 
-        return view('surat_perpanjangan_masa_studi.index',compact('surat_perpanjangan_masa_studi'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $legalisasi_transkrip = SuratPerpanjanganMasaStudi::all();
+        return view('user.surat.suratperpanjanganmasastudi');
     }
  
     public function create()
     {
-        return view('surat_perpanjangan_masa_studi.create');
+        return view('user/surat/surat-perpanjangan-masa-studi');
     }
  
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate([
             'waktuAkhirPerpanjangan' => 'required',
             'waktuAkhirPerpanjangan_Tahun' => 'required',
             'fileTabelRencanaStudi' => 'required',
         ]);
+        
+        $dataa                               = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
+        $data->user_id                      = User('id');
+        $data->biodata_user_id              = Biodata('id');
+        $data->waktuAkhirPerpanjangan       = $request->waktuAkhirPerpanjangan;
+        $data->waktuAkhirPerpanjangan_Tahun = $request->waktuAkhirPerpanjangan_Tahun;
+        $data->fileTabelRencanaStudi        = $request->fileTabelRencanaStudi;
+        $data->save();
+
+         //Validasi and request
+         if ($request->hasFile('fileTabelRencanaStudi')) //name di form
+         {
+             $file = $request->fileTabelRencanaStudi;
+             $filename = 'TabelRencanaStudi - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $path = "SuratPerpanjanganMasaStudi/TabelRencanaStudi/";
  
-        SuratPerpanjanganMasaStudi::create($request->all());
- 
-        return redirect()->route('surat_perpanjangan_masa_studi.index')
-                        ->with('success','Created successfully.');
+             Storage::disk('local')->put($path.$filename,file_get_contents($file));
+             $fileTabelRencanaStudi                       = $request->fileTabelRencanaStudi; //name form
+             $data->fileTabelRencanaStudi            = 'SuratPerpanjanganMasaStudi/TabelRencanaStudi/'.$fileTabelRencanaStudi->getClientOriginalName();
+         }
+
+        return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
+    }
+
+    //show detail
+    public function show($id)
+    {
+        $data           = SuratPerpanjanganMasaStudi::where('id',$id)->first();
+        return view('user/dashboard/detail-surat-perpanjangan-masa-studi',compact('data'));
     }
  
-    public function show(SuratPerpanjanganMasaStudi $surat)
+    public function update(Request $request, $id)
     {
-        return view('surat_perpanjangan_masa_studi.show',compact('surat'));
+        $data                      = surat_perpanjangan_masa_studi::where('id',$request->id)->first(); //object surat perpanjangan masa studi
+        $data->status_surat        = $request->status_surat;
+        $data->save();
+
+        return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya
     }
  
-    public function edit(SuratPerpanjanganMasaStudi $surat)
+    public function destroy($id)
     {
-        return view('surat_perpanjangan_masa_studi.edit',compact('surat'));
-    }
+        $data = SuratPerpanjanganMasaStudi::findOrFail($id);
+        $data->delete();
  
-    public function update(Request $request, SuratPerpanjanganMasaStudi $surat)
-    {
-        $request->validate([
-            'waktuAkhirPerpanjangan' => 'required',
-            'waktuAkhirPerpanjangan_Tahun' => 'required',
-            'fileTabelRencanaStudi' => 'required',
-        ]);
- 
-        $surat->update($request->all());
- 
-        return redirect()->route('surat_perpanjangan_masa_studi.index')
-                        ->with('success','Updated successfully');
-    }
- 
-    public function destroy(SuratPerpanjanganMasaStudi $surat)
-    {
-        $surat->delete();
- 
-        return redirect()->route('surat_perpanjangan_masa_studi.index')
-                        ->with('success','Deleted successfully');
+        return redirect('/admin/dashboard')->with('success','Deleted successfully');//belum fix route redirectnya
     }
 }
