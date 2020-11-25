@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -15,6 +16,8 @@ use Illuminate\Notifications\Notifiable;
      *
      * @var array
      */
+    
+
     protected $table = "user";
 
     protected $primaryKey = "id";
@@ -47,4 +50,17 @@ use Illuminate\Notifications\Notifiable;
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relationship
+    public function biodata()
+    {
+        return $this->belongsTo('App\Models\Biodata', 'id', 'user_id');
+    }
+
+    public function legalisirtranskrip()
+    {
+        return $this->belongsToMany(LegalisasiTranskrip::class);
+    }
+
+    
 }

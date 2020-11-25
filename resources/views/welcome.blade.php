@@ -12,6 +12,13 @@
         <!-- Landing page Start -->
         <section class="bg-half-170 border-bottom agency-wrapper d-table w-100" id="home">
             <div class="container">
+                <!-- Alert status message -->
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                </div>
+                @endif
                 <div class="row align-items-center">
                     <div class="col-lg-7 col-md-7 order-1 order-md-2">
                         <div class="title-heading mt-4 ml-lg-5">
@@ -137,22 +144,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
+                        
                         <h4 class="text-light footer-head">Hubungi Kami</h4>
                         <p class="mt-4">Jika memiliki keluh kesah, saran ataupun masukan, bisa ditulis disini</p>
-                        <form>
+                        <form action="/send-email" method="post" >
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="foot-subscribe form-group position-relative">
                                         <label>Nama<span class="text-danger">*</span></label>
-                                        <input name="name" id="namecomplain" class="form-control rounded" placeholder="Nama : " required>
+                                        <input name="namecomplain" class="form-control rounded" placeholder="Nama : " required>
                                     </div>
                                     <div class="foot-subscribe form-group position-relative">
                                         <label>Email<span class="text-danger">*</span></label>
-                                        <input type="email" name="email" id="emailcomplain" class="form-control rounded" placeholder="Email : " required>
+                                        <input type="email" name="emailaddress" class="form-control rounded" placeholder="Email : " required>
                                     </div>
                                     <div class="foot-subscribe form-group position-relative">
                                         <label>Pesan<span class="text-danger">*</span></label>
-                                        <textarea name="complain" id="complain" class="form-control rounded" placeholder="Tulis pesanmu disini.... " required></textarea>
+                                        <textarea name="email_body" class="form-control rounded" placeholder="Tulis pesanmu disini.... " required></textarea>
                                     </div>
                                     
                                 </div>

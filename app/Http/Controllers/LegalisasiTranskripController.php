@@ -4,65 +4,86 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\LegalisasiTranskrip;
- 
+use App\Models\User;
+use App\Models\Biodata;
 class LegalisasiTranskripController extends Controller
 { 
+    //view data
     public function index()
     {
-        $legalisasi_transkrip = LegalisasiTranskrip::latest()->paginate(5);
- 
-        return view('legalisasi_transkrip.index',compact('legalisasi_transkrip'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $legalisasi_transkrip = LegalisasiTranskrip::all();
+        return view('user.surat.legalisirtranskrip');
     }
  
     public function create()
     {
-        return view('legalisasi_transkrip.create');
+        return view('user/surat/legalisir-transkrip');
     }
  
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
+            //name di form
             'keperluan' => 'required',
-            'fileKTM' => 'required',
+            'fileKTM' => 'image|mimes:jpeg,png,jpg',
             'fileTranskrip' => 'required',
         ]);
+        
+        $data                      = new LegalisasiTranskrip(); //object legalisir transkrip
+        $data->user_id             = User('id');
+        $data->biodata_user_id     = Biodata('id');
+        $data->keperluan           = $request->keperluan;
+        $data->fileKTM             = $request->fileKTM;
+        $data->fileTranskrip       = $request->fileTranskrip;
+        $data->save();
+
+         //Validasi and request
+         if ($request->hasFile('fileKTM')) //name di form
+         {
+             $file = $request->fileKTM;
+             $filename = 'KTM - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $path = "LegalisasiTranskrip/KTM/";
  
-        LegalisasiTranskrip::create($request->all());
+             Storage::disk('local')->put($path.$filename,file_get_contents($file));
+             $fileKTM                       = $request->fileKTM; //name form
+             $data->fileKTM            = 'LegalisasiTranskrip/KTM/'.$fileKTM->getClientOriginalName();
+         }
+         //file pdf
+         if ($request->hasFile('fileTranskrip')) //name di form
+         {
+             $file = $request->fileTranskrip;
+             $filename = 'Transkrip - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $path = "LegalisasiTranskrip/Transkrip/";
  
-        return redirect()->route('legalisasi_transkrip.index')
-                        ->with('success','Created successfully.');
+             Storage::disk('local')->put($path.$filename,file_get_contents($file));
+             $fileTranskrip                      = $request->fileTranskrip; //name form
+             $data->fileTranskrip                      = 'LegalisasiTranskrip/Transkrip/'.$fileTranskrip->getClientOriginalName();
+         }
+
+        return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
+    }
+
+    //show detail
+    public function show($id)
+    {
+        $data           = LegalisasiTranskrip::where('id',$id)->first();
+        return view('user/dashboard/detail-legalisir-transkrip',compact('data'));
     }
  
-    public function show(LegalisasiTranskrip $surat)
+    public function update(Request $request, $id)
     {
-        return view('legalisasi_transkrip.show',compact('surat'));
+        $data                      = legalisasi_transkrip::where('id',$request->id)->first(); //object legalisir transkrip
+        $data->status_surat        = $request->status_surat;
+        $data->save();
+
+        return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya
     }
  
-    public function edit(LegalisasiTranskrip $surat)
+    public function destroy($id)
     {
-        return view('legalisasi_transkrip.edit',compact('surat'));
-    }
+        $data = LegalisasiTranskrip::findOrFail($id);
+        $data->delete();
  
-    public function update(Request $request, LegalisasiTranskrip $surat)
-    {
-        $request->validate([
-            'keperluan' => 'required',
-            'fileKTM' => 'required',
-            'fileTranskrip' => 'required',
-        ]);
- 
-        $surat->update($request->all());
- 
-        return redirect()->route('legalisasi_transkrip.index')
-                        ->with('success','Updated successfully');
-    }
- 
-    public function destroy(LegalisasiTranskrip $surat)
-    {
-        $surat->delete();
- 
-        return redirect()->route('legalisasi_transkrip.index')
-                        ->with('success','Deleted successfully');
+        return redirect('/admin/dashboard')->with('success','Deleted successfully');//belum fix route redirectnya
     }
 }

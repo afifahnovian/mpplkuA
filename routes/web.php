@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,14 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-    //landing page
+//landing page
 Route::get('/', function () {
     return view('welcome');
 });
-
-    //admin
+//Email Service
+//Route::post('/send-email', 'MailController@sendEmail');
+Route::post('/send-email',[MailController::class, 'sendEmail']);
+//admin
 
 Route::prefix('admin')->group( function(){
     Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
@@ -42,7 +44,7 @@ Route::prefix('admin')->group( function(){
     
 });
    
-    //user
+//user
 
 Route::prefix('user')->group( function(){
     Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
