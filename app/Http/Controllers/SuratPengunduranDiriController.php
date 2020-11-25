@@ -29,7 +29,7 @@ class SuratPengunduranDiriController extends Controller
             'fileSuratPengantarDept' => 'required',
         ]);
         
-        $dataa                               = new SuratPengunduranDiri(); //object surat pengunduran diri
+        $data                               = new SuratPengunduranDiri(); //object surat pengunduran diri
         $data->user_id                      = User('id');
         $data->biodata_user_id              = Biodata('id');
         $data->tahunAkademikPengunduran     = $request->tahunAkademikPengunduran;

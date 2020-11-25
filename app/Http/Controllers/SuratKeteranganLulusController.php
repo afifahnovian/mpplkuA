@@ -34,7 +34,7 @@ class SuratKeteranganLulusController extends Controller
             'fileFoto' => 'image|mimes:jpeg,png,jpg',
         ]);
         
-        $dataa                           = new SuratKeteranganLulus(); //object surat keterangan lulus
+        $data                           = new SuratKeteranganLulus(); //object surat keterangan lulus
         $data->user_id                  = User('id');
         $data->biodata_user_id          = Biodata('id');
         $data->alamatAsal               = $request->alamatAsal;

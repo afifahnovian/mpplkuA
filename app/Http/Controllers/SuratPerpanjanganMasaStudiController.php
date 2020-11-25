@@ -28,7 +28,7 @@ class SuratPerpanjanganMasaStudiController extends Controller
             'fileTabelRencanaStudi' => 'required',
         ]);
         
-        $dataa                               = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
+        $data                               = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
         $data->user_id                      = User('id');
         $data->biodata_user_id              = Biodata('id');
         $data->waktuAkhirPerpanjangan       = $request->waktuAkhirPerpanjangan;
