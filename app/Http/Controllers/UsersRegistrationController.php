@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
+use App\Http\Controllers\Controllers;
+use Illuminate\Foundation\Auth\RegistersUsers;
  
 class UsersRegistrationController extends Controller
 {
     public function create()
     {
-        return view('registration.create');
+        return view('auth.user-register');
     }
     
     public function store()
@@ -21,10 +23,10 @@ class UsersRegistrationController extends Controller
             'password' => 'required',
         ]);
         
-        $user = User::create(request(['nama', 'nim', 'asal_Prodi', 'departemen', 'email', 'password']));
+        $user = User::create(request(['nama', 'nim', 'email', 'password']));
         
-        auth()->login($user);
+        //auth()->login($user);
         
-        return redirect()->to('/?');
+        return redirect()->to('/user/login');
     }
 }
