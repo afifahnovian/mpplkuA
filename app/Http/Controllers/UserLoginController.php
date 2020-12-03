@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use Auth;
 
 class UserLoginController extends Controller
 {
   public function getLogin()
   {
-    return view('login');
+    return view('auth.user-login');
   }
 
   public function postLogin(Request $request)
@@ -24,9 +24,15 @@ class UserLoginController extends Controller
 
       // Attempt to log the user in
       // Passwordnya pake bcrypt
-    if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
-        return redirect()->intended('/user');
-    }
+    // if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
+    //     return redirect()->intended('/user/dashboard');
+    // }
+
+    if (auth()->guard('user')->attempt(['email' => $request->email, 'password' => $request->password ])) {
+      return redirect()->route('user-dashboard');
+  }
+
+  return back()->withErrors(['email' => 'Email atau Kata Sandi Salah!']);
 
   }
 

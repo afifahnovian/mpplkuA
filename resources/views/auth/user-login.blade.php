@@ -31,39 +31,48 @@
                                     -->
                                 </h1>
     
-                                <form class="" action="/user/dashboard">
-    
-                                    <div class="form-group row">
+                                <form class="form-horizontal" method="POST" role="form" action="{{route('user-login')}}">
+                                    {{ csrf_field() }}
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                         <div class="col-12">
-                                            <label for="username">Email</label>
-                                            <input class="form-control" type="email" id="email" required="" placeholder="Masukan Email">
+                                            <label for="email">Email</label>
+                                                <input class="form-control" type="email" id="email" name="email" value="{{ old('email') }}" required autofocus placeholder="Masukan Email">
+                                                @if ($errors->has('email'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
                                         </div>
                                     </div>
-    
-                                    <div class="form-group row">
+
+                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                         <div class="col-12">
-                                            <a href="page-recoverpw.html" class="text-muted float-right"><small>Lupa Kata Sandi?</small></a>
-                                            <label for="password">Kata Sandi</label>
-                                            <input class="form-control" type="password" required="" id="password" placeholder="Masukan Kata Sandi">
+                                        <a href="#" class="text-muted float-right"><small>Lupa Kata Sandi?</small></a>
+                                        <label for="password">Kata Sandi</label>
+                                            <input class="form-control" type="password" id="password" name="password" value="{{ old('password') }}" required autofocus placeholder="Masukan Kata Sandi">
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
-    
-                                    <div class="form-group row">
+
+                                    <div class="form-group">
                                         <div class="col-12">
-    
+
                                             <div class="checkbox checkbox-primary">
-                                                <input id="remember" type="checkbox" checked="">
+                                                <input id="remember" name="remember" type="checkbox" checked="" value="{{ old('remember') ? 'checked' : '' }}">
                                                 <label for="remember">
-                                                    Ingatkan Saya
+                                                Ingatkan Saya
                                                 </label>
                                             </div>
-    
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row text-center">
                                         <div class="col-12">
-                                            <button href="{{route('user-dashboard')}}" class="btn btn-block btn-primary waves-effect waves-light" type="submit">Masuk</button>
+                                            <button class="btn btn-block btn-primary waves-effect waves-light" type="submit">Masuk</button>
                                         </div>
                                     </div>
 

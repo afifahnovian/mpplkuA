@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\UsersRegistrationController;
+use App\Http\Controllers\UserLoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +18,14 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-    //landing page
+//landing page
 Route::get('/', function () {
     return view('welcome');
 });
-
-    //admin
+//Email Service
+//Route::post('/send-email', 'MailController@sendEmail');
+Route::post('/send-email',[MailController::class, 'sendEmail']);
+//admin
 
 Route::prefix('admin')->group( function(){
     Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
@@ -42,11 +47,11 @@ Route::prefix('admin')->group( function(){
     
 });
    
-    //user
+//user
 
 Route::prefix('user')->group( function(){
-    Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
-    Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
+    //Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
+    //Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
     Route::get('/dashboard', [UserController::class, 'viewDashboard'])->name('user-dashboard');
     Route::get('/biodata', [UserController::class,'viewBiodata'])->name('user-biodata');
     Route::get('/biodata/edit', [UserController::class, 'viewBiodataEdit'])->name('user-biodata-edit');
@@ -67,3 +72,9 @@ Route::prefix('user')->group( function(){
     Route::get('surat/surat-keterangan-aktif-cuti/detail', [UserController::class,'viewSuratKeteranganAktifCutiDetail'])->name('user-surat-keterangan-aktif-cuti-detail');
     Route::get('surat/legalisir-transkrip/detail', [UserController::class,'viewLegalisirTranskripDetail'])->name('user-legalisir-transkrip-detail');
 });
+
+Route::get('/user/register','App\Http\Controllers\UsersRegistrationController@create');
+Route::post('/user/register', 'App\Http\Controllers\UsersRegistrationController@store')->name('user-register');
+
+Route::get('/user/login','App\Http\Controllers\UserLoginController@getLogin');
+Route::post('/user/login', 'App\Http\Controllers\UserLoginController@postLogin')->name('user-login');
