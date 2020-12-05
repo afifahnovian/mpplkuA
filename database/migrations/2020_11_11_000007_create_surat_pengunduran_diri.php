@@ -18,7 +18,9 @@ class CreateSuratPengunduranDiri extends Migration
             $table->id();
             $table->integer('tahunAkademikPengunduran');
             $table->date('tanggalPengunduran');
+            $table->integer('tahunTerakhirAktif');
 
+            $table->string('fileKTM');
             $table->string('fileSuratPengajuanMahasiswa');
             $table->string('fileSuratPengantarDept');
 
