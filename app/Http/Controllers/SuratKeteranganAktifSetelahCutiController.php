@@ -31,6 +31,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
             'waktuAktif_Semester' => 'required',
             'fileSuratCuti' => 'required',
             'fileBayarSPP' => 'required',
+            'filePengantarDept' => 'required',
         ]);
         
         $data                           = new SuratKeteranganAktifSetelahCuti(); //object surat keterangan aktif setelah cuti
@@ -43,6 +44,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
         $data->waktuAktif_Semester      = $request->waktuAktif_Semester;
         $data->fileSuratCuti            = $request->fileSuratCuti;
         $data->fileBayarSPP             = $request->fileBayarSPP;
+        $data->filePengantarDept        = $request->filePengantarDept;
         $data->save();
 
          //Validasi and request

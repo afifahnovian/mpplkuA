@@ -27,7 +27,7 @@ class SuratKeteranganCutiController extends Controller
             'waktuCuti_Semester' => 'required',
             'alasanCuti' => 'required',
             'fileSuratPengajuanMahasiswa' => 'required',
-            'fileSuratPengantarDept' => 'required',
+             'fileSuratPengantarDept' => 'required',
             'fileSuratKeteranganDokter' => 'required',
         ]);
         
