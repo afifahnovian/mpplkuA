@@ -11,7 +11,7 @@ class SuratKeteranganLulusController extends Controller
     //view data
     public function index()
     {
-        $legalisasi_transkrip = SuratKeteranganLulus::all();
+        $surat_keterangan_lulus = SuratKeteranganLulus::all();
         return view('user.surat.suratketeranganlulus');
     }
  
