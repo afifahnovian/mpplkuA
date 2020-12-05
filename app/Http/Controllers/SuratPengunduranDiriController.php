@@ -25,6 +25,8 @@ class SuratPengunduranDiriController extends Controller
         $this->validate($request,[
             'tahunAkademikPengunduran' => 'required',
             'tanggalPengunduran' => 'required',
+            'tahunTerakhirAktif' => 'required',
+            'fileKTM' => 'required',
             'fileSuratPengajuanMahasiswa' => 'required',
             'fileSuratPengantarDept' => 'required',
         ]);
