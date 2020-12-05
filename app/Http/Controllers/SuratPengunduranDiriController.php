@@ -11,7 +11,7 @@ class SuratPengunduranDiriController extends Controller
     //view data
     public function index()
     {
-        $legalisasi_transkrip = SuratPengunduranDiri::all();
+        $surat_pengunduran_diri = SuratPengunduranDiri::all();
         return view('user.surat.suratpengundurandiri');
     }
  

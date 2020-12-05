@@ -11,7 +11,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
     //view data
     public function index()
     {
-        $legalisasi_transkrip = SuratKeteranganAktifSetelahCuti::all();
+        $surat_keterangan_aktif_setelah_cuti = SuratKeteranganAktifSetelahCuti::all();
         return view('user.surat.suratketeranganaktifsetelahcuti');
     }
  
