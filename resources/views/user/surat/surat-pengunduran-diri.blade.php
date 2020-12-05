@@ -45,7 +45,7 @@
                     <div>
                         <div class="form-group col">
                             <div class="col">
-                                <h5 class="sub-header title" style="color:info">File yang dibutuhkan</h5>
+                                <h5 class="sub-header title" style="color:info">File yang Dibutuhkan</h5>
                                 <hr style="color:gray">
                             </div>
                         </div>

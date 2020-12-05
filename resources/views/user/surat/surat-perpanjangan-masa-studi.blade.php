@@ -19,15 +19,15 @@
                         </div>
                         <div class="form-row col">
                             <div class="form-group col-md-6">
-                                <label class="col" for="tanggalakhirperpanjangan">Tanggal Akhir Perpanjangan</label>
+                                <label class="col" for="waktuAkhirPerpanjangan">Tanggal Akhir Perpanjangan</label>
                                 <div class="col">
-                                    <input class="form-control" id="tanggalakhirperpanjangan" type="date" name="tanggalakhirperpanjangan">
+                                    <input class="form-control" id="waktuAkhirPerpanjangan" type="date" name="waktuAkhirPerpanjangan" value="{{ old('waktuAkhirPerpanjangan') }}">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="col" >Tahun Akademik</label>
+                                <label class="col" for="waktuAkhirPerpanjangan_Tahun">Tahun Akademik</label>
                                 <div class="col">
-                                    <input type="number" id="tahunakademikperpanjangan" class="form-control" placeholder="Contoh : 2017">
+                                    <input type="number" id="waktuAkhirPerpanjangan_Tahun" name="waktuAkhirPerpanjangan_Tahun" class="form-control" value="{{ old('waktuAkhirPerpanjangan_Tahun') }}" placeholder="Contoh : 2017">
                                 </div>
                             </div>   
                         </div>
@@ -38,32 +38,16 @@
                     <div>
                         <div class="form-group col">
                             <div class="col">
-                                <h5 class="sub-header title" style="color:info">File yang dibutuhkan</h5>
+                                <h5 class="sub-header title" style="color:info">File yang Dibutuhkan</h5>
                                 <hr style="color:gray">
                             </div>
                         </div>
 
-                        <!-- KTM -->
+                        <!-- Tabel Rencana Studi -->
                         <div class="form-group col">
-                            <label class="col" for="ktmfile">Unggah File KTM</label>
+                            <label class="col" for="fileTabelRencanaStudi">Tabel Rencana Studi</label>
                             <div class="col">
-                                <input type="file" id="ktmfile" class="form-control" placeholder=".jpg / .png">
-                            </div>
-                        </div>
-
-                        <!-- Surat Pengajuan Mahasiswa -->
-                        <div class="form-group col">
-                            <label class="col" for="suratpengajuanmhs">Unggah Surat Pengajuan Mahasiswa</label>
-                            <div class="col">
-                                <input type="file" id="suratpengajuanmhs" class="form-control" placeholder=".pdf">
-                            </div>
-                        </div>
-                        
-                        <!-- Surat Pengantar Departemen -->
-                        <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
-                            <div class="col">
-                                <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileTabelRencanaStudi" class="form-control" value="{{ old('fileTabelRencanaStudi') }}" placeholder=".jpg / .png">
                             </div>
                         </div>
                         
