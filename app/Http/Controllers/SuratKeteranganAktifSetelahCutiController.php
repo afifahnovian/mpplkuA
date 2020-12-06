@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuratKeteranganAktifSetelahCuti;
 use App\Models\User;
-use App\Models\Biodata;
+use App\Models\BiodataUser;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 class SuratKeteranganAktifSetelahCutiController extends Controller
 { 
     //view data
@@ -35,17 +37,12 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
         ]);
         
         $data                           = new SuratKeteranganAktifSetelahCuti(); //object surat keterangan aktif setelah cuti
-        $data->users_id                  = User('id');
-        $data->biodata_users_id          = Biodata('id');
-        $data->waktuCuti_TahunAkademik  = $request->waktuCuti_TahunAkademik;
-        $data->waktuCuti_Semester       = $request->waktuCuti_Semester;
-        $data->alasanCuti               = $request->alasanCuti;
-        $data->waktuAktifTahunAkademik  = $request->waktuAktifTahunAkademik;
-        $data->waktuAktif_Semester      = $request->waktuAktif_Semester;
-        $data->fileSuratCuti            = $request->fileSuratCuti;
-        $data->fileBayarSPP             = $request->fileBayarSPP;
-        $data->filePengantarDept        = $request->filePengantarDept;
-        $data->save();
+        $data->users_id                 = Auth::guard('users')->id(); 
+        $data->waktuCuti_TahunAkademik  = $request->input('waktuCuti_TahunAkademik');
+        $data->waktuCuti_Semester       = $request->input('waktuCuti_Semester');
+        $data->alasanCuti               = $request->input('alasanCuti');
+        $data->waktuAktifTahunAkademik  = $request->input('waktuAktifTahunAkademik');
+        $data->waktuAktif_Semester      = $request->input('waktuAktif_Semester');
 
          //Validasi and request
          if ($request->hasFile('fileSuratCuti')) //name di form
@@ -70,14 +67,17 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
              $data->fileBayarSPP                = 'SuratKeteranganAktifSetelahCuti/BayarSPP/'.$fileBayarSPP->getClientOriginalName();
          }
 
-        return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
+         $data->save();
+         
+         return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
     }
 
-    //show detail
+    //show detail in dashboard
     public function show($id)
     {
         $data           = SuratKeteranganAktifSetelahCuti::where('id',$id)->first();
-        return view('user/dashboard/detail-surat-keterangan-aktif-setelah-cuti',compact('data'));
+        $biodata_user   = BiodataUser::where('users_id',$data->users_id)->first();
+        return view('user/surat/surat-keterangan-aktif-setelah-cuti/detail',compact('data'));
     }
  
     public function update(Request $request, $id)

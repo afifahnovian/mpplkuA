@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuratKeteranganCuti;
 use App\Models\User;
-use App\Models\Biodata;
+use App\Models\BiodataUser;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 class SuratKeteranganCutiController extends Controller
 { 
     //view data
@@ -27,19 +29,14 @@ class SuratKeteranganCutiController extends Controller
             'waktuCuti_Semester' => 'required',
             'alasanCuti' => 'required',
             'fileSuratPengajuanMahasiswa' => 'required',
-             'fileSuratPengantarDept' => 'required',
+            'fileSuratPengantarDept' => 'required',
             'fileSuratKeteranganDokter' => 'required',
         ]);
         
         $data                               = new SuratKeteranganCuti(); //object surat keterangan cuti
-        $data->users_id                      = User('id');
-        $data->biodata_users_id              = Biodata('id');
-        $data->waktuCuti_TahunAkademik      = $request->waktuCuti_TahunAkademik;
-        $data->waktuCuti_Semester           = $request->waktuCuti_Semester;
-        $data->fileSuratPengajuanMahasiswa  = $request->fileSuratPengajuanMahasiswa;
-        $data->fileSuratPengantarDept       = $request->fileSuratPengantarDept;
-        $data->fileSuratKeteranganDokter    = $request->fileSuratKeteranganDokter;
-        $data->save();
+        $data->users_id                     = Auth::guard('users')->id();
+        $data->waktuCuti_TahunAkademik      = $request->input('waktuCuti_TahunAkademik');
+        $data->waktuCuti_Semester           = $request->input('waktuCuti_Semester');
 
          //Validasi and request
          if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
@@ -75,14 +72,17 @@ class SuratKeteranganCutiController extends Controller
              $data->fileSuratKeteranganDokter            = 'SuratKeteranganCuti/SuratKeteranganDokter/'.$fileSuratKeteranganDokter->getClientOriginalName();
          }
 
-        return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
+         $data->save();
+        
+         return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
     }
 
-    //show detail
+    //show detail in dashboard
     public function show($id)
     {
         $data           = SuratKeteranganCuti::where('id',$id)->first();
-        return view('user/dashboard/detail-surat-keterangan-cuti',compact('data'));
+        $biodata_user   = BiodataUser::where('users_id',$data->users_id)->first();
+        return view('user/surat/surat-keterangan-cuti/detail',compact('data'));
     }
  
     public function update(Request $request, $id)

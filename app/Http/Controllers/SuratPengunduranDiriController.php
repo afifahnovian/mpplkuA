@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuratPengunduranDiri;
 use App\Models\User;
-use App\Models\Biodata;
+use App\Models\BiodataUser;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 class SuratPengunduranDiriController extends Controller
 { 
     //view data
@@ -26,41 +28,18 @@ class SuratPengunduranDiriController extends Controller
             'tahunAkademikPengunduran' => 'required',
             'tanggalPengunduran' => 'required',
             'tahunTerakhirAktif' => 'required',
-            'fileKTM' => 'required',
+            'fileKTM' => 'required|image|max : 1024',
             'fileSuratPengajuanMahasiswa' => 'required',
             'fileSuratPengantarDept' => 'required',
         ]);
         
         $data                               = new SuratPengunduranDiri(); //object surat pengunduran diri
-        $data->users_id                      = User('id');
-        $data->biodata_users_id              = Biodata('id');
-        $data->tahunAkademikPengunduran     = $request->tahunAkademikPengunduran;
-        $data->tanggalPengunduran           = $request->tanggalPengunduran;
-        $data->tahunTerakhirAktif           = $request->tahunTerakhirAktif;
-        $data->fileKTM                      = $request->fileKTM;
-        $data->fileSuratPengajuanMahasiswa  = $request->fileSuratPengajuanMahasiswa;
-        $data->fileSuratPengantarDept       = $request->fileSuratPengantarDept;
-        $data->save();
+        $data->users_id                     = Auth::guard('users')->id();
+        $data->tahunAkademikPengunduran     = $request->input('tahunAkademikPengundurana');
+        $data->tanggalPengunduran           = $request->input('tanggalPengunduran');
+        $data->tahunTerakhirAktif           = $request->input('tahunTerakhirAktif');
 
          //Validasi and request
-<<<<<<< HEAD
-         if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
-         {
-             $file = $request->fileSuratPengajuanMahasiswa;
-             $filename = 'SuratPengajuanMahasiswa - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
-             $path = "SuratPengunduranDiri/SuratPengajuanMahasiswa/";
- 
-             Storage::disk('local')->put($path.$filename,file_get_contents($file));
-             $fileSuratPengajuanMahasiswa                       = $request->fileSuratPengajuanMahasiswa; //name form
-             $data->fileSuratPengajuanMahasiswa            = 'SuratPengunduranDiri/SuratPengajuanMahasiswa/'.$fileSuratPengajuanMahasiswa->getClientOriginalName();
-         }
-
-         if ($request->hasFile('fileSuratPengantarDept')) //name di form
-         {
-             $file = $request->fileSuratPengantarDept;
-             $filename = 'SuratPengantarDept - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
-             $path = "SuratPengunduranDiri/SuratPengantarDept/";
-=======
          
         if ($request->hasFile('fileKTM')) //name di form
         {
@@ -88,12 +67,13 @@ class SuratPengunduranDiriController extends Controller
             $file = $request->fileSuratPengantarDept;
             $filename = 'SuratPengantarDept - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
             $path = "SuratPengunduranDiri/SuratPengantarDept/";
->>>>>>> ca21403517077152421e27035ed051efa96c3fd5
  
             Storage::disk('local')->put($path.$filename,file_get_contents($file));
             $fileSuratPengantarDept                       = $request->fileSuratPengantarDept; //name form
             $data->fileSuratPengantarDept            = 'SuratPengunduranDiri/SuratPengantarDept/'.$fileSuratPengantarDept->getClientOriginalName();
         }
+
+        $data->save();
 
         return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
     }
@@ -102,7 +82,8 @@ class SuratPengunduranDiriController extends Controller
     public function show($id)
     {
         $data           = SuratPengunduranDiri::where('id',$id)->first();
-        return view('user/dashboard/detail-surat-pengunduran-diri',compact('data'));
+        $biodata_user   = BiodataUser::where('users_id',$data->users_id)->first();
+        return view('user/surat/surat-pengunduran-diri/detail',compact('data'));
     }
  
     public function update(Request $request, $id)

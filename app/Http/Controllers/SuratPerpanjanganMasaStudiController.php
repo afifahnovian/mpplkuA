@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuratPerpanjanganMasaStudi;
 use App\Models\User;
-use App\Models\Biodata;
+use App\Models\BiodataUser;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 class SuratPerpanjanganMasaStudiController extends Controller
 { 
     //view data
@@ -29,12 +31,9 @@ class SuratPerpanjanganMasaStudiController extends Controller
         ]);
         
         $data                               = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
-        $data->users_id                      = User('id');
-        $data->biodata_users_id              = Biodata('id');
-        $data->waktuAkhirPerpanjangan       = $request->waktuAkhirPerpanjangan;
-        $data->waktuAkhirPerpanjangan_Tahun = $request->waktuAkhirPerpanjangan_Tahun;
-        $data->fileTabelRencanaStudi        = $request->fileTabelRencanaStudi;
-        $data->save();
+        $data->users_id                     = Auth::guard('users')->id();
+        $data->waktuAkhirPerpanjangan       = $request->input('waktuAkhirPerpanjangan');
+        $data->waktuAkhirPerpanjangan_Tahun = $request->input('waktuAkhirPerpanjangan_Tahun');
 
          //Validasi and request
          if ($request->hasFile('fileTabelRencanaStudi')) //name di form
@@ -48,14 +47,17 @@ class SuratPerpanjanganMasaStudiController extends Controller
              $data->fileTabelRencanaStudi            = 'SuratPerpanjanganMasaStudi/TabelRencanaStudi/'.$fileTabelRencanaStudi->getClientOriginalName();
          }
 
+         $data->save();
+
         return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
     }
 
-    //show detail
+    //show detail in dashboard
     public function show($id)
     {
         $data           = SuratPerpanjanganMasaStudi::where('id',$id)->first();
-        return view('user/dashboard/detail-surat-perpanjangan-masa-studi',compact('data'));
+        $biodata_user   = BiodataUser::where('users_id',$data->users_id)->first();
+        return view('user/surat/surat-perpanjangan-masa-studi/detail',compact('data'));
     }
  
     public function update(Request $request, $id)

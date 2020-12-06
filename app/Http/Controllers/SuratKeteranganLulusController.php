@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuratKeteranganLulus;
 use App\Models\User;
-use App\Models\Biodata;
+use App\Models\BiodataUser;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 class SuratKeteranganLulusController extends Controller
 { 
     //view data
@@ -30,23 +32,14 @@ class SuratKeteranganLulusController extends Controller
             'fileTranskrip' => 'required',
             'fileSkripsi' => 'required',
             'fileBayarSPP' => 'required',
-            'fileBuktiBayarWisuda' => 'image|mimes:jpeg,png,jpg',
-            'fileFoto' => 'image|mimes:jpeg,png,jpg',
+            'fileBuktiBayarWisuda' => 'image|image|max : 1024',
+            'fileFoto' => 'image|image|max : 1024',
         ]);
         
         $data                           = new SuratKeteranganLulus(); //object surat keterangan lulus
-        $data->users_id                  = User('id');
-        $data->biodata_users_id          = Biodata('id');
-        $data->alamatAsal               = $request->alamatAsal;
-        $data->alamatBogor              = $request->alamatBogor;
-        $data->fileSuratPengantarDept   = $request->fileSuratPengantarDept;
-        $data->fileLembarPengesahan     = $request->fileLembarPengesahan;
-        $data->fileTranskrip            = $request->fileTranskrip;
-        $data->fileSkripsi              = $request->fileSkripsi;
-        $data->fileBayarSPP             = $request->fileBayarSPP;
-        $data->fileBuktiBayarWisuda     = $request->fileBuktiBayarWisuda;
-        $data->fileFoto                 = $request->fileFoto;
-        $data->save();
+        $data->users_id                 = Auth::guard('users')->id(); 
+        $data->alamatAsal               = $request->input('alamatAsal');
+        $data->alamatBogor              = $request->input('alamatBogor');
 
          //Validasi and request
          if ($request->hasFile('fileSuratPengantarDept')) //name di form
@@ -126,14 +119,18 @@ class SuratKeteranganLulusController extends Controller
              $fileFoto                       = $request->fileFoto; //name form
              $data->fileFoto            = 'SuratKeteranganLulus/Foto/'.$fileFoto->getClientOriginalName();
          }
+
+         $data->save();
+
         return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
     }
 
-    //show detail
+    //show detail in dashboard
     public function show($id)
     {
         $data           = SuratKeteranganLulus::where('id',$id)->first();
-        return view('user/dashboard/detail-surat-keterangan-lulus',compact('data'));
+        $biodata_user   = BiodataUser::where('users_id',$data->users_id)->first();
+        return view('user/surat/surat-keterangan-lulus/detail',compact('data'));
     }
  
     public function update(Request $request, $id)

@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SuratKeteranganAktif;
 use App\Models\User;
-use App\Models\Biodata;
- 
+use App\Models\BiodataUser;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 class SuratKeteranganAktifController extends Controller
 { 
     public function index()
@@ -25,17 +26,13 @@ class SuratKeteranganAktifController extends Controller
         $this->validate($request,[
             //name di form
             'keperluan' => 'required',
-            'fileKTM' => 'image|mimes:jpeg,png,jpg',
+            'fileKTM' => 'required|image|max : 1024',
             'fileBayarSPP' => 'required',
         ]);
         
         $data                      = new SuratKeteranganAktif(); //object surat keterangan aktif
-        $data->users_id             = User('id');
-        $data->biodata_users_id     = Biodata('id');
-        $data->keperluan           = $request->keperluan;
-        $data->fileKTM             = $request->fileKTM;
-        $data->fileBayarSPP       = $request->fileBayarSPP;
-        $data->save();
+        $data->users_id            = Auth::guard('users')->id();
+        $data->keperluan           = $request->input('keperluan');
 
         //Validasi and request
         if ($request->hasFile('fileKTM')) //name di form
@@ -60,14 +57,17 @@ class SuratKeteranganAktifController extends Controller
             $data->fileBayarSPP                = 'SuratKeteranganAktif/BayarSPP/'.$fileBayarSPP->getClientOriginalName();
         }
 
-       return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
+        $data->save();
+
+        return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
     }
 
-    //show detail
+    //show detail in dashboard
     public function show($id)
     {
         $data           = SuratKeteranganAktif::where('id',$id)->first();
-        return view('user/dashboard/detail-surat-keterangan_aktif',compact('data'));
+        $biodata_user   = BiodataUser::where('users_id',$data->users_id)->first();
+        return view('user/surat/detail-surat-keterangan_aktif/detail',compact('data'));
     }
  
     public function update(Request $request, $id)
