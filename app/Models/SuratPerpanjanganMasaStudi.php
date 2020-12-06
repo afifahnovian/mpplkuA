@@ -11,15 +11,11 @@ class SuratPerpanjanganMasaStudi extends Model
                            'waktuAkhirPerpanjangan_TahunAkademik',
                            'fileTabelRencanaStudi',
                            'users_id',
-                           'biodata_users_id'];
+                          ];
     
     public function user()
     {
         return $this->belongsTo('App\Models\User','users_id','id');
     }
 
-    public function biodata()
-    {
-        return $this->belongsTo('App\Models\Biodata','biodata_users_id','id');
-    }
 }

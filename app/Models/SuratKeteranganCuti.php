@@ -14,15 +14,12 @@ class SuratKeteranganCuti extends Model
                            'fileSuratPengantarDept',
                            'fileSuratKeteranganDokter',
                            'users_id',
-                           'biodata_users_id'];
+                           ];
     
     public function user()
     {
-        return $this->belongsTo('App\Models\User','users_id','id');
+        return $this->belongsTo('App\Models\User','users_id');
     }
 
-    public function biodata()
-    {
-        return $this->belongsTo('App\Models\Biodata','biodata_users_id','id');
-    }
+    
 }

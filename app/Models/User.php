@@ -57,11 +57,30 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Biodata', 'users_id');
         
     }
-
+    
     public function legalisirtranskrip()
     {
         return $this->hasMany('App\Models\LegalisasiTranskrip','users_id');
     }
 
+    public function suratketeranganaktif()
+    {
+        return $this->hasMany('App\Models\SuratKeteranganAktif','users_id');
+    }
+
+    public function suratketeranganlulus()
+    {
+        return $this->hasMany('App\Models\SuratKeteranganLulus','users_id');
+    }
     
+    public function suratpengundurandiri()
+    {
+        return $this->hasMany('App\Models\SuratPengunduranDiri','users_id');
+    }
+
+    public function suratperpanjanganmasastudi()
+    {
+        return $this->hasMany('App\Models\SuratPerpanjanganMasaStudi','users_id');
+    }
+
 }
