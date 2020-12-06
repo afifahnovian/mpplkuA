@@ -19,16 +19,16 @@
                         </div>
                         <!-- Alamat -->
                         <div class="form-group col">
-                            <label class="col" for="alamatasal">Alamat Asal</label>
+                            <label class="col" for="alamatAsal">Alamat Asal</label>
                             <div class="col">
-                                <input type="text" id="alamatasal" class="form-control" placeholder="Alamat asal">
+                                <input type="text" id="alamatAsal" name="alamatAsal" class="form-control" value="{{ old('alamatAsal') }}" placeholder="Alamat asal">
                             </div>
                         </div>
 
                         <div class="form-group col">
-                            <label class="col" for="alamatbogor">Alamat di Bogor</label>
+                            <label class="col" for="alamatBogor">Alamat di Bogor</label>
                             <div class="col">
-                                <input type="text" id="alamatbogor" class="form-control" placeholder="Alamat di bogor">
+                                <input type="text" id="alamatBogor" name="alamatBogor" class="form-control" value="{{ old('alamatBogor') }}" placeholder="Alamat di Bogor">
                             </div>
                         </div>
                     </div>
@@ -38,64 +38,64 @@
                     <div>
                         <div class="form-group col">
                             <div class="col">
-                                <h5 class="sub-header title" style="color:info">File yang dibutuhkan</h5>
+                                <h5 class="sub-header title" style="color:info">File yang Dibutuhkan</h5>
                                 <hr style="color:gray">
                             </div>
                         </div>
                     
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
+                            <label class="col" for="fileSuratPengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" class="form-control" value="{{ old('fileSuratPengantarDept') }}" placeholder=".pdf">
                             </div>
                         </div>
 
                         <!-- Lembar Pengesahan -->
                         <div class="form-group col">
-                            <label class="col" for="lembarpengesahan">Unggah Lembar Pengesahan</label>
+                            <label class="col" for="fileLembarPengesahan">Unggah Lembar Pengesahan</label>
                             <div class="col">
-                                <input type="file" id="lembarpengesahan" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileLembarPengesahan" name="fileLembarPengesahan" class="form-control" value="{{ old('fileLembarPengesahan') }}" placeholder=".pdf">
                             </div>
                         </div>
 
                         <!-- File Transkrip -->
                         <div class="form-group col">
-                            <label class="col" for="filetranskrip">Unggah File Transkrip</label>
+                            <label class="col" for="fileTranskrip">Unggah File Transkrip</label>
                             <div class="col">
-                                <input type="file" id="filetranskrip" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileTranskrip" name="fileTranskrip" class="form-control" value="{{ old('fileTranskrip') }}" placeholder=".pdf">
                             </div>
                         </div>
 
                         <!-- File Skripsi -->
                         <div class="form-group col">
-                            <label class="col" for="fileskripsi">Unggah File Skripsi</label>
+                            <label class="col" for="fileSkripsi">Unggah File Skripsi</label>
                             <div class="col">
-                                <input type="file" id="fileskripsi" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileSkripsi" name="fileSkripsi" class="form-control" value="{{ old('fileSkripsi') }}" placeholder=".pdf">
                             </div>
                         </div>
 
                         <!-- Bukti Pembayaran SPP -->
                         <div class="form-group col">
-                            <label class="col" for="buktispp">Unggah File Bukti Pembayaran SPP</label>
+                            <label class="col" for="fileBayarSPP">Unggah File Bukti Pembayaran SPP</label>
                             <div class="col">
-                                <input type="file" id="buktispp" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" value="{{ old('fileBayarSPP') }}" placeholder=".pdf">
                             </div>
                         </div>
 
                         <!-- Bukti Pembayaran Wisuda -->
                         <div class="form-group col">
-                            <label class="col" for="buktibayarwisuda">Unggah File Bukti Pembayaran Wisuda</label>
+                            <label class="col" for="fileBuktiBayarWisuda">Unggah File Bukti Pembayaran Wisuda</label>
                             <div class="col">
-                                <input type="file" id="buktibayarwisuda" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileBuktiBayarWisuda" name="fileBuktiBayarWisuda" class="form-control" value="{{ old('fileBuktiBayarWisuda') }}" placeholder=".pdf">
                             </div>
                         </div>
 
                         <!-- Foto -->
                         <div class="form-group col">
-                            <label class="col" for="foto">Unggah Pas Foto</label>
+                            <label class="col" for="fileFoto">Unggah Pas Foto</label>
                             <div class="col">
-                                <input type="file" id="foto" class="form-control" placeholder=".jpg / .png">
+                                <input type="file" id="fileFoto" name="fileFoto" class="form-control" value="{{ old('fileFoto') }}" placeholder=".jpg / .png">
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,7 @@ class SuratPengunduranDiriController extends Controller
     //view data
     public function index()
     {
-        $legalisasi_transkrip = SuratPengunduranDiri::all();
+        $surat_pengunduran_diri = SuratPengunduranDiri::all();
         return view('user.surat.suratpengundurandiri');
     }
  
@@ -25,6 +25,8 @@ class SuratPengunduranDiriController extends Controller
         $this->validate($request,[
             'tahunAkademikPengunduran' => 'required',
             'tanggalPengunduran' => 'required',
+            'tahunTerakhirAktif' => 'required',
+            'fileKTM' => 'required',
             'fileSuratPengajuanMahasiswa' => 'required',
             'fileSuratPengantarDept' => 'required',
         ]);
@@ -34,11 +36,14 @@ class SuratPengunduranDiriController extends Controller
         $data->biodata_users_id              = Biodata('id');
         $data->tahunAkademikPengunduran     = $request->tahunAkademikPengunduran;
         $data->tanggalPengunduran           = $request->tanggalPengunduran;
+        $data->tahunTerakhirAktif           = $request->tahunTerakhirAktif;
+        $data->fileKTM                      = $request->fileKTM;
         $data->fileSuratPengajuanMahasiswa  = $request->fileSuratPengajuanMahasiswa;
         $data->fileSuratPengantarDept       = $request->fileSuratPengantarDept;
         $data->save();
 
          //Validasi and request
+<<<<<<< HEAD
          if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
          {
              $file = $request->fileSuratPengajuanMahasiswa;
@@ -55,11 +60,40 @@ class SuratPengunduranDiriController extends Controller
              $file = $request->fileSuratPengantarDept;
              $filename = 'SuratPengantarDept - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratPengunduranDiri/SuratPengantarDept/";
+=======
+         
+        if ($request->hasFile('fileKTM')) //name di form
+        {
+            $file = $request->fileKTM;
+            $filename = 'KTM - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+            $path = "SuratPengunduranDiri/KTM/";
+
+            Storage::disk('local')->put($path.$filename,file_get_contents($file));
+            $fileKTM                  = $request->fileKTM; //name form
+            $data->fileKTM            = 'SuratPengunduranDiri/KTM/'.$fileKTM->getClientOriginalName();
+        }
+
+        if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
+        {
+            $file = $request->fileSuratPengajuanMahasiswa;
+            $filename = 'SuratPengajuanMahasiswa - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+            $path = "SuratPengunduranDiri/SuratPengajuanMahasiswa/";
+            Storage::disk('local')->put($path.$filename,file_get_contents($file));
+            $fileSuratPengajuanMahasiswa                       = $request->fileSuratPengajuanMahasiswa; //name form
+            $data->fileSuratPengajuanMahasiswa            = 'SuratPengunduranDiri/SuratPengajuanMahasiswa/'.$fileSuratPengajuanMahasiswa->getClientOriginalName();
+        }
+
+        if ($request->hasFile('fileSuratPengantarDept')) //name di form
+        {
+            $file = $request->fileSuratPengantarDept;
+            $filename = 'SuratPengantarDept - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+            $path = "SuratPengunduranDiri/SuratPengantarDept/";
+>>>>>>> ca21403517077152421e27035ed051efa96c3fd5
  
-             Storage::disk('local')->put($path.$filename,file_get_contents($file));
-             $fileSuratPengantarDept                       = $request->fileSuratPengantarDept; //name form
-             $data->fileSuratPengantarDept            = 'SuratPengunduranDiri/SuratPengantarDept/'.$fileSuratPengantarDept->getClientOriginalName();
-         }
+            Storage::disk('local')->put($path.$filename,file_get_contents($file));
+            $fileSuratPengantarDept                       = $request->fileSuratPengantarDept; //name form
+            $data->fileSuratPengantarDept            = 'SuratPengunduranDiri/SuratPengantarDept/'.$fileSuratPengantarDept->getClientOriginalName();
+        }
 
         return redirect('/user/dashboard')->with('success', 'Pengajuan surat berhasil');
     }

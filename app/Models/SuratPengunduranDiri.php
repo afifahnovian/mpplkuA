@@ -9,6 +9,8 @@ class SuratPengunduranDiri extends Model
 {
     protected $fillable = ['tahunAkademikPengunduran',
                            'tanggalPengunduran',
+                           'tahunTerakhirAktif',
+                           'fileKTM',
                            'fileSuratPengajuanMahasiswa',
                            'fileSuratPengantarDept',
                            'users_id',

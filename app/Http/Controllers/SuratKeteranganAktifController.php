@@ -12,7 +12,7 @@ class SuratKeteranganAktifController extends Controller
     public function index()
     {
         $surat_keterangan_aktif = SuratKeteranganAktif::all();
-        return view('user.surat.suratketeranganaktif');
+        return view('user.surat.surat-keterangan-aktif');
     }
  
     public function create()
@@ -36,7 +36,7 @@ class SuratKeteranganAktifController extends Controller
         $data->fileKTM             = $request->fileKTM;
         $data->fileBayarSPP       = $request->fileBayarSPP;
         $data->save();
- 
+
         //Validasi and request
         if ($request->hasFile('fileKTM')) //name di form
         {
@@ -76,7 +76,7 @@ class SuratKeteranganAktifController extends Controller
         $data->status_surat        = $request->status_surat;
         $data->save();
 
-        return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya
+        return redirect('/user/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya
     }
  
     public function destroy($id)

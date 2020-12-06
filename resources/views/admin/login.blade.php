@@ -31,16 +31,11 @@
  <form action="/admin/admindashboard">
     <div class="mx-auto" style="width: 400px;">
       <div class="form-group">
-         <label for="exampleDropdownFormEmail2">
-         <p class="text-white">Email</p>
-         </label>
-         <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="Masukan email IPB">
-      </div>
-           <div class="form-group">
-               <label for="exampleDropdownFormPassword2">
-               <div class="pt-3"><p class="text-white">Kata Sandi</p></div>
-               </label>
-              <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Masukan kata sandi">
+      <label class="text-white bg-dark" for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email"  required autofocus placeholder="Masukan Email">
+      <br>
+      <label class="text-white bg-dark" for="password">Kata Sandi</label>
+             <input class="form-control" type="password" id="password" name="password"  required autofocus placeholder="Masukan Kata Sandi">
         </div>
         
   <div class="pt-3"> <button type="submit" class="btn btn-primary btn-block">MASUK</button> </div>

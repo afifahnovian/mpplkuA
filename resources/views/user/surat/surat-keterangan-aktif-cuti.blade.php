@@ -9,6 +9,7 @@
         <div class="row">
             <div class="col">
                 <form action="#" role="form" class="form-horizontal">
+                {{ csrf_field() }}
                     <!-- Waktu Cuti -->
                     <div>
                         <div class="form-group col">
@@ -21,7 +22,7 @@
                             <div class="form-group col-md-6">
                                 <label class="col" >Tahun Akademik</label>
                                 <div class="col">
-                                    <input type="number" id="tahunakademikcuti" class="form-control" placeholder="Contoh : 2017">
+                                    <input type="number" id="waktuCuti_TahunAkademik" name="waktuCuti_TahunAkademik" value="{{ old('waktuCuti_TahunAkademik') }}" class="form-control" placeholder="Contoh : 2017">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -35,9 +36,9 @@
                             </div>
                         </div>
                         <div class="form-group col">
-                            <label class="col" for="alasancuti">Alasan Cuti</label>
+                            <label class="col" for="alasanCuti">Alasan Cuti</label>
                             <div class="col">
-                                <input type="text" id="alasancuti" class="form-control" placeholder="Alasan cuti..">
+                                <input type="text" id="alasanCuti" class="form-control" placeholder="Alasan cuti.." name="alasanCuti" value="{{ old('alasanCuti') }}" >
                             </div>
                         </div>
                     </div>
@@ -54,7 +55,7 @@
                             <div class="form-group col-md-6">
                                 <label class="col" >Tahun Akademik</label>
                                 <div class="col">
-                                    <input type="number" id="tahunakademiksetelahcuti" class="form-control" placeholder="Contoh : 2017">
+                                    <input type="number" id="waktuAktif_TahunAkademik" class="form-control" placeholder="Contoh : 2017" name="waktuAktif_TahunAkademik" value="{{ old('waktuAktif_TahunAkademik') }}">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -81,7 +82,7 @@
                     <div>
                         <div class="form-group col">
                             <div class="col">
-                                <h5 class="sub-header title" style="color:info">File yang dibutuhkan</h5>
+                                <h5 class="sub-header title" style="color:info">File yang Dibutuhkan</h5>
                                 <hr style="color:gray">
                             </div>
                         </div>
@@ -90,23 +91,23 @@
                         <div class="form-group col">
                             <label class="col" for="suratcuti">Unggah Surat Cuti</label>
                             <div class="col">
-                                <input type="file" id="suratcuti" class="form-control" placeholder=".pdf">
+                                <input type="file" id="suratcuti" class="form-control" placeholder=".pdf" name="waktuAktif_TahunAkademik" value="{{ old('waktuAktif_TahunAkademik') }}">
                             </div>
                         </div>
 
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="suratpengantardept">Unggah Surat Pengantar Departemen</label>
+                            <label class="col" for="filePengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
+                                <input type="file" id="filePengantarDept" class="form-control" placeholder=".pdf" name="filePengantarDept" value="{{ old('filePengantarDept') }}">
                             </div>
                         </div>
 
                         <!-- Bukti Pembayaran SPP -->
                         <div class="form-group col">
-                            <label class="col" for="pembayaranspp">Unggah Bukti Pembayaran SPP</label>
+                            <label class="col" for="fileSuratCuti">Unggah Bukti Pembayaran SPP</label>
                             <div class="col">
-                                <input type="file" id="pembayaranspp" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileSuratCuti" class="form-control" placeholder=".pdf" name="fileSuratCuti" value="{{ old('fileSuratCuti') }}" >
                             </div>
                         </div>
                     </div>

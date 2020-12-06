@@ -9,6 +9,7 @@
         <div class="row">
             <div class="col">
                 <form action="#" role="form" class="form-horizontal">
+                {{ csrf_field() }}
                     <!-- Waktu Cuti -->
                     <div>
                         <div class="form-group col">
@@ -21,7 +22,7 @@
                             <div class="form-group col-md-6">
                                 <label class="col" >Tahun Akademik</label>
                                 <div class="col">
-                                    <input type="number" id="tahunakademikcuti" class="form-control" placeholder="Contoh : 2017">
+                                    <input type="number" id="waktuCuti_TahunAkademik"  name="waktuCuti_TahunAkademik" value="{{ old('waktuCuti_TahunAkademik') }}" class="form-control" placeholder="Contoh : 2017">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -35,9 +36,9 @@
                             </div>
                         </div>
                         <div class="form-group col">
-                            <label class="col" for="alasancuti">Alasan Cuti</label>
+                            <label class="col" for="alasanCuti">Alasan Cuti</label>
                             <div class="col">
-                                <input type="text" id="alasancuti" class="form-control" placeholder="Alasan cuti">
+                                <input type="text" id="alasanCuti" class="form-control" placeholder="Alasan cuti"  name="alasanCuti" value="{{ old('alasanCuti') }}" >
                             </div>
                         </div>
                     </div>
@@ -47,7 +48,7 @@
                     <div>
                         <div class="form-group col">
                             <div class="col">
-                                <h5 class="sub-header title" style="color:info">File yang dibutuhkan</h5>
+                                <h5 class="sub-header title" style="color:info">File yang Dibutuhkan</h5>
                                 <hr style="color:gray">
                             </div>
                         </div>

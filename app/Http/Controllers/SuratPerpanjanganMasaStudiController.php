@@ -11,7 +11,7 @@ class SuratPerpanjanganMasaStudiController extends Controller
     //view data
     public function index()
     {
-        $legalisasi_transkrip = SuratPerpanjanganMasaStudi::all();
+        $surat_perpanjangan_masa_studi = SuratPerpanjanganMasaStudi::all();
         return view('user.surat.suratperpanjanganmasastudi');
     }
  
