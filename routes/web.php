@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BiodataUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UsersRegistrationController;
@@ -53,8 +54,11 @@ Route::prefix('user')->group( function(){
     //Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
     //Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
     Route::get('/dashboard', [UserController::class, 'viewDashboard'])->name('user-dashboard');
+    
     Route::get('/biodata', [UserController::class,'viewBiodata'])->name('user-biodata');
-    Route::get('/biodata/edit', [UserController::class, 'viewBiodataEdit'])->name('user-biodata-edit');
+    Route::get('/biodata/edit/{id}', [UserController::class, 'viewBiodataEdit'])->name('user-biodata-edit-view');
+    Route::post('/biodata/edit', [BiodataUserController::class,'updateBiodata'])->name('user-biodata-update');
+    
     Route::get('surat/surat-keterangan-aktif', [UserController::class,'viewSuratKeteranganAktif'])->name('user-surat-keterangan-aktif');
     Route::get('surat/surat-keterangan-lulus', [UserController::class,'viewSuratKeteranganLulus'])->name('user-surat-keterangan-lulus');
     Route::get('surat/surat-perpanjangan-masa-studi', [UserController::class,'viewSuratPerpanjanganMasaStudi'])->name('user-surat-perpanjangan-masa-studi');
@@ -63,7 +67,7 @@ Route::prefix('user')->group( function(){
     Route::get('surat/surat-keterangan-aktif-cuti', [UserController::class,'viewSuratKeteranganAktifCuti'])->name('user-surat-keterangan-aktif-cuti');
     Route::get('surat/legalisir-transkrip', [UserController::class,'viewLegalisirTranskrip'])->name('user-legalisir-transkrip');
 
-        //view detail
+    //view detail
     Route::get('surat/surat-keterangan-aktif/detail', [UserController::class,'viewSuratKeteranganAktifDetail'])->name('user-surat-keterangan-aktif-detail');
     Route::get('surat/surat-keterangan-lulus/detail', [UserController::class,'viewSuratKeteranganLulusDetail'])->name('user-surat-keterangan-lulus-detail');
     Route::get('surat/surat-perpanjangan-masa-studi/detail', [UserController::class,'viewSuratPerpanjanganMasaStudiDetail'])->name('user-surat-perpanjangan-masa-studi-detail');

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\BiodataUser;
+use Auth;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -23,12 +25,18 @@ class UserController extends Controller
 
     public function viewBiodata()
     {
-        return view('user.biodata');
+        $user = Auth::guard('users')->user();
+        $biodata_user = BiodataUser::where('users_id', $user->id)->first();
+        // dd($user->id);
+        // dd($biodata_user);
+        return view('user.biodata', compact('biodata_user','user'));
     }
 
-    public function viewBiodataEdit()
+    public function viewBiodataEdit($id)
     {
-        return view('user.biodata-edit');
+        $user = Auth::guard('users')->user();
+        $biodata_user = BiodataUser::where('users_id', $user->id)->first();
+        return view('user.biodata-edit', compact('biodata_user','user'));
     }
 
     public function viewSuratKeteranganAktif()

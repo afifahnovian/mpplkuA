@@ -30,8 +30,8 @@ class LegalisasiTranskripController extends Controller
         ]);
         
         $data                      = new LegalisasiTranskrip(); //object legalisir transkrip
-        $data->user_id             = User('id');
-        $data->biodata_user_id     = Biodata('id');
+        $data->users_id             = User('id');
+        $data->biodata_users_id     = Biodata('id');
         $data->keperluan           = $request->keperluan;
         $data->fileKTM             = $request->fileKTM;
         $data->fileTranskrip       = $request->fileTranskrip;
@@ -41,7 +41,7 @@ class LegalisasiTranskripController extends Controller
          if ($request->hasFile('fileKTM')) //name di form
          {
              $file = $request->fileKTM;
-             $filename = 'KTM - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'KTM - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "LegalisasiTranskrip/KTM/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -52,7 +52,7 @@ class LegalisasiTranskripController extends Controller
          if ($request->hasFile('fileTranskrip')) //name di form
          {
              $file = $request->fileTranskrip;
-             $filename = 'Transkrip - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'Transkrip - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "LegalisasiTranskrip/Transkrip/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -67,7 +67,7 @@ class LegalisasiTranskripController extends Controller
     public function show($id)
     {
         $data           = LegalisasiTranskrip::where('id',$id)->first();
-        return view('user/dashboard/detail-legalisir-transkrip',compact('data'));
+        return view('user/surat/legalisir-transkrip/detail',compact('data'));
     }
  
     public function update(Request $request, $id)

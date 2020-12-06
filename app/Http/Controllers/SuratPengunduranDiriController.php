@@ -30,8 +30,8 @@ class SuratPengunduranDiriController extends Controller
         ]);
         
         $data                               = new SuratPengunduranDiri(); //object surat pengunduran diri
-        $data->user_id                      = User('id');
-        $data->biodata_user_id              = Biodata('id');
+        $data->users_id                      = User('id');
+        $data->biodata_users_id              = Biodata('id');
         $data->tahunAkademikPengunduran     = $request->tahunAkademikPengunduran;
         $data->tanggalPengunduran           = $request->tanggalPengunduran;
         $data->fileSuratPengajuanMahasiswa  = $request->fileSuratPengajuanMahasiswa;
@@ -42,7 +42,7 @@ class SuratPengunduranDiriController extends Controller
          if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
          {
              $file = $request->fileSuratPengajuanMahasiswa;
-             $filename = 'SuratPengajuanMahasiswa - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'SuratPengajuanMahasiswa - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratPengunduranDiri/SuratPengajuanMahasiswa/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -53,7 +53,7 @@ class SuratPengunduranDiriController extends Controller
          if ($request->hasFile('fileSuratPengantarDept')) //name di form
          {
              $file = $request->fileSuratPengantarDept;
-             $filename = 'SuratPengantarDept - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'SuratPengantarDept - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratPengunduranDiri/SuratPengantarDept/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));

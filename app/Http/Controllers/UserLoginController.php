@@ -24,11 +24,11 @@ class UserLoginController extends Controller
 
       // Attempt to log the user in
       // Passwordnya pake bcrypt
-    // if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
+    // if (Auth::guard('users')->attempt(['email' => $request->email, 'password' => $request->password])) {
     //     return redirect()->intended('/user/dashboard');
     // }
 
-    if (auth()->guard('user')->attempt(['email' => $request->email, 'password' => $request->password ])) {
+    if (auth()->guard('users')->attempt(['email' => $request->email, 'password' => $request->password ])) {
       return redirect()->route('user-dashboard');
   }
 
@@ -38,8 +38,8 @@ class UserLoginController extends Controller
 
   public function logout()
   {
-    if (Auth::guard('user')->check()) {
-        Auth::guard('user')->logout();
+    if (Auth::guard('users')->check()) {
+        Auth::guard('users')->logout();
     }
 
     return redirect('/');

@@ -16,7 +16,7 @@ class Authenticate extends Middleware
     {
         if (Auth::guard('admin')->check()) {
             return redirect('/admin');
-        } else if (Auth::guard('user')->check()) {
+        } else if (Auth::guard('users')->check()) {
             return redirect('/user');
         }
     }

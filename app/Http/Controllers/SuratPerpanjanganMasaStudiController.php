@@ -29,8 +29,8 @@ class SuratPerpanjanganMasaStudiController extends Controller
         ]);
         
         $data                               = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
-        $data->user_id                      = User('id');
-        $data->biodata_user_id              = Biodata('id');
+        $data->users_id                      = User('id');
+        $data->biodata_users_id              = Biodata('id');
         $data->waktuAkhirPerpanjangan       = $request->waktuAkhirPerpanjangan;
         $data->waktuAkhirPerpanjangan_Tahun = $request->waktuAkhirPerpanjangan_Tahun;
         $data->fileTabelRencanaStudi        = $request->fileTabelRencanaStudi;
@@ -40,7 +40,7 @@ class SuratPerpanjanganMasaStudiController extends Controller
          if ($request->hasFile('fileTabelRencanaStudi')) //name di form
          {
              $file = $request->fileTabelRencanaStudi;
-             $filename = 'TabelRencanaStudi - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'TabelRencanaStudi - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratPerpanjanganMasaStudi/TabelRencanaStudi/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));

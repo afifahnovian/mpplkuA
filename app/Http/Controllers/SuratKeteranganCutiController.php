@@ -32,8 +32,8 @@ class SuratKeteranganCutiController extends Controller
         ]);
         
         $data                               = new SuratKeteranganCuti(); //object surat keterangan cuti
-        $data->user_id                      = User('id');
-        $data->biodata_user_id              = Biodata('id');
+        $data->users_id                      = User('id');
+        $data->biodata_users_id              = Biodata('id');
         $data->waktuCuti_TahunAkademik      = $request->waktuCuti_TahunAkademik;
         $data->waktuCuti_Semester           = $request->waktuCuti_Semester;
         $data->fileSuratPengajuanMahasiswa  = $request->fileSuratPengajuanMahasiswa;
@@ -45,7 +45,7 @@ class SuratKeteranganCutiController extends Controller
          if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
          {
              $file = $request->fileSuratPengajuanMahasiswa;
-             $filename = 'SuratPengajuanMahasiswa - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'SuratPengajuanMahasiswa - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganCuti/SuratPengajuanMahasiswa/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -56,7 +56,7 @@ class SuratKeteranganCutiController extends Controller
          if ($request->hasFile('fileSuratPengantarDept')) //name di form
          {
              $file = $request->fileSuratPengantarDept;
-             $filename = 'SuratPengantarDept - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'SuratPengantarDept - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganCuti/SuratPengantarDept/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -67,7 +67,7 @@ class SuratKeteranganCutiController extends Controller
          if ($request->hasFile('fileSuratKeteranganDokter')) //name di form
          {
              $file = $request->fileSuratKeteranganDokter;
-             $filename = 'SuratKeteranganDokter - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'SuratKeteranganDokter - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganCuti/SuratKeteranganDokter/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));

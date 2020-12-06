@@ -10,12 +10,12 @@ class BiodataUser extends Model
     use HasFactory;
 
     protected $fillable = [
-        'jenis_kelamin', 'asal_Prodi', 'departemen', 'semester', 'tahun_Akademik', 'user_id'
+        'nomor_Telepon','jenis_Kelamin', 'asal_Prodi', 'departemen', 'semester', 'tahun_Akademik', 'users_id'
     ];
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User','user_id','id');
+        return $this->belongsTo('App\Models\User','users_id');//foreign key
     }
 
 }

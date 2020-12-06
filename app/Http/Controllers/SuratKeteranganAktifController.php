@@ -30,8 +30,8 @@ class SuratKeteranganAktifController extends Controller
         ]);
         
         $data                      = new SuratKeteranganAktif(); //object surat keterangan aktif
-        $data->user_id             = User('id');
-        $data->biodata_user_id     = Biodata('id');
+        $data->users_id             = User('id');
+        $data->biodata_users_id     = Biodata('id');
         $data->keperluan           = $request->keperluan;
         $data->fileKTM             = $request->fileKTM;
         $data->fileBayarSPP       = $request->fileBayarSPP;
@@ -41,7 +41,7 @@ class SuratKeteranganAktifController extends Controller
         if ($request->hasFile('fileKTM')) //name di form
         {
             $file = $request->fileKTM;
-            $filename = 'KTM - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+            $filename = 'KTM - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
             $path = "SuratKeteranganAktif/KTM/";
 
             Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -52,7 +52,7 @@ class SuratKeteranganAktifController extends Controller
         if ($request->hasFile('fileBayarSPP')) //name di form
         {
             $file = $request->fileBayarSPP;
-            $filename = 'BayarSPP - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+            $filename = 'BayarSPP - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
             $path = "SuratKeteranganAktif/BayarSPP/";
 
             Storage::disk('local')->put($path.$filename,file_get_contents($file));

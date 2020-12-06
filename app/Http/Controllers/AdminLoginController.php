@@ -24,7 +24,7 @@ class AdminLoginController extends Controller
 
       // Attempt to log the user in
       // Passwordnya pake bcrypt
-    // if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
+    // if (Auth::guard('users')->attempt(['email' => $request->email, 'password' => $request->password])) {
     //     return redirect()->intended('/user/dashboard');
     // }
 
@@ -44,4 +44,5 @@ class AdminLoginController extends Controller
 
     return redirect('/');
 
+}
 }

@@ -21,10 +21,10 @@ class CreateLegalisasiTranskrip extends Migration
             $table->string('fileKTM');
             $table->string('fileTranskrip');
             //foreign key
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
-            $table->bigInteger('biodata_user_id')->unsigned();
-            $table->foreign('biodata_user_id')->references('id')->on('biodata_user')->onDelete('cascade');
+            $table->bigInteger('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('biodata_users_id')->unsigned();
+            $table->foreign('biodata_users_id')->references('id')->on('biodata_users')->onDelete('cascade');
             $table->timestamps();
         });
     }

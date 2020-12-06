@@ -35,8 +35,8 @@ class SuratKeteranganLulusController extends Controller
         ]);
         
         $data                           = new SuratKeteranganLulus(); //object surat keterangan lulus
-        $data->user_id                  = User('id');
-        $data->biodata_user_id          = Biodata('id');
+        $data->users_id                  = User('id');
+        $data->biodata_users_id          = Biodata('id');
         $data->alamatAsal               = $request->alamatAsal;
         $data->alamatBogor              = $request->alamatBogor;
         $data->fileSuratPengantarDept   = $request->fileSuratPengantarDept;
@@ -52,7 +52,7 @@ class SuratKeteranganLulusController extends Controller
          if ($request->hasFile('fileSuratPengantarDept')) //name di form
          {
              $file = $request->fileSuratPengantarDept;
-             $filename = 'SuratPengantarDept - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'SuratPengantarDept - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganLulus/SuratPengantarDept/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -63,7 +63,7 @@ class SuratKeteranganLulusController extends Controller
          if ($request->hasFile('fileLembarPengesahan')) //name di form
          {
              $file = $request->fileLembarPengesahan;
-             $filename = 'LembarPengesahan - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'LembarPengesahan - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganLulus/LembarPengesahan/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -74,7 +74,7 @@ class SuratKeteranganLulusController extends Controller
          if ($request->hasFile('fileTranskrip')) //name di form
          {
              $file = $request->fileTranskrip;
-             $filename = 'Transkrip - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'Transkrip - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganLulus/Transkrip/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -85,7 +85,7 @@ class SuratKeteranganLulusController extends Controller
          if ($request->hasFile('fileSkripsi')) //name di form
          {
              $file = $request->fileSkripsi;
-             $filename = 'Skripsi - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'Skripsi - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganLulus/Skripsi/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -97,7 +97,7 @@ class SuratKeteranganLulusController extends Controller
          if ($request->hasFile('fileBayarSPP')) //name di form
          {
              $file = $request->fileBayarSPP;
-             $filename = 'BayarSPP - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'BayarSPP - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganLulus/BayarSPP/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -108,7 +108,7 @@ class SuratKeteranganLulusController extends Controller
          if ($request->hasFile('fileBuktiBayarWisuda')) //name di form
          {
              $file = $request->fileBuktiBayarWisuda;
-             $filename = 'BuktiBayarWisuda - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'BuktiBayarWisuda - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganLulus/BuktiBayarWisuda/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -119,7 +119,7 @@ class SuratKeteranganLulusController extends Controller
          if ($request->hasFile('fileFoto')) //name di form
          {
              $file = $request->fileFoto;
-             $filename = 'Foto - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'Foto - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganLulus/Foto/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));

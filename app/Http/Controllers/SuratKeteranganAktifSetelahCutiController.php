@@ -34,8 +34,8 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
         ]);
         
         $data                           = new SuratKeteranganAktifSetelahCuti(); //object surat keterangan aktif setelah cuti
-        $data->user_id                  = User('id');
-        $data->biodata_user_id          = Biodata('id');
+        $data->users_id                  = User('id');
+        $data->biodata_users_id          = Biodata('id');
         $data->waktuCuti_TahunAkademik  = $request->waktuCuti_TahunAkademik;
         $data->waktuCuti_Semester       = $request->waktuCuti_Semester;
         $data->alasanCuti               = $request->alasanCuti;
@@ -49,7 +49,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
          if ($request->hasFile('fileSuratCuti')) //name di form
          {
              $file = $request->fileSuratCuti;
-             $filename = 'SuratCuti - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'SuratCuti - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganAktifSetelahCuti/KTM/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
@@ -60,7 +60,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
          if ($request->hasFile('fileBayarSPP')) //name di form
          {
              $file = $request->fileBayarSPP;
-             $filename = 'BayarSPP - ' . $data->user_id . ' - ' . $file->getClientOriginalName();
+             $filename = 'BayarSPP - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganAktifSetelahCuti/BayarSPP/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));

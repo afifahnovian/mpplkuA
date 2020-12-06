@@ -15,16 +15,16 @@ class SuratKeteranganLulus extends Model
                            'fileSkripsi',
                            'fileBuktiBayarWisuda',
                            'fileFoto',
-                           'user_id',
-                           'biodata_user_id'];
+                           'users_id',
+                           '_id'];
     
     public function user()
     {
-        return $this->belongsTo('App\Models\User','user_id','id');
+        return $this->belongsTo('App\Models\User','users_id','id');
     }
 
     public function biodata()
     {
-        return $this->belongsTo('App\Models\Biodata','biodata_user_id','id');
+        return $this->belongsTo('App\Models\Biodata','_id','id');
     }
 }

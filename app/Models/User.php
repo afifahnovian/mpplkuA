@@ -18,7 +18,7 @@ class User extends Authenticatable
      */
     
 
-    protected $table = "user";
+    protected $table = "users";
 
     protected $primaryKey = "id";
 
@@ -54,7 +54,8 @@ class User extends Authenticatable
     //relationship
     public function biodata()
     {
-        return $this->belongsTo('App\Models\Biodata', 'id', 'user_id');
+        return $this->hasOne('App\Models\Biodata', 'users_id');
+        
     }
 
     public function legalisirtranskrip()
