@@ -10,7 +10,7 @@ use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\SuratPengunduranDiriController;
 use App\Http\Controllers\SuratKeteranganCutiController;
 use App\Http\Controllers\SuratKeteranganAktifSetelahCutiController;
-
+use App\Http\Controllers\LegalisasiTranskripController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +69,7 @@ Route::prefix('user')->group( function(){
     //Route::get('surat/surat-keterangan-cuti', [UserController::class, 'viewSuratKeteranganCuti'])->name('user-surat-keterangan-cuti');
     //Route::get('surat/surat-keterangan-aktif-cuti', [UserController::class,'viewSuratKeteranganAktifCuti'])->name('user-surat-keterangan-aktif-cuti');
     Route::get('surat/legalisir-transkrip', [UserController::class,'viewLegalisirTranskrip'])->name('user-legalisir-transkrip');
+    Route::post('surat/legalisir-transkrip', [LegalisasiTranskripController::class,'store'])->name('create-user-legalisir-transkrip');
 
     //view detail
     Route::get('surat/surat-keterangan-aktif/detail', [UserController::class,'viewSuratKeteranganAktifDetail'])->name('user-surat-keterangan-aktif-detail');

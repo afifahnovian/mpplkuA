@@ -23,8 +23,8 @@ class CreateLegalisasiTranskrip extends Migration
             //foreign key
             $table->bigInteger('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('biodata_users_id')->unsigned();
-            $table->foreign('biodata_users_id')->references('id')->on('biodata_users')->onDelete('cascade');
+            // $table->bigInteger('biodata_users_id')->unsigned();
+            // $table->foreign('biodata_users_id')->references('id')->on('biodata_users')->onDelete('cascade');
             $table->timestamps();
         });
     }

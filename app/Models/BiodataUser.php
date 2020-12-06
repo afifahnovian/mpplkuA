@@ -18,4 +18,9 @@ class BiodataUser extends Model
         return $this->belongsTo('App\Models\User','users_id');//foreign key
     }
 
+    // public function legalisirtranskrip()
+    // {
+    //     return $this->hasMany('App\Models\LegalisasiTranskrip');
+    // }
+
 }

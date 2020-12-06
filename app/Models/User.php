@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public function legalisirtranskrip()
     {
-        return $this->belongsToMany(LegalisasiTranskrip::class);
+        return $this->hasMany('App\Models\LegalisasiTranskrip','users_id');
     }
 
     

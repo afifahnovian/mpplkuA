@@ -11,8 +11,4 @@ class Biodata extends Model
         return $this->hasOne('App\Models\User');
     }
 
-    public function legalisirsurat()
-    {
-        return $this->belongsToMany(LegalisasiTranskrip::class);
-    }
 }
