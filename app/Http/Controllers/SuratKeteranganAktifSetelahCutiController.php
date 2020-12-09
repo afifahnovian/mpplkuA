@@ -32,8 +32,8 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
             'waktuAktif_TahunAkademik' => 'required',
             'waktuAktif_Semester' => 'required',
             'fileSuratCuti' => 'required',
-            'fileBayarSPP' => 'required',
             'filePengantarDept' => 'required',
+            'fileBayarSPP' => 'required',
         ]);
         
         $data                           = new SuratKeteranganAktifSetelahCuti(); //object surat keterangan aktif setelah cuti
