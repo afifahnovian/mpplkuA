@@ -25,7 +25,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
     public function store(Request $request)
     {
 
-        $this>validate($request,[
+        $this->validate($request,[
             'waktuCuti_TahunAkademik' => 'required',
             'waktuCuti_Semester' => 'required',
             'alasanCuti' => 'required',
