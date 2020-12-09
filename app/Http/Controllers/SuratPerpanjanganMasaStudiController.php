@@ -30,10 +30,10 @@ class SuratPerpanjanganMasaStudiController extends Controller
             'fileTabelRencanaStudi' => 'required',
         ]);
         
-        $data                               = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
-        $data->users_id                     = Auth::guard('users')->id();
-        $data->waktuAkhirPerpanjangan       = $request->input('waktuAkhirPerpanjangan');
-        $data->waktuAkhirPerpanjangan_Tahun = $request->input('waktuAkhirPerpanjangan_TahunAkademik');
+        $data                                       = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
+        $data->users_id                             = Auth::guard('users')->id();
+        $data->waktuAkhirPerpanjangan               = $request->input('waktuAkhirPerpanjangan');
+        $data->waktuAkhirPerpanjangan_TahunAkademik = $request->input('waktuAkhirPerpanjangan_TahunAkademik');
 
          //Validasi and request
          if ($request->hasFile('fileTabelRencanaStudi')) //name di form

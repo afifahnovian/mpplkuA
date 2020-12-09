@@ -25,9 +25,9 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="col" for="waktuAkhirPerpanjangan_Tahun">Tahun Akademik</label>
+                                <label class="col" for="waktuAkhirPerpanjangan_TahunAkademik">Tahun Akademik</label>
                                 <div class="col">
-                                    <input type="number" id="waktuAkhirPerpanjangan_Tahun" name="waktuAkhirPerpanjangan_Tahun" class="form-control" value="{{ old('waktuAkhirPerpanjangan_Tahun') }}" placeholder="Contoh : 2017">
+                                    <input type="number" id="waktuAkhirPerpanjangan_TahunAkademik" name="waktuAkhirPerpanjangan_TahunAkademik" class="form-control" value="{{ old('waktuAkhirPerpanjangan_TahunAkademik') }}" placeholder="Contoh : 2017">
                                 </div>
                             </div>   
                         </div>
