@@ -23,7 +23,7 @@ class CreateSuratKeteranganAktifSetelahCuti extends Migration
             $table->string('waktuAktif_Semester');
 
             $table->string('fileSuratCuti');
-            $table->string('fileSuratPengantar');
+            $table->string('fileSuratPengantarDept');
             $table->string('fileBayarSPP');
 
             $table->bigInteger('users_id')->unsigned();
