@@ -16,6 +16,8 @@ class CreateSuratKeteranganAktifSetelahCuti extends Migration
     {
         Schema::create('surat_keterangan_aktif_setelah_cuti', function (Blueprint $table) {
             $table->id();
+            $table->string('status_surat')->default('Pending');
+            $table->text('alasan_penolakan')->nullable();
             $table->integer('waktuCuti_TahunAkademik');
             $table->string('waktuCuti_Semester');
             $table->string('alasanCuti');
@@ -23,7 +25,7 @@ class CreateSuratKeteranganAktifSetelahCuti extends Migration
             $table->string('waktuAktif_Semester');
 
             $table->string('fileSuratCuti');
-            $table->string('fileSuratPengantar');
+            $table->string('fileSuratPengantarDept');
             $table->string('fileBayarSPP');
 
             $table->bigInteger('users_id')->unsigned();
