@@ -41,7 +41,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
         $data->waktuCuti_TahunAkademik  = $request->input('waktuCuti_TahunAkademik');
         $data->waktuCuti_Semester       = $request->input('waktuCuti_Semester');
         $data->alasanCuti               = $request->input('alasanCuti');
-        $data->waktuAktifTahunAkademik  = $request->input('waktuAktifTahunAkademik');
+        $data->waktuAktif_TahunAkademik  = $request->input('waktuAktif_TahunAkademik');
         $data->waktuAktif_Semester      = $request->input('waktuAktif_Semester');
 
          //Validasi and request

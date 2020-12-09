@@ -37,6 +37,7 @@ class SuratKeteranganCutiController extends Controller
         $data->users_id                     = Auth::guard('users')->id();
         $data->waktuCuti_TahunAkademik      = $request->input('waktuCuti_TahunAkademik');
         $data->waktuCuti_Semester           = $request->input('waktuCuti_Semester');
+        $data->alasanCuti                   = $request->input('alasanCuti');
 
          //Validasi and request
          if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form

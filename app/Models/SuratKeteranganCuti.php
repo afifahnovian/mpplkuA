@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratKeteranganCuti extends Model
 {
+    protected $table = 'surat_keterangan_cuti';
     protected $fillable = ['waktuCuti_TahunAkademik',
                            'waktuCuti_Semester',
                            'alasanCuti',
