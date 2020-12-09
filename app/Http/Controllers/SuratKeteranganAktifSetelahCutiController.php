@@ -19,7 +19,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
  
     public function create()
     {
-        return view('user/surat/surat-keterangan-aktif-setelah-cuti');
+        return view('user/surat/surat-keterangan-aktif-cuti');
     }
  
     public function store(Request $request)
