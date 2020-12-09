@@ -14,7 +14,7 @@ class SuratKeteranganAktifSetelahCuti extends Model
                            'waktuAktif_TahunAkademik',
                            'waktuAktif_Semester',
                            'fileSuratCuti',
-                           'fileSuratPengantar',
+                           'fileSuratPengantarDept',
                            'fileBayarSPP',
                            'users_id',
                            'biodata_users_id'];
