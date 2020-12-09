@@ -58,13 +58,13 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
 
          if ($request->hasFile('filePengantarDept')) //name di form
          {
-             $file = $request->fileSuratCuti;
+             $file = $request->filePengantarDept;
              $filename = 'PengantarDept - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
              $path = "SuratKeteranganAktifSetelahCuti/PengantarDept/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
-             $filePengantarDept                  = $request->fileSuratCuti; //name form
-             $data->filePengantarDept            = 'SuratKeteranganAktifSetelahCuti/PengantarDept/'.$fileSuratCuti->getClientOriginalName();
+             $filePengantarDept                  = $request->filePengantarDept; //name form
+             $data->filePengantarDept            = 'SuratKeteranganAktifSetelahCuti/PengantarDept/'.$filePengantarDept->getClientOriginalName();
          }
          //file pdf
          if ($request->hasFile('fileBayarSPP')) //name di form
