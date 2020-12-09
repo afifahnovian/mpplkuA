@@ -32,7 +32,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
             'waktuAktif_TahunAkademik' => 'required',
             'waktuAktif_Semester' => 'required',
             'fileSuratCuti' => 'required',
-            'filePengantarDept' => 'required',
+            'fileSuratPengantarDept' => 'required',
             'fileBayarSPP' => 'required',
         ]);
         

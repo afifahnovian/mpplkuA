@@ -111,9 +111,9 @@
 
                         <!-- Surat Pengantar Departemen -->
                         <div class="form-group col">
-                            <label class="col" for="filePengantarDept">Unggah Surat Pengantar Departemen</label>
+                            <label class="col" for="fileSuratPengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="filePengantarDept" class="form-control" placeholder=".pdf" name="filePengantarDept" >
+                                <input type="file" id="fileSuratPengantarDept" class="form-control" placeholder=".pdf" name="fileSuratPengantarDept" >
                             </div>
                         </div>
 

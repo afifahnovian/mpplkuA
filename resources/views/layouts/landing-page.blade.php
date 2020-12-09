@@ -37,7 +37,7 @@
                         <a class="logo" href="#">SIMARSIP</a>
                     </div>                 
                     <div class="buy-button">
-                        <a href="{{route('user-login')}}" target="_blank" class="btn btn-primary">Masuk</a>
+                        <a href="{{route('user-login')}}" class="btn btn-primary">Masuk</a>
                     </div><!--end login button-->
                     <!-- End Logo container-->
                     <div class="menu-extras">
