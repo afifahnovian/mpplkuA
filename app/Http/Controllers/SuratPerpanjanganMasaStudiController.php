@@ -26,14 +26,14 @@ class SuratPerpanjanganMasaStudiController extends Controller
     {
         $this->validate($request,[
             'waktuAkhirPerpanjangan' => 'required',
-            'waktuAkhirPerpanjangan_Tahun' => 'required',
+            'waktuAkhirPerpanjangan_TahunAkademik' => 'required',
             'fileTabelRencanaStudi' => 'required',
         ]);
         
         $data                               = new SuratPerpanjanganMasaStudi(); //object surat perpanjangan masa studi
         $data->users_id                     = Auth::guard('users')->id();
         $data->waktuAkhirPerpanjangan       = $request->input('waktuAkhirPerpanjangan');
-        $data->waktuAkhirPerpanjangan_Tahun = $request->input('waktuAkhirPerpanjangan_Tahun');
+        $data->waktuAkhirPerpanjangan_Tahun = $request->input('waktuAkhirPerpanjangan_TahunAkademik');
 
          //Validasi and request
          if ($request->hasFile('fileTabelRencanaStudi')) //name di form
