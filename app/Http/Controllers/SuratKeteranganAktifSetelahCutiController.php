@@ -41,7 +41,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
         $data->waktuCuti_TahunAkademik  = $request->input('waktuCuti_TahunAkademik');
         $data->waktuCuti_Semester       = $request->input('waktuCuti_Semester');
         $data->alasanCuti               = $request->input('alasanCuti');
-        $data->waktuAktifTahunAkademik  = $request->input('waktuAktifTahunAkademik');
+        $data->waktuAktif_TahunAkademik  = $request->input('waktuAktif_TahunAkademik');
         $data->waktuAktif_Semester      = $request->input('waktuAktif_Semester');
 
          //Validasi and request
@@ -49,11 +49,22 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
          {
              $file = $request->fileSuratCuti;
              $filename = 'SuratCuti - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
-             $path = "SuratKeteranganAktifSetelahCuti/KTM/";
+             $path = "SuratKeteranganAktifSetelahCuti/SuratCuti/";
  
              Storage::disk('local')->put($path.$filename,file_get_contents($file));
              $fileSuratCuti                  = $request->fileSuratCuti; //name form
-             $data->fileSuratCuti            = 'SuratKeteranganAktifSetelahCuti/KTM/'.$fileSuratCuti->getClientOriginalName();
+             $data->fileSuratCuti            = 'SuratKeteranganAktifSetelahCuti/SuratCuti/'.$fileSuratCuti->getClientOriginalName();
+         }
+
+         if ($request->hasFile('filePengantarDept')) //name di form
+         {
+             $file = $request->fileSuratCuti;
+             $filename = 'PengantarDept - ' . $data->users_id . ' - ' . $file->getClientOriginalName();
+             $path = "SuratKeteranganAktifSetelahCuti/PengantarDept/";
+ 
+             Storage::disk('local')->put($path.$filename,file_get_contents($file));
+             $filePengantarDept                  = $request->fileSuratCuti; //name form
+             $data->filePengantarDept            = 'SuratKeteranganAktifSetelahCuti/PengantarDept/'.$fileSuratCuti->getClientOriginalName();
          }
          //file pdf
          if ($request->hasFile('fileBayarSPP')) //name di form
