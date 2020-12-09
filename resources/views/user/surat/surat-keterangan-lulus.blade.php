@@ -4,12 +4,26 @@
 
 @section('content')   
     <div class="card-box">
+        @if (session()->has('success'))
+            <div class="alert alert-dismissible alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <h4 class="header-title">Surat Keterangan Lulus</h4>
         <br>
         <div class="row">
             <div class="col">
-                <form action="#" role="form" class="form-horizontal">
-                    
+                <form action="{{route('create-user-surat-keterangan-lulus')}}" method="POST"enctype="multipart/form-data" role="form" class="form-horizontal">
+                    {{ csrf_field() }}
                     <div>
                         <div class="form-group col">
                             <div class="col">
@@ -21,14 +35,14 @@
                         <div class="form-group col">
                             <label class="col" for="alamatAsal">Alamat Asal</label>
                             <div class="col">
-                                <input type="text" id="alamatAsal" name="alamatAsal" class="form-control" value="{{ old('alamatAsal') }}" placeholder="Alamat asal">
+                                <input type="text" id="alamatAsal" name="alamatAsal" class="form-control" placeholder="Alamat asal">
                             </div>
                         </div>
 
                         <div class="form-group col">
                             <label class="col" for="alamatBogor">Alamat di Bogor</label>
                             <div class="col">
-                                <input type="text" id="alamatBogor" name="alamatBogor" class="form-control" value="{{ old('alamatBogor') }}" placeholder="Alamat di Bogor">
+                                <input type="text" id="alamatBogor" name="alamatBogor" class="form-control"  placeholder="Alamat di Bogor">
                             </div>
                         </div>
                     </div>
@@ -47,7 +61,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratPengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" class="form-control" value="{{ old('fileSuratPengantarDept') }}" placeholder=".pdf">
+                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -55,7 +69,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileLembarPengesahan">Unggah Lembar Pengesahan</label>
                             <div class="col">
-                                <input type="file" id="fileLembarPengesahan" name="fileLembarPengesahan" class="form-control" value="{{ old('fileLembarPengesahan') }}" placeholder=".pdf">
+                                <input type="file" id="fileLembarPengesahan" name="fileLembarPengesahan" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -63,7 +77,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileTranskrip">Unggah File Transkrip</label>
                             <div class="col">
-                                <input type="file" id="fileTranskrip" name="fileTranskrip" class="form-control" value="{{ old('fileTranskrip') }}" placeholder=".pdf">
+                                <input type="file" id="fileTranskrip" name="fileTranskrip" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -71,7 +85,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSkripsi">Unggah File Skripsi</label>
                             <div class="col">
-                                <input type="file" id="fileSkripsi" name="fileSkripsi" class="form-control" value="{{ old('fileSkripsi') }}" placeholder=".pdf">
+                                <input type="file" id="fileSkripsi" name="fileSkripsi" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -79,7 +93,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileBayarSPP">Unggah File Bukti Pembayaran SPP</label>
                             <div class="col">
-                                <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" value="{{ old('fileBayarSPP') }}" placeholder=".pdf">
+                                <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -87,7 +101,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileBuktiBayarWisuda">Unggah File Bukti Pembayaran Wisuda</label>
                             <div class="col">
-                                <input type="file" id="fileBuktiBayarWisuda" name="fileBuktiBayarWisuda" class="form-control" value="{{ old('fileBuktiBayarWisuda') }}" placeholder=".pdf">
+                                <input type="file" id="fileBuktiBayarWisuda" name="fileBuktiBayarWisuda" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -95,7 +109,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileFoto">Unggah Pas Foto</label>
                             <div class="col">
-                                <input type="file" id="fileFoto" name="fileFoto" class="form-control" value="{{ old('fileFoto') }}" placeholder=".jpg / .png">
+                                <input type="file" id="fileFoto" name="fileFoto" class="form-control" placeholder=".jpg / .png">
                             </div>
                         </div>
                     </div>

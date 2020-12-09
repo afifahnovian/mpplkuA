@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratKeteranganAktif extends Model
 {
+    protected $table = 'surat_keterangan_aktif';
     protected $fillable = ['keperluan',
                            'fileKTM',
                            'fileBayarSPP',

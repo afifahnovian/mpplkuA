@@ -11,6 +11,10 @@ use App\Http\Controllers\SuratPengunduranDiriController;
 use App\Http\Controllers\SuratKeteranganCutiController;
 use App\Http\Controllers\SuratKeteranganAktifSetelahCutiController;
 use App\Http\Controllers\LegalisasiTranskripController;
+use App\Http\Controllers\SuratKeteranganAktifController;
+use App\Http\Controllers\SuratKeteranganLulusController;
+use App\Http\Controllers\SuratPerpanjanganMasaStudiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,16 +59,28 @@ Route::prefix('admin')->group( function(){
 
 Route::prefix('user')->group( function(){
     //Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
+    Route::get('/login','App\Http\Controllers\UserLoginController@getLogin');
+    Route::post('/login', 'App\Http\Controllers\UserLoginController@postLogin')->name('user-login');
+
     //Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
-    Route::get('/dashboard', [UserController::class, 'viewDashboard'])->name('user-dashboard');
+    Route::get('/user/register','App\Http\Controllers\UsersRegistrationController@create');
+    Route::post('/user/register', 'App\Http\Controllers\UsersRegistrationController@store')->name('user-register');
     
+    Route::get('/dashboard', [UserController::class, 'viewDashboard'])->name('user-dashboard');
+
     Route::get('/biodata', [UserController::class,'viewBiodata'])->name('user-biodata');
     Route::get('/biodata/edit/{id}', [UserController::class, 'viewBiodataEdit'])->name('user-biodata-edit-view');
     Route::post('/biodata/edit', [BiodataUserController::class,'updateBiodata'])->name('user-biodata-update');
     
-    Route::get('surat/surat-keterangan-aktif', [UserController::class,'viewSuratKeteranganAktif'])->name('user-surat-keterangan-aktif');
-    Route::get('surat/surat-keterangan-lulus', [UserController::class,'viewSuratKeteranganLulus'])->name('user-surat-keterangan-lulus');
+    Route::get('/surat/surat-keterangan-aktif', [UserController::class,'viewSuratKeteranganAktif'])->name('user-surat-keterangan-aktif');
+    Route::post('/surat/surat-keterangan-aktif', [SuratKeteranganAktifController::class,'store'])->name('create-user-surat-keterangan-aktif');
+
+    Route::get('/surat/surat-keterangan-lulus', [UserController::class,'viewSuratKeteranganLulus'])->name('user-surat-keterangan-lulus');
+    Route::post('/surat/surat-keterangan-lulus', [SuratKeteranganLulusController::class,'store'])->name('create-user-surat-keterangan-lulus');
+
     Route::get('surat/surat-perpanjangan-masa-studi', [UserController::class,'viewSuratPerpanjanganMasaStudi'])->name('user-surat-perpanjangan-masa-studi');
+    Route::post('surat/surat-perpanjangan-masa-studi', [SuratPerpanjanganMasaStudiController::class,'store'])->name('create-user-surat-perpanjangan-masa-studi');
+
     //Route::get('surat/surat-pengunduran-diri', [UserController::class,'viewSuratPengunduranDiri'])->name('user-surat-pengunduran-diri');
     //Route::get('surat/surat-keterangan-cuti', [UserController::class, 'viewSuratKeteranganCuti'])->name('user-surat-keterangan-cuti');
     //Route::get('surat/surat-keterangan-aktif-cuti', [UserController::class,'viewSuratKeteranganAktifCuti'])->name('user-surat-keterangan-aktif-cuti');
@@ -81,9 +97,6 @@ Route::prefix('user')->group( function(){
     Route::get('surat/legalisir-transkrip/detail', [UserController::class,'viewLegalisirTranskripDetail'])->name('user-legalisir-transkrip-detail');
 });
 
-Route::get('/user/register','App\Http\Controllers\UsersRegistrationController@create');
-Route::post('/user/register', 'App\Http\Controllers\UsersRegistrationController@store')->name('user-register');
-
 Route::get('surat/surat-pengunduran-diri','App\Http\Controllers\SuratPengunduranDiriController@create');
 Route::post('surat/surat-pengunduran-diri', 'App\Http\Controllers\SuratPengunduranDiriController@store')->name('user-surat-pengunduran-diri');
 
@@ -92,9 +105,3 @@ Route::post('surat/surat-keterangan-cuti', 'App\Http\Controllers\SuratKeterangan
 
 Route::get('surat/surat-keterangan-aktif-cuti','App\Http\Controllers\SuratKeteranganAktifSetelahCutiController@create');
 Route::post('surat/surat-keterangan-aktif-cuti', 'App\Http\Controllers\SuratKeteranganAktifSetelahCutiController@store')->name('user-surat-keterangan-aktif-cuti');
-
-Route::get('/user/login','App\Http\Controllers\UserLoginController@getLogin');
-Route::post('/user/login', 'App\Http\Controllers\UserLoginController@postLogin')->name('user-login');
-
-Route::get('/user/surat/surat-keterangan-aktif','App\Http\Controllers\SuratKeteranganAktifController@create');
-Route::post('/user/surat/surat-keterangan-aktif', 'App\Http\Controllers\SuratKeteranganAktifController@store')->name('user-surat-keterangan-aktif');

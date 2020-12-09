@@ -4,17 +4,31 @@
 
 @section('content')        
     <div class="card-box">
+        @if (session()->has('success'))
+            <div class="alert alert-dismissible alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <h4 class="header-title">Surat Keterangan Mahasiswa Aktif</h4>
         <br>
         <div class="row">
             <div class="col">
-                <form action="{{route('user-surat-keterangan-aktif')}}" method="POST" role="form" class="form-horizontal">
+                <form action="{{route('create-user-surat-keterangan-aktif')}}" method="POST" enctype="multipart/form-data" role="form" class="form-horizontal">
                     {{ csrf_field() }}
                     <!-- Keperluan Pengajuan Surat -->
                     <div class="form-group col">
                         <label class="col" for="keperluan">Keperluan Pengajuan Surat</label>
                         <div class="col">
-                            <input type="text" id="keperluan" name="keperluan" class="form-control" value="{{ old('keperluan') }}" placeholder="Keperluan pengajuan surat">
+                            <input type="text" id="keperluan" name="keperluan" class="form-control" placeholder="Keperluan pengajuan surat">
                         </div>
                     </div>
 
@@ -30,7 +44,7 @@
                     <div class="form-group col">
                         <label class="col" for="fileKTM">Unggah File KTM</label>
                         <div class="col">
-                            <input type="file" id="fileKTM" name="fileKTM" class="form-control" value="{{ old('fileKTM') }}" placeholder=".jpg / .png">
+                            <input type="file" id="fileKTM" name="fileKTM" class="form-control" placeholder=".jpg / .png">
                         </div>
                     </div>
 
@@ -38,7 +52,7 @@
                     <div class="form-group col">
                         <label class="col" for="fileBayarSPP">Unggah Bukti Pembayaran SPP</label>
                         <div class="col">
-                            <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" value="{{ old('fileBayarSPP') }}" placeholder=".jpg /.png /.pdf">
+                            <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" placeholder=".jpg /.png /.pdf">
                         </div>
                     </div>
                     

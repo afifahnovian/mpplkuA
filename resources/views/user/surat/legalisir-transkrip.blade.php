@@ -22,7 +22,7 @@
         <br>
         <div class="row">
             <div class="col">
-                <form action="" role="form" class="form-horizontal" action="{{route('create-user-legalisir-transkrip')}}" method="POST" enctype="multipart/form-data">
+                <form role="form" class="form-horizontal" action="{{route('create-user-legalisir-transkrip')}}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <!-- Keperluan Pengajuan Surat -->
                     <div class="form-group col">
