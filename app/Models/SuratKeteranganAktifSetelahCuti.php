@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratKeteranganAktifSetelahCuti extends Model
 {
-    protected $fillable = ['waktuCuti_TahunAkademik',
+    protected $fillable = [
+                           'waktuCuti_TahunAkademik',
                            'waktuCuti_Semester',
                            'alasanCuti',
                            'waktuAktif_TahunAkademik',
                            'waktuAktif_Semester',
                            'fileSuratCuti',
-                           'fileSuratPengantar',
+                           'fileSuratPengantarDept',
                            'fileBayarSPP',
                            'users_id',
                            'biodata_users_id'];
