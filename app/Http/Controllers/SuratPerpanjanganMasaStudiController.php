@@ -24,7 +24,7 @@ class SuratPerpanjanganMasaStudiController extends Controller
  
     public function store(Request $request)
     {
-        $this->validate([
+        $this->validate($request,[
             'waktuAkhirPerpanjangan' => 'required',
             'waktuAkhirPerpanjangan_Tahun' => 'required',
             'fileTabelRencanaStudi' => 'required',
