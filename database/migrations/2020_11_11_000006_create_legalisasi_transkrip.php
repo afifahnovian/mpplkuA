@@ -16,7 +16,8 @@ class CreateLegalisasiTranskrip extends Migration
     {
         Schema::create('legalisasi_transkrip', function (Blueprint $table) {
             $table->id();
-            $table->string('status_surat')->default('Pending'); 
+            $table->string('status_surat')->default('Pending');
+            $table->text('alasan_penolakan')->nullable();
             $table->text('keperluan');
             $table->string('fileKTM');
             $table->string('fileTranskrip');

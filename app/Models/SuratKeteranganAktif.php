@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SuratKeteranganAktif extends Model
 {
     protected $table = 'surat_keterangan_aktif';
-    protected $fillable = ['keperluan',
+    protected $fillable = [
+                           'status_surat',
+                           'alasan_penolakan',
+                           'keperluan',
                            'fileKTM',
                            'fileBayarSPP',
                            'users_id',

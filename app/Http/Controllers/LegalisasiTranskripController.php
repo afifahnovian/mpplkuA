@@ -74,8 +74,11 @@ class LegalisasiTranskripController extends Controller
  
     public function update(Request $request, $id)
     {
-        $data                      = legalisasi_transkrip::where('id',$request->id)->first(); //object legalisir transkrip
+        $data                      = LegalisasiTranskrip::where('id',$id)->first(); //object legalisasi transkrip
         $data->status_surat        = $request->status_surat;
+        if($data->status_surat == 'Ditolak'){
+            $data->alasan_penolakan = $request->alasan_penolakan;
+        }
         $data->save();
 
         return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya

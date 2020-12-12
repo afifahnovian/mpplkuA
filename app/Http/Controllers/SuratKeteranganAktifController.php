@@ -72,11 +72,14 @@ class SuratKeteranganAktifController extends Controller
  
     public function update(Request $request, $id)
     {
-        $data                      = surat_keterangan_aktif::where('id',$request->id)->first(); //object surat keterangan aktif
+        $data                      = SuratKeteranganAktif::where('id',$id)->first(); //object surat keterangan aktif
         $data->status_surat        = $request->status_surat;
+        if($data->status_surat == 'Ditolak'){
+            $data->alasan_penolakan = $request->alasan_penolakan;
+        }
         $data->save();
 
-        return redirect('/user/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya
+        return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya
     }
  
     public function destroy($id)

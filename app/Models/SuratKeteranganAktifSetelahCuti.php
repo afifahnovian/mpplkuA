@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class SuratKeteranganAktifSetelahCuti extends Model
 {
     protected $fillable = [
+                           'status_surat',
+                           'alasan_penolakan',
                            'waktuCuti_TahunAkademik',
                            'waktuCuti_Semester',
                            'alasanCuti',

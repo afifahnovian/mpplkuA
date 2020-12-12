@@ -37,6 +37,7 @@ class SuratKeteranganCutiController extends Controller
         $data->users_id                     = Auth::guard('users')->id();
         $data->waktuCuti_TahunAkademik      = $request->input('waktuCuti_TahunAkademik');
         $data->waktuCuti_Semester           = $request->input('waktuCuti_Semester');
+        $data->alasanCuti                   = $request->input('alasanCuti');
 
          //Validasi and request
          if ($request->hasFile('fileSuratPengajuanMahasiswa')) //name di form
@@ -87,8 +88,11 @@ class SuratKeteranganCutiController extends Controller
  
     public function update(Request $request, $id)
     {
-        $data                      = surat_keterangan_cuti::where('id',$request->id)->first(); //object surat keterangan cuti
+        $data                      = SuratKeteranganCuti::where('id',$id)->first(); //object surat keterangan cuti
         $data->status_surat        = $request->status_surat;
+        if($data->status_surat == 'Ditolak'){
+            $data->alasan_penolakan = $request->alasan_penolakan;
+        }
         $data->save();
 
         return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya

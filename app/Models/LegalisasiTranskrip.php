@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class LegalisasiTranskrip extends Model
 {
     protected $table = 'legalisasi_transkrip';
-    protected $fillable = ['keperluan',
+    protected $fillable = [
+                           'status_surat',
+                           'alasan_penolakan',
+                           'keperluan',
                            'fileKTM',
                            'fileTranskrip',
                            'users_id',

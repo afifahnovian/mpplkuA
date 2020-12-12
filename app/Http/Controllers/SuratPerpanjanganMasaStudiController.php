@@ -62,8 +62,11 @@ class SuratPerpanjanganMasaStudiController extends Controller
  
     public function update(Request $request, $id)
     {
-        $data                      = surat_perpanjangan_masa_studi::where('id',$request->id)->first(); //object surat perpanjangan masa studi
+        $data                      = SuratKeteranganLulus::where('id',$id)->first(); //object surat perpanjangan masa studi
         $data->status_surat        = $request->status_surat;
+        if($data->status_surat == 'Ditolak'){
+            $data->alasan_penolakan = $request->alasan_penolakan;
+        }
         $data->save();
 
         return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya

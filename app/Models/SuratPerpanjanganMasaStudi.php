@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SuratPerpanjanganMasaStudi extends Model
 {
     protected $table = 'surat_perpanjangan_masa_studi';
-    protected $fillable = ['waktuAkhirPerpanjangan',
+    protected $fillable = [
+                           'status_surat',
+                           'alasan_penolakan',
+                           'waktuAkhirPerpanjangan',
                            'waktuAkhirPerpanjangan_TahunAkademik',
                            'fileTabelRencanaStudi',
                            'users_id',

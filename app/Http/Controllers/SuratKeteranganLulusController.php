@@ -135,8 +135,11 @@ class SuratKeteranganLulusController extends Controller
  
     public function update(Request $request, $id)
     {
-        $data                      = surat_keterangan_lulus::where('id',$request->id)->first(); //object surat keterangan lulus
+        $data                      = SuratKeteranganLulus::where('id',$id)->first(); //object surat keterangan lulus
         $data->status_surat        = $request->status_surat;
+        if($data->status_surat == 'Ditolak'){
+            $data->alasan_penolakan = $request->alasan_penolakan;
+        }
         $data->save();
 
         return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya

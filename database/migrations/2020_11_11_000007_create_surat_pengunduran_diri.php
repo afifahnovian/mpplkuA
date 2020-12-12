@@ -16,6 +16,8 @@ class CreateSuratPengunduranDiri extends Migration
     {
         Schema::create('surat_pengunduran_diri', function (Blueprint $table) {
             $table->id();
+            $table->string('status_surat')->default('Pending');
+            $table->text('alasan_penolakan')->nullable();
             $table->integer('tahunAkademikPengunduran');
             $table->date('tanggalPengunduran');
             $table->integer('tahunTerakhirAktif');

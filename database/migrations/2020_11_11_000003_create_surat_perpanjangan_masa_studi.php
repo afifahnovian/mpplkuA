@@ -16,6 +16,8 @@ class CreateSuratPerpanjanganMasaStudi extends Migration
     {
         Schema::create('surat_perpanjangan_masa_studi', function (Blueprint $table) {
             $table->id();
+            $table->string('status_surat')->default('Pending');
+            $table->text('alasan_penolakan')->nullable();
             $table->date('waktuAkhirPerpanjangan');
             $table->integer('waktuAkhirPerpanjangan_TahunAkademik');
 

@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratPengunduranDiri extends Model
 {
-    protected $fillable = ['tahunAkademikPengunduran',
+    protected $fillable = [
+                           'status_surat',
+                           'alasan_penolakan',
+                           'tahunAkademikPengunduran',
                            'tanggalPengunduran',
                            'tahunTerakhirAktif',
                            'fileKTM',

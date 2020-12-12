@@ -32,7 +32,7 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
             'waktuAktif_TahunAkademik' => 'required',
             'waktuAktif_Semester' => 'required',
             'fileSuratCuti' => 'required',
-            'filePengantarDept' => 'required',
+            'fileSuratPengantarDept' => 'required',
             'fileBayarSPP' => 'required',
         ]);
         
@@ -93,8 +93,11 @@ class SuratKeteranganAktifSetelahCutiController extends Controller
  
     public function update(Request $request, $id)
     {
-        $data                      = surat_keterangan_aktif_setelah_cuti::where('id',$request->id)->first(); //object surat keterangan aktif setelah cuti
+        $data                      = SuratKeteranganAktifSetelahCuti::where('id',$id)->first(); //object surat keterangan aktif setelah cuti
         $data->status_surat        = $request->status_surat;
+        if($data->status_surat == 'Ditolak'){
+            $data->alasan_penolakan = $request->alasan_penolakan;
+        }
         $data->save();
 
         return redirect('/admin/dashboard')->with('success', 'Perubahan berhasil'); //belum fix route redirectnya

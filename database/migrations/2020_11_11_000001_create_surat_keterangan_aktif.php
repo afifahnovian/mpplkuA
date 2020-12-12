@@ -16,6 +16,8 @@ class CreateSuratKeteranganAktif extends Migration
     {
         Schema::create('surat_keterangan_aktif', function (Blueprint $table) {
             $table->id();
+            $table->string('status_surat')->default('Pending');
+            $table->text('alasan_penolakan')->nullable();
             $table->text('keperluan');
 
             $table->string('fileKTM');
