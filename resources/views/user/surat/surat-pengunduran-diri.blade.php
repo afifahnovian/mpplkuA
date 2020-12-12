@@ -4,11 +4,25 @@
 
 @section('content')        
     <div class="card-box">
+    @if (session()->has('success'))
+            <div class="alert alert-dismissible alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <h4 class="header-title">Surat Pengunduran Diri</h4>
         <br>
         <div class="row">
             <div class="col">
-                <form action="user-surat-pengunduran-diri" role="form" class="form-horizontal">
+                <form action="{{route('create-user-surat-pengunduran-diri')}}" role="form" class="form-horizontal" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <!-- Waktu Pengunduran -->
                     <div>
@@ -22,20 +36,20 @@
                             <div class="form-group col-md-6">
                                 <label class="col" for="tanggalPengunduran">Tanggal Pengunduran</label>
                                 <div class="col">
-                                    <input class="form-control" id="tanggalPengunduran" type="date"  name="tanggalPengunduran" value="{{ old('tanggalPengunduran') }}">
+                                    <input class="form-control" id="tanggalPengunduran" type="date"  name="tanggalPengunduran" >
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="col" >Tahun Akademik</label>
+                                <label class="col" for="tahunAkademikPengunduran">Tahun Akademik</label>
                                 <div class="col">
-                                    <input type="number" id="tahunAkademikPengunduran" class="form-control" placeholder="Contoh : 2017" value="{{ old('tahunAkademikPengunduran') }}">
+                                    <input type="number" id="tahunAkademikPengunduran" name="tahunAkademikPengunduran" class="form-control" placeholder="Contoh : 2017" >
                                 </div>
                             </div>   
                         </div>
                             <div class="form-group col-md-6">
-                                <label class="col" >Terakhir Aktif sbg Mahasiswa pada Tahun Akademik</label>
+                                <label class="col" for="tahunTerakhirAktif">Terakhir Aktif sbg Mahasiswa pada Tahun Akademik</label>
                                 <div class="col">
-                                    <input type="number" id="tahunTerakhirAktif" class="form-control" placeholder="Contoh : 2017" value="{{ old('tahunTerakhirAktif') }}">
+                                    <input type="number" id="tahunTerakhirAktif" name="tahunTerakhirAktif" class="form-control" placeholder="Contoh : 2017" >
                                 </div>
                             </div>
                     </div>
@@ -53,7 +67,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileKTM">Unggah File KTM</label>
                             <div class="col">
-                                <input type="file" id="fileKTM" class="form-control" placeholder=".jpg / .png" value="{{ old('fileKTM') }}">
+                                <input type="file" id="fileKTM" name="fileKTM" class="form-control" placeholder=".jpg / .png" >
                             </div>
                         </div>
 
@@ -61,7 +75,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratPengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="fileSuratPengantarDept" class="form-control" placeholder=".pdf" value="{{ old('fileSuratPengantarDept') }}">
+                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" class="form-control" placeholder=".pdf" >
                             </div>
                         </div>
 
@@ -69,7 +83,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratPengajuanMahasiswa">Unggah Surat Pengajuan Mahasiswa</label>
                             <div class="col">
-                                <input type="file" id="fileSuratPengajuanMahasiswa" class="form-control" placeholder=".pdf" value="{{ old('fileSuratPengajuanMahasiswa') }}">
+                                <input type="file" id="fileSuratPengajuanMahasiswa" name="fileSuratPengajuanMahasiswa" class="form-control" placeholder=".pdf" >
                             </div>
                         </div>
                     </div>

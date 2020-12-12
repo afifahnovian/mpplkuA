@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratPengunduranDiri extends Model
 {
+    protected $table = 'surat_pengunduran_diri';
     protected $fillable = [
                            'status_surat',
                            'alasan_penolakan',

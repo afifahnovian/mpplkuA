@@ -12,36 +12,40 @@
   </head>
   <body>
 
-      <div class="card">
+      <div class="card text-white bg-dark mb-3;">
         <div class="pt-3">
             <div class="ml-5">
-               <h4 > <p class="text-dark">SIMARSIP ADMIN</p></h4>
+               <h4>SIMARSIP ADMIN</h4>
             </div>
          </div>
       </div>
 
-    <div class="container">
-
-      <div class="pt-5">
+    <div class="pt-5">
+    <section class="row justify-content-center">
+<div class="card text-white bg-dark mb-3" style="width: 30rem;">
+  <div class="card-body">
         <h4 class="text-center">
-        <div class="mt-5"><p class="text-white">Masuk</p></div>
+          <div class="mt-5">Masuk</div>
         </h4>
-      </div>
 
- <form action="/admin/admindashboard">
+  <form action="/admin/admindashboard">
     <div class="mx-auto" style="width: 400px;">
       <div class="form-group">
-      <label class="text-white bg-dark" for="email">Email</label>
+      <label for="email">Email</label>
             <input class="form-control" type="email" id="email" name="email"  required autofocus placeholder="Masukan Email">
       <br>
-      <label class="text-white bg-dark" for="password">Kata Sandi</label>
+      <label for="password">Kata Sandi</label>
              <input class="form-control" type="password" id="password" name="password"  required autofocus placeholder="Masukan Kata Sandi">
         </div>
         
   <div class="pt-3"> <button type="submit" class="btn btn-primary btn-block">MASUK</button> </div>
   </div>
 </form>
-    
+  </div>
+</div>
+</div>
+</section>
+</div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
