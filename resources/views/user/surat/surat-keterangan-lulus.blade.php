@@ -61,7 +61,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratPengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" accept="application/pdf" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -69,7 +69,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileLembarPengesahan">Unggah Lembar Pengesahan</label>
                             <div class="col">
-                                <input type="file" id="fileLembarPengesahan" name="fileLembarPengesahan" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileLembarPengesahan" name="fileLembarPengesahan" accept="application/pdf" class="form-control" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -77,7 +77,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileTranskrip">Unggah File Transkrip</label>
                             <div class="col">
-                                <input type="file" id="fileTranskrip" name="fileTranskrip" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileTranskrip" name="fileTranskrip" class="form-control" accept="application/pdf" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSkripsi">Unggah File Skripsi</label>
                             <div class="col">
-                                <input type="file" id="fileSkripsi" name="fileSkripsi" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileSkripsi" name="fileSkripsi" class="form-control" accept="application/pdf" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -93,7 +93,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileBayarSPP">Unggah File Bukti Pembayaran SPP</label>
                             <div class="col">
-                                <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" accept="application/pdf" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -101,7 +101,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileBuktiBayarWisuda">Unggah File Bukti Pembayaran Wisuda</label>
                             <div class="col">
-                                <input type="file" id="fileBuktiBayarWisuda" name="fileBuktiBayarWisuda" class="form-control" placeholder=".pdf">
+                                <input type="file" id="fileBuktiBayarWisuda" name="fileBuktiBayarWisuda" class="form-control" accept="application/pdf" placeholder=".pdf">
                             </div>
                         </div>
 
@@ -109,7 +109,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileFoto">Unggah Pas Foto</label>
                             <div class="col">
-                                <input type="file" id="fileFoto" name="fileFoto" class="form-control" placeholder=".jpg / .png">
+                                <input type="file" id="fileFoto" name="fileFoto" class="form-control" accept="image/*" placeholder=".jpg / .png">
                             </div>
                         </div>
                     </div>

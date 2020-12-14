@@ -105,7 +105,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratCuti">Unggah Surat Cuti</label>
                             <div class="col">
-                                <input type="file" id="fileSuratCuti" class="form-control" placeholder=".pdf" name="fileSuratCuti" >
+                                <input type="file" id="fileSuratCuti" class="form-control" accept="application/pdf" placeholder=".pdf" name="fileSuratCuti" >
                             </div>
                         </div>
 
@@ -113,7 +113,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratPengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="fileSuratPengantarDept" class="form-control" placeholder=".pdf" name="fileSuratPengantarDept" >
+                                <input type="file" id="fileSuratPengantarDept" class="form-control" accept="application/pdf" placeholder=".pdf" name="fileSuratPengantarDept" >
                             </div>
                         </div>
 
@@ -121,7 +121,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileBayarSPP">Unggah Bukti Pembayaran SPP</label>
                             <div class="col">
-                                <input type="file" id="fileBayarSPP" class="form-control" placeholder=".pdf" name="fileBayarSPP" >
+                                <input type="file" id="fileBayarSPP" class="form-control" accept="application/pdf" placeholder=".pdf" name="fileBayarSPP" >
                             </div>
                         </div>
                     </div>

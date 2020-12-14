@@ -67,7 +67,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileKTM">Unggah File KTM</label>
                             <div class="col">
-                                <input type="file" id="fileKTM" name="fileKTM" class="form-control" placeholder=".jpg / .png" >
+                                <input type="file" id="fileKTM" name="fileKTM" class="form-control" accept="image/*" placeholder=".jpg / .png" >
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratPengantarDept">Unggah Surat Pengantar Departemen</label>
                             <div class="col">
-                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" class="form-control" placeholder=".pdf" >
+                                <input type="file" id="fileSuratPengantarDept" name="fileSuratPengantarDept" accept="application/pdf" class="form-control" placeholder=".pdf" >
                             </div>
                         </div>
 
@@ -83,7 +83,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileSuratPengajuanMahasiswa">Unggah Surat Pengajuan Mahasiswa</label>
                             <div class="col">
-                                <input type="file" id="fileSuratPengajuanMahasiswa" name="fileSuratPengajuanMahasiswa" class="form-control" placeholder=".pdf" >
+                                <input type="file" id="fileSuratPengajuanMahasiswa" name="fileSuratPengajuanMahasiswa" class="form-control" accept="application/pdf" placeholder=".pdf" >
                             </div>
                         </div>
                     </div>

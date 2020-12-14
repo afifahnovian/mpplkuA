@@ -4,20 +4,6 @@
 
 @section('content')        
     <div class="card-box">
-        @if (session()->has('success'))
-            <div class="alert alert-dismissible alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <h4 class="header-title">Legalisir Transkrip</h4>
         <br>
         <div class="row">
@@ -43,7 +29,7 @@
                     <div class="form-group col">
                         <label class="col" for="fileKTM">Unggah File KTM</label>
                         <div class="col">
-                            <input type="file" id="fileKTM" name="fileKTM" class="form-control" placeholder=".jpg / .png">
+                            <input type="file" id="fileKTM" name="fileKTM" accept="image/*"  class="form-control" placeholder=".jpg / .png">
                         </div>
                     </div>
 
@@ -51,7 +37,7 @@
                     <div class="form-group col">
                         <label class="col" for="fileTranskrip">Unggah Transkrip yang akan Dilegalisir</label>
                         <div class="col">
-                            <input type="file" id="fileTranskrip" name="fileTranskrip" class="form-control" placeholder=".pdf">
+                            <input type="file" id="fileTranskrip" name="fileTranskrip" accept="application/pdf" class="form-control" placeholder=".pdf">
                         </div>
                     </div>
                     <!-- Submit -->

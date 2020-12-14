@@ -62,7 +62,7 @@
                         <div class="form-group col">
                             <label class="col" for="fileTabelRencanaStudi">Tabel Rencana Studi</label>
                             <div class="col">
-                                <input type="file" id="fileTabelRencanaStudi" name="fileTabelRencanaStudi" class="form-control" placeholder=".jpg / .png">
+                                <input type="file" id="fileTabelRencanaStudi" name="fileTabelRencanaStudi" accept="application/pdf" class="form-control" placeholder=".jpg / .png">
                             </div>
                         </div>
                         

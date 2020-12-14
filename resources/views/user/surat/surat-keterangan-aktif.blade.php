@@ -44,7 +44,7 @@
                     <div class="form-group col">
                         <label class="col" for="fileKTM">Unggah File KTM</label>
                         <div class="col">
-                            <input type="file" id="fileKTM" name="fileKTM" class="form-control" placeholder=".jpg / .png">
+                            <input type="file" id="fileKTM" name="fileKTM" class="form-control" accept="image/*" placeholder=".jpg / .png">
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@
                     <div class="form-group col">
                         <label class="col" for="fileBayarSPP">Unggah Bukti Pembayaran SPP</label>
                         <div class="col">
-                            <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" placeholder=".jpg /.png /.pdf">
+                            <input type="file" id="fileBayarSPP" name="fileBayarSPP" class="form-control" accept="application/pdf" placeholder=".pdf">
                         </div>
                     </div>
                     
