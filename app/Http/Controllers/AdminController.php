@@ -52,11 +52,8 @@ class AdminController extends Controller
 
     public function viewSuratKeteranganAktif()
     {
-        $user = Auth::guard('users')->user();
 
-        $biodata_user = BiodataUser::where('users_id', $user->id)->first();
-
-        return view('admin.detail.surat-keterangan-aktif-detail', compact('biodata_user','user'));
+        return view('admin.detail.surat-keterangan-aktif-detail');
     }
 
     public function viewLegalisir()
@@ -89,15 +86,74 @@ class AdminController extends Controller
         return view('admin.detail.surat-perpanjangan-masa-studi-detail');
     }
 
-    public function viewDiproses()
+    public function viewDiprosesLegalisir()
     {
-        return view('admin.detail.diproses.diproses');
+        return view('admin.detail.diproses.Diproses_legalisir');
     }
 
-    public function viewDitolak()
+    public function viewDiprosesKeteranganAktifSetelahCuti()
     {
-        return view('admin.detail.ditolak.ditolak');
+        return view('admin.detail.diproses.Diproses_keterangan_aktif_setelah_cuti');
+    }
+
+    public function viewDiprosesKeteranganAktif()
+    {
+        return view('admin.detail.diproses.Diproses_keterangan_aktif');
+    }
+
+    public function viewDiprosesKeteranganCuti()
+    {
+        return view('admin.detail.diproses.Diproses_keterangan_cuti');
+    }
+
+    public function viewDiprosesKeteranganLulus()
+    {
+        return view('admin.detail.diproses.Diproses_keterangan_lulus');
+    }
+
+    public function viewDiprosesPengunduranDiri()
+    {
+        return view('admin.detail.diproses.Diproses_pengunduran_diri');
+    }
+
+    public function viewDiprosesPerpanjanganMasa()
+    {
+        return view('admin.detail.diproses.Diproses_perpanjangan_masa');
     }
     
+    public function viewDitolakLegalisir()
+    {
+        return view('admin.detail.ditolak.ditolak_legalisir');
+    }
+    
+    public function viewDitolakKeteranganAktifSetelahCuti()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_aktif_setelah_cuti');
+    }
+
+    public function viewDitolakKeteranganAktif()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_aktif');
+    }
+
+    public function viewDitolakKeteranganCuti()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_cuti');
+    }
+
+    public function viewDitolakKeteranganLulus()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_lulus');
+    }
+
+    public function viewDitolakPengunduranDiri()
+    {
+        return view('admin.detail.ditolak.ditolak_pengunduran_diri');
+    }
+
+    public function viewDitolakPerpanjanganMasa()
+    {
+        return view('admin.detail.ditolak.ditolak_perpanjangan_masa');
+    }
 }
 

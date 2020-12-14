@@ -1,24 +1,25 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
-<div class="card border-dark mb-3" style="max-width: 80rem;">
+<div class="card-box">
 <div class="row">
-<div class="col-md-8">
-           <div class="card-header"> <h1> STATUS SURAT </h1></div></div> 
-            <div class="col-6 col-md-2">
-<label><h1><span class="badge label-table badge-info">Pending</span></h1></label>
+<div class="col-10">
+           <div class="card-header"> 
+             <h3> STATUS SURAT </h3>                
+<h4><span class="badge label-table badge-info">Pending</span></h4>
 
-</div>
+    </div>
+        </div> 
+
 <div class="col-6 col-md-2" >
-<div class="my-2"><a href="{{route('admin-suratdiproses')}}">
+<div class="my-2"><a href="{{route('admin-diprosesketeranganaktif')}}">
 <button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
 </a></div>
 
-    <a href="{{route('admin-suratditolak')}}">
+    <a href="{{route('admin-ditolakketeranganaktif')}}">
         <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
     </a>
-</div>
-  </div>
+</div></div>
 
 
   <body>
@@ -90,72 +91,23 @@
                                                     <div class="col-1">
                                                     :
                                                     </div>
-                                                    <div class="col-2">
+                                                    <div class="col-3">
                                                     {{ $user->email }}
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    Semester
+                                                    Keperluan Pengajuan Surat
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
-                                                    <div class="col-2">
-                                                    {{$biodata_user->semester}}
+                                                    <div class="col-5">
+                                                    alasan
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Asal Prodi 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    {{$biodata_user->asal_Prodi}}
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Asal Departemen 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    {{ $biodata_user->departemen}}
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Tahun Akademik 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    {{$biodata_user->tahun_Akademik}}
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Keperluan Surat
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-4">
-                                                    {{$daftarSKA->keperluan}}
-                                                    </div>
-                                                </div>
-                                                <br>
-                                          
+                                                <br>                                         
                                                 <div class="row">
                                                     <div class="col-2">
                                                     File KTM

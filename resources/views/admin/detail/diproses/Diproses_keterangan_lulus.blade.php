@@ -2,27 +2,26 @@
 
 @section('content')
 <div class="card-box">
-<div class="row">
-<div class="col-10">
            <div class="card-header"> 
              <h3> STATUS SURAT </h3>                
-<h4><span class="badge label-table badge-info">Pending</span></h4>
+<h4><span class="badge label-table badge-warning">Diproses</span></h4>
+ </div>
 
+<h3>Unggah Berkas</h3>
+
+<div class="row">
+    <div class="col-4">
+            <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
     </div>
-        </div> 
-
-<div class="col-6 col-md-2" >
-<div class="my-2"><a href="{{route('admin-diprosesketeranganlulus')}}">
-<button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
-</a></div>
-
-    <a href="{{route('admin-ditolakketeranganlulus')}}">
-        <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
+    <div class="col">
+    <a href="{{route('admin-selesai')}}"> 
+        <button style="max-width: 10rem;" type="submit" class="btn btn-success btn-block">SUBMIT</button>
     </a>
-</div></div>
+    </div>
+</div>
 
 
-  <body>
+<body>
         <!-- Begin page -->
         <div id="wrapper">
             <div class="content-page{margin-left:240px;}">

@@ -2,27 +2,26 @@
 
 @section('content')
 <div class="card-box">
-<div class="row">
-<div class="col-10">
            <div class="card-header"> 
              <h3> STATUS SURAT </h3>                
-<h4><span class="badge label-table badge-info">Pending</span></h4>
+<h4><span class="badge label-table badge-warning">Diproses</span></h4>
+ </div>
 
+<h3>Unggah Berkas</h3>
+
+<div class="row">
+    <div class="col-4">
+            <input type="file" id="suratpengantardept" class="form-control" placeholder=".pdf">
     </div>
-        </div> 
-
-<div class="col-6 col-md-2" >
-<div class="my-2"><a href="{{route('admin-diprosesketeranganlulus')}}">
-<button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
-</a></div>
-
-    <a href="{{route('admin-ditolakketeranganlulus')}}">
-        <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
+    <div class="col">
+    <a href="{{route('admin-selesai')}}"> 
+        <button style="max-width: 10rem;" type="submit" class="btn btn-success btn-block">SUBMIT</button>
     </a>
-</div></div>
+    </div>
+</div>
 
 
-  <body>
+<body>
         <!-- Begin page -->
         <div id="wrapper">
             <div class="content-page{margin-left:240px;}">
@@ -33,7 +32,7 @@
                             <div class="col-xl-12">
                                 <!-- Personal-Information -->
                                 <div class="card-box">
-                                    <h2 class="header-title{font-size:40px}">Surat Keterangan Lulus</h2> <br>
+                                    <h2 class="header-title{font-size:40px}">Surat Keterangan Aktif Setelah Cuti</h2> <br>
                                         <div class="panel-body">
                                             <div class="container">
                                                 <div class="row">
@@ -44,7 +43,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Afifah Noviani
+                                                    {{ $user->nama }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -56,7 +55,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    G64170023
+                                                    {{ $user->nim }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -68,7 +67,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Perempuan
+                                                    {{ $biodata_user->jenis_Kelamin }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -80,7 +79,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    0895366362474
+                                                    {{ $biodata_user->nomor_Telepon }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -92,31 +91,80 @@
                                                     :
                                                     </div>
                                                     <div class="col-5">
-                                                    afifah_novian@apps.ipb.ac.id
+                                                    {{ $user->email }}
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    Alamat Asal
+                                                    Tahun Akademik
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
-                                                    <div class="col-5">
-                                                    jln. imam bonjol
+                                                    <div class="col-2">
+                                                    2020
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    Alamat di Bogor
+                                                    Semester
+                                                    </div>
+                                                    <div class="col-1">
+                                                    :
+                                                    </div>
+                                                    <div class="col-2">
+                                                    7
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                    Alasan Cuti
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
                                                     <div class="col-5">
-                                                    Wisma Rosa
+                                                    Alasan
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                    Tahun Akademik 
+                                                    </div>
+                                                    <div class="col-1">
+                                                    :
+                                                    </div>
+                                                    <div class="col-2">
+                                                    {{$biodata_user->tahun_Akademik}}
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                    Semester
+                                                    </div>
+                                                    <div class="col-1">
+                                                    :
+                                                    </div>
+                                                    <div class="col-2">
+                                                    7
+                                                    </div>
+                                                </div>
+                                                <br>
+                                          
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                    Unggah Surat Cuti
+                                                    </div>
+                                                    <div class="col-1">
+                                                    :
+                                                    </div>
+                                                    <div class="col-2">
+                                                    <a href = "#"> Surat Cuti.Pdf </a>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -128,84 +176,21 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> Surat Pengantar dept.pdf </a>
+                                                    <a href = "#"> Surat Pengantar Departemen.pdf </a>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    Unggah Lembar Pengesahan
+                                                    Unggah Bukti Pembayaran SPP
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> Lembar Pengesahan.pdf </a>
+                                                    <a href = "#">Bukti Pembayaran SPP.pdf </a>
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Unggah File Transkrip
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-4">
-                                                    <a href = "#"> File Transkrip.pdf </a>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                          
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Unggah File Skripsi
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    <a href = "#">Unggah File Skripsi.pdf</a>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Unggah File Bukti Pembayaran SPP
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    <a href = "#"> Bukti SPP.pdf </a>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Unggah File Bukti Pembayaran Wisuda
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    <a href = "#"> File Bukti Pembayaran Wisuda.pdf </a>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Unggah Pas Foto
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    <a href = "#"> foto.jpg </a>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                
  
                                                 <!-- end row -->
                                             </div>
@@ -231,6 +216,5 @@
         
         
     </body>
-
     
 @endsection
