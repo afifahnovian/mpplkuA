@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="shortcut icon" href="/highdamin/light/assets/images/favicon.ico">
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/admin.min.css" >
+    <link rel="stylesheet" href="{{asset('/css/admin.min.css')}}" >
+    <link href="{{asset('highdamin/light/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('highdamin/light/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
 
     <title>SIMARSIP</title>
   </head>
@@ -21,7 +25,7 @@
        </div>
   </div>
 
-  <div class="pt-5">
+  <div class="mt-5">
     <section class="row justify-content-center">
       <div class="card text-white bg-dark mb-3" style="width: 30rem;">
         <div class="card-body">
