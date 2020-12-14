@@ -35,13 +35,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
-                                
-                                <!--
-                                <a href="{{route('admin-keluar')}}">
-                                        <span> Keluar </span>
-                                 </a>
-                                -->
-                                 <a href="{{route('admin-keluar')}}" class="dropdown-item notify-item">
+                                <a href="#" class="dropdown-item notify-item">
                                     <i class="fi-power"></i> <span>Keluar</span>
                                 </a>
                             </div>

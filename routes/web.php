@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BiodataUserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UsersRegistrationController;
 use App\Http\Controllers\UserLoginController;
@@ -42,7 +43,11 @@ Route::prefix('admin')->group( function(){
     Route::get('/suratselesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
     Route::get('/suratditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
-    Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
+
+    Route::get('/login', [AdminController::class, 'viewKeluar']);
+    //Route::post('/login', 'App\Http\Controllers\AdminLoginController@postLogin')->name('admin-login');
+    Route::post('/login', [AdminLoginController::class,'postLogin'])->name('admin-login');
+
     Route::get('/surat-keterangan-aktif-detail', [AdminController::class, 'viewSuratKeteranganAktif'])->name('admin-suratketeranganaktif');
     Route::get('/legalisir', [AdminController::class, 'viewLegalisir'])->name('admin-legalisir');
     Route::get('/surat-keterangan-cuti-detail', [AdminController::class, 'viewSuratKeteranganCuti'])->name('admin-suratketerangancuti');
@@ -50,9 +55,22 @@ Route::prefix('admin')->group( function(){
     Route::get('/surat-keterangan-lulus', [AdminController::class, 'viewSuratKeteranganLulus'])->name('admin-suratketeranganlulus');
     Route::get('/surat-pengunduran-diri', [AdminController::class, 'viewSuratPengunduranDiri'])->name('admin-suratpengundurandiri');
     Route::get('/surat-perpanjangan-masa', [AdminController::class, 'viewSuratPerpanjanganMasa'])->name('admin-suratperpanjanganmasa');
-    Route::get('/diproses', [AdminController::class, 'viewDiproses'])->name('admin-suratdiproses');
-    Route::get('/ditolak', [AdminController::class, 'viewDitolak'])->name('admin-suratditolak');
-    
+    //surat diproses
+    Route::get('/diproses-legalisir', [AdminController::class, 'viewDiprosesLegalisir'])->name('admin-diproseslegalisir');
+    Route::get('/diproses-keterangan-aktif-setelah-cuti', [AdminController::class, 'viewDiprosesKeteranganAktifSetelahCuti'])->name('admin-diprosesketeranganaktifsetelahcuti');
+    Route::get('/diproses-keterangan-aktif', [AdminController::class, 'viewDiprosesKeteranganAktif'])->name('admin-diprosesketeranganaktif');
+    Route::get('/diproses-keterangan-cuti', [AdminController::class, 'viewDiprosesKeteranganCuti'])->name('admin-diprosesketerangancuti');
+    Route::get('/diproses-keterangan-lulus', [AdminController::class, 'viewDiprosesKeteranganLulus'])->name('admin-diprosesketeranganlulus');
+    Route::get('/diproses-pengunduran-diri', [AdminController::class, 'viewDiprosesPengunduranDiri'])->name('admin-diprosespengundurandiri');
+    Route::get('/diproses-perpanjangan-masa', [AdminController::class, 'viewDiprosesPerpanjanganMasa'])->name('admin-diprosesperpanjanganmasa');
+    //surat ditolak
+    Route::get('/ditolak-leglisir', [AdminController::class, 'viewDitolakLegalisir'])->name('admin-ditolaklegalisir');
+    Route::get('/ditolak-keterangan-aktif-setelah-cuti', [AdminController::class, 'viewDitolakKeteranganAktifSetelahCuti'])->name('admin-ditolakketeranganaktifsetelahcuti');
+    Route::get('/ditolak-keterangan-aktif', [AdminController::class, 'viewDitolakKeteranganAktif'])->name('admin-ditolakketeranganaktif');
+    Route::get('/ditolak-keterangan-cuti', [AdminController::class, 'viewDitolakKeteranganCuti'])->name('admin-ditolakketerangancuti');
+    Route::get('/ditolak-keterangan-lulus', [AdminController::class, 'viewDitolakKeteranganLulus'])->name('admin-ditolakketeranganlulus');
+    Route::get('/ditolak-pengunduran-diri', [AdminController::class, 'viewDitolakPengunduranDiri'])->name('admin-ditolakpengundurandiri');
+    Route::get('/ditolak-perpanjangan-masa', [AdminController::class, 'viewDitolakPerpanjanganMasa'])->name('admin-ditolakperpanjanganmasa');
 });
    
 //user
@@ -61,6 +79,8 @@ Route::prefix('user')->group( function(){
     //Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
     Route::get('/login','App\Http\Controllers\UserLoginController@getLogin');
     Route::post('/login', 'App\Http\Controllers\UserLoginController@postLogin')->name('user-login');
+
+    //Route::get('/logout', 'App\Http\Controllers\UserLoginController@logout')->name('user-logout');
 
     //Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
     Route::get('/user/register','App\Http\Controllers\UsersRegistrationController@create');

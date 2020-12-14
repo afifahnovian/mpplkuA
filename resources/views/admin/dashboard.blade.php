@@ -10,7 +10,7 @@
     <div class="mb-3" >
     <div class="card">
     <table class="table table-hover">
-    <tbody type="submit">
+    <!--<tbody type="submit"> -->
     <tr>
       <th scope="row"> <img src="/highdamin/dark/assets/images/icons/data_protection.svg" alt="" width="100%" class="img-responsive logo"></th>
       <td> 
@@ -77,28 +77,28 @@
       <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>May 26, 2019</td>
       <td><span class="badge label-table badge-danger">Ditolak</span></td>
-      <td><a href="{{route('admin-suratketeranganaktif')}}"> DETAIL</a></td>
+      <td><a href="#"> DETAIL</a></td>
     </tr>
     
     <tr>
     <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>May 26, 2019</td>
       <td><span class="badge label-table badge-warning">Diproses</span></td>
-      <td><a href="{{route('admin-suratketeranganaktif')}}"> DETAIL</a></td>
+      <td><a href="#"> DETAIL</a></td>
     </tr>
 
     <tr>
     <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>May 26, 2019</td>
       <td><span class="badge label-table badge-success">Selesai</span></td>
-      <td><a href="{{route('admin-suratketeranganaktif')}}"> DETAIL</a></td>
+      <td><a href="#"> DETAIL</a></td>
     </tr>
 
     <tr>
     <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>May 26, 2019</td>
       <td><span class="badge label-table badge-info">Pending</span></td>
-      <td><a href="{{route('admin-suratketeranganaktif')}}"> DETAIL</a></td>
+      <td><a href="#"> DETAIL</a></td>
     </tr>
 
   </tbody>

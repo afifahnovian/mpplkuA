@@ -1,24 +1,25 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
-<div class="card border-dark mb-3" style="max-width: 80rem;">
+<div class="card-box">
 <div class="row">
-<div class="col-md-8">
-           <div class="card-header"> <h1> STATUS SURAT </h1></div></div> 
-            <div class="col-6 col-md-2">
-<label><h1><span class="badge label-table badge-info">Pending</span></h1></label>
+<div class="col-10">
+           <div class="card-header"> 
+             <h3> STATUS SURAT </h3>                
+<h4><span class="badge label-table badge-info">Pending</span></h4>
 
-</div>
+    </div>
+        </div> 
+
 <div class="col-6 col-md-2" >
-<div class="my-2"><a href="{{route('admin-suratdiproses')}}">
+<div class="my-2"><a href="{{route('admin-diprosesketeranganaktif')}}">
 <button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
 </a></div>
 
-    <a href="{{route('admin-suratditolak')}}">
+    <a href="{{route('admin-ditolakketeranganaktif')}}">
         <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
     </a>
-</div>
-  </div>
+</div></div>
 
 
   <body>
@@ -43,7 +44,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Afifah Noviani
+                                                    {{ $user->nama }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -55,7 +56,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    G64170023
+                                                    {{ $user->nim }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -67,7 +68,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Perempuan
+                                                    {{ $biodata_user->jenis_Kelamin }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -79,7 +80,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    0895366362474
+                                                    {{ $biodata_user->nomor_Telepon }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -90,72 +91,23 @@
                                                     <div class="col-1">
                                                     :
                                                     </div>
-                                                    <div class="col-2">
-                                                    afifah_novian@apps.ipb.ac.id
+                                                    <div class="col-3">
+                                                    {{ $user->email }}
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    Semester
+                                                    Keperluan Pengajuan Surat
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
-                                                    <div class="col-2">
-                                                    7
+                                                    <div class="col-5">
+                                                    alasan
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Asal Prodi 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    Ilmu Komputer
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Asal Departemen 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    Ilmu Komputer
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Tahun Akademik 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    2017
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Keperluan Surat
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-4">
-                                                    Lomba
-                                                    </div>
-                                                </div>
-                                                <br>
-                                          
+                                                <br>                                         
                                                 <div class="row">
                                                     <div class="col-2">
                                                     File KTM
@@ -164,7 +116,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> KTM.JPG </a>
+                                                    <a href = "#"> {{$daftarSKA->fileKTM}}</a>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -176,7 +128,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> Bukti SPP.pdf </a>
+                                                    <a href = "#"> {{$daftarSKA->fileBayarSPP}} </a>
                                                     </div>
                                                 </div>
  

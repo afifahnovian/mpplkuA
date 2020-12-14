@@ -43,6 +43,6 @@ class UserLoginController extends Controller
     }
 
     return redirect('/');
-
+    
   }
 }

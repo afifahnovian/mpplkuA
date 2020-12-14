@@ -26,7 +26,6 @@ class UsersRegistrationController extends Controller
         $users = User::create(request(['nama', 'nim', 'email', 'password']));
         $biodata_user = new BiodataUser;
         $biodata_user->users_id = $users->id;
-        $biodata_user->id = 1;
         $biodata_user->jenis_Kelamin = 'NULL';
         $biodata_user->nomor_Telepon = 'NULL';
         $biodata_user->asal_Prodi = 'NULL';

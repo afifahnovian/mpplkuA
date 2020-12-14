@@ -1,24 +1,26 @@
 @extends('layouts.layoutadmin')
 
 @section('content')
-<div class="card border-dark mb-3" style="max-width: 80rem;">
+<div class="card-box">
 <div class="row">
-<div class="col-md-8">
-           <div class="card-header"> <h1> STATUS SURAT </h1></div></div> 
-            <div class="col-6 col-md-2">
-<label><h1><span class="badge label-table badge-info">Pending</span></h1></label>
+<div class="col-10">
+           <div class="card-header"> 
+             <h3> STATUS SURAT </h3>                
+<h4><span class="badge label-table badge-info">Pending</span></h4>
 
-</div>
+    </div>
+        </div> 
+
 <div class="col-6 col-md-2" >
-<div class="my-2"><a href="{{route('admin-suratdiproses')}}">
+<div class="my-2"><a href="{{route('admin-diproseslegalisir')}}">
 <button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
 </a></div>
 
-    <a href="{{route('admin-suratditolak')}}">
+    <a href="{{route('admin-ditolaklegalisir')}}">
         <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
     </a>
-</div>
-  </div>
+</div></div>
+  
 
 
   <body>
@@ -32,7 +34,7 @@
                             <div class="col-xl-12">
                                 <!-- Personal-Information -->
                                 <div class="card-box">
-                                    <h2 class="header-title{font-size:40px}">Surat Legalisir Transkip</h2> <br>
+                                    <h3 class="header-title{font-size:40px}">Surat Legalisir Transkip</h3> <br>
                                         <div class="panel-body">
                                             <div class="container">
                                                 <div class="row">
@@ -90,72 +92,23 @@
                                                     <div class="col-1">
                                                     :
                                                     </div>
-                                                    <div class="col-2">
+                                                    <div class="col-3">
                                                     afifah_novian@apps.ipb.ac.id
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    Semester
+                                                    Keperluan Pengajuan Surat
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
-                                                    <div class="col-2">
-                                                    7
+                                                    <div class="col-5">
+                                                    alasan
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Asal Prodi 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    Ilmu Komputer
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Asal Departemen 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    Ilmu Komputer
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Tahun Akademik 
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-2">
-                                                    2017
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                    Keperluan Surat
-                                                    </div>
-                                                    <div class="col-1">
-                                                    :
-                                                    </div>
-                                                    <div class="col-4">
-                                                    Lomba
-                                                    </div>
-                                                </div>
-                                                <br>
-                                          
                                                 <div class="row">
                                                     <div class="col-2">
                                                     File KTM
@@ -170,13 +123,13 @@
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    File Bukti SPP
+                                                    Unggah Transkrip yang akan Dilegalisir
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> Bukti SPP.pdf </a>
+                                                    <a href = "#">Transkrip yang akan Dilegalisir.pdf </a>
                                                     </div>
                                                 </div>
  

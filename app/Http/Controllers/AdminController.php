@@ -1,7 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\SuratKeteranganAktif;
+use App\Models\SuratKeteranganAktifSetelahCuti;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\BiodataUser;
+use Auth;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,7 +23,11 @@ class AdminController extends Controller
 
     public function viewSuratMasuk()
     {
-        return view('admin.surat-masuk');
+        $daftarSKA = SuratKeteranganAktif::all();
+
+        $daftarSKAC = SuratKeteranganAktifSetelahCuti::all();
+
+        return view('admin.surat-masuk', compact('daftarSKA', 'daftarSKAC'));
     }
     
     public function viewSuratSelesai()
@@ -41,8 +50,12 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function viewSuratKeteranganAktif()
+    public function viewSuratKeteranganAktif($id)
     {
+        //$daftarSKA = SuratKeteranganAktif::where('id', $id);
+
+        //return view('admin.detail.surat-keterangan-aktif-detail', compact('daftarSKA'));
+
         return view('admin.detail.surat-keterangan-aktif-detail');
     }
 
@@ -76,15 +89,74 @@ class AdminController extends Controller
         return view('admin.detail.surat-perpanjangan-masa-studi-detail');
     }
 
-    public function viewDiproses()
+    public function viewDiprosesLegalisir()
     {
-        return view('admin.detail.diproses.diproses');
+        return view('admin.detail.diproses.Diproses_legalisir');
     }
 
-    public function viewDitolak()
+    public function viewDiprosesKeteranganAktifSetelahCuti()
     {
-        return view('admin.detail.ditolak.ditolak');
+        return view('admin.detail.diproses.Diproses_keterangan_aktif_setelah_cuti');
+    }
+
+    public function viewDiprosesKeteranganAktif()
+    {
+        return view('admin.detail.diproses.Diproses_keterangan_aktif');
+    }
+
+    public function viewDiprosesKeteranganCuti()
+    {
+        return view('admin.detail.diproses.Diproses_keterangan_cuti');
+    }
+
+    public function viewDiprosesKeteranganLulus()
+    {
+        return view('admin.detail.diproses.Diproses_keterangan_lulus');
+    }
+
+    public function viewDiprosesPengunduranDiri()
+    {
+        return view('admin.detail.diproses.Diproses_pengunduran_diri');
+    }
+
+    public function viewDiprosesPerpanjanganMasa()
+    {
+        return view('admin.detail.diproses.Diproses_perpanjangan_masa');
     }
     
+    public function viewDitolakLegalisir()
+    {
+        return view('admin.detail.ditolak.ditolak_legalisir');
+    }
+    
+    public function viewDitolakKeteranganAktifSetelahCuti()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_aktif_setelah_cuti');
+    }
+
+    public function viewDitolakKeteranganAktif()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_aktif');
+    }
+
+    public function viewDitolakKeteranganCuti()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_cuti');
+    }
+
+    public function viewDitolakKeteranganLulus()
+    {
+        return view('admin.detail.ditolak.ditolak_keterangan_lulus');
+    }
+
+    public function viewDitolakPengunduranDiri()
+    {
+        return view('admin.detail.ditolak.ditolak_pengunduran_diri');
+    }
+
+    public function viewDitolakPerpanjanganMasa()
+    {
+        return view('admin.detail.ditolak.ditolak_perpanjangan_masa');
+    }
 }
 
