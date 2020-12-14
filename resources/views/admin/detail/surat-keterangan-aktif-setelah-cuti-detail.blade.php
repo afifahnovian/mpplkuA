@@ -43,7 +43,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Afifah Noviani
+                                                    {{ $user->nama }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -55,7 +55,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    G64170023
+                                                    {{ $user->nim }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -67,7 +67,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Perempuan
+                                                    {{ $biodata_user->jenis_Kelamin }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -79,7 +79,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    0895366362474
+                                                    {{ $biodata_user->nomor_Telepon }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -91,7 +91,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    afifah_novian@apps.ipb.ac.id
+                                                    {{ $user->email }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -103,7 +103,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    7
+                                                    {{$biodata_user->semester}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -115,7 +115,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Ilmu Komputer
+                                                    {{$biodata_user->asal_Prodi}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -127,7 +127,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Ilmu Komputer
+                                                    {{ $biodata_user->departemen}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -139,19 +139,19 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    2017
+                                                    {{$biodata_user->tahun_Akademik}}
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-2">
-                                                    Keperluan Surat
+                                                    Alasan Penolakan
                                                     </div>
                                                     <div class="col-1">
                                                     :
                                                     </div>
                                                     <div class="col-4">
-                                                    Lomba
+                                                    {{$daftarSKAC->alasan_penolakan}}
                                                     </div>
                                                 </div>
                                                 <br>

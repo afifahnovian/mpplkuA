@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BiodataUserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UsersRegistrationController;
 use App\Http\Controllers\UserLoginController;
@@ -42,7 +43,11 @@ Route::prefix('admin')->group( function(){
     Route::get('/suratselesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
     Route::get('/suratditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
-    Route::get('/adminlogin', [AdminController::class, 'viewKeluar'])->name('admin-keluar');
+
+    Route::get('/login', [AdminController::class, 'viewKeluar']);
+    //Route::post('/login', 'App\Http\Controllers\AdminLoginController@postLogin')->name('admin-login');
+    Route::post('/login', [AdminLoginController::class,'postLogin'])->name('admin-login');
+
     Route::get('/surat-keterangan-aktif-detail', [AdminController::class, 'viewSuratKeteranganAktif'])->name('admin-suratketeranganaktif');
     Route::get('/legalisir', [AdminController::class, 'viewLegalisir'])->name('admin-legalisir');
     Route::get('/surat-keterangan-cuti-detail', [AdminController::class, 'viewSuratKeteranganCuti'])->name('admin-suratketerangancuti');

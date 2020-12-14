@@ -1,7 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\SuratKeteranganAktif;
+use App\Models\SuratKeteranganAktifSetelahCuti;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\BiodataUser;
+use Auth;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,7 +23,11 @@ class AdminController extends Controller
 
     public function viewSuratMasuk()
     {
-        return view('admin.surat-masuk');
+        $daftarSKA = SuratKeteranganAktif::all();
+
+        $daftarSKAC = SuratKeteranganAktifSetelahCuti::all();
+
+        return view('admin.surat-masuk', compact('daftarSKA', 'daftarSKAC'));
     }
     
     public function viewSuratSelesai()
@@ -43,7 +52,11 @@ class AdminController extends Controller
 
     public function viewSuratKeteranganAktif()
     {
-        return view('admin.detail.surat-keterangan-aktif-detail');
+        $user = Auth::guard('users')->user();
+
+        $biodata_user = BiodataUser::where('users_id', $user->id)->first();
+
+        return view('admin.detail.surat-keterangan-aktif-detail', compact('biodata_user','user'));
     }
 
     public function viewLegalisir()

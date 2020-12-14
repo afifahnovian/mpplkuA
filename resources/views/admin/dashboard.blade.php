@@ -10,7 +10,7 @@
     <div class="mb-3" >
     <div class="card">
     <table class="table table-hover">
-    <tbody type="submit">
+    <!--<tbody type="submit"> -->
     <tr>
       <th scope="row"> <img src="/highdamin/dark/assets/images/icons/data_protection.svg" alt="" width="100%" class="img-responsive logo"></th>
       <td> 

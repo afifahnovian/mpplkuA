@@ -59,9 +59,9 @@
                                             :
                                             </div>
                                             
-                                                <div class="col-2">
-                                                    {{ $user->nama }}
-                                                </div>
+                                            <div class="col-2">
+                                            {{ $user->nama }}
+                                            </div>
                                             
                                         </div>
                                         <br>
