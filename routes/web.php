@@ -80,6 +80,8 @@ Route::prefix('user')->group( function(){
     Route::get('/login','App\Http\Controllers\UserLoginController@getLogin');
     Route::post('/login', 'App\Http\Controllers\UserLoginController@postLogin')->name('user-login');
 
+    //Route::get('/logout', 'App\Http\Controllers\UserLoginController@logout')->name('user-logout');
+
     //Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
     Route::get('/user/register','App\Http\Controllers\UsersRegistrationController@create');
     Route::post('/user/register', 'App\Http\Controllers\UsersRegistrationController@store')->name('user-register');

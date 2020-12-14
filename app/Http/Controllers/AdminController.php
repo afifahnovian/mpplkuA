@@ -50,8 +50,11 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function viewSuratKeteranganAktif()
+    public function viewSuratKeteranganAktif($id)
     {
+        //$daftarSKA = SuratKeteranganAktif::where('id', $id);
+
+        //return view('admin.detail.surat-keterangan-aktif-detail', compact('daftarSKA'));
 
         return view('admin.detail.surat-keterangan-aktif-detail');
     }

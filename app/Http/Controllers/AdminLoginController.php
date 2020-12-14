@@ -29,7 +29,7 @@ class AdminLoginController extends Controller
     // }
 
     if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password ])) {
-      return redirect()->route('admin.dashboard');
+      return redirect()->route('admin-dashboard');
   }
 
   return back()->withErrors(['email' => 'Email atau Kata Sandi Salah!']);
