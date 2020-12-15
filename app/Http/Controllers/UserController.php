@@ -20,6 +20,8 @@ class UserController extends Controller
 
     public function viewDashboard()
     {
+        
+        
         return view('user.dashboard');
     }
 

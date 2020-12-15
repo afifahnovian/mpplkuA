@@ -16,6 +16,7 @@ class CreateSuratKeteranganLulus extends Migration
     {
         Schema::create('surat_keterangan_lulus', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_surat')->default('Surat Keterangan Lulus');
             $table->string('status_surat')->default('Pending');
             $table->text('alasan_penolakan')->nullable();
             $table->text('alamatAsal');

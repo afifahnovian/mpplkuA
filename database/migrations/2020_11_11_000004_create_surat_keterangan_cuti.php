@@ -16,6 +16,7 @@ class CreateSuratKeteranganCuti extends Migration
     {
         Schema::create('surat_keterangan_cuti', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_surat')->default('Surat Keterangan Cuti');
             $table->string('status_surat')->default('Pending');
             $table->text('alasan_penolakan')->nullable();
             $table->integer('waktuCuti_TahunAkademik');
