@@ -8,8 +8,7 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
+        <link rel="shortcut icon" href="/highdamin/light/assets/images/favicon.ico">
         <!-- App css -->
         @include('includes.admin-dark.dark-activation-css')
 
