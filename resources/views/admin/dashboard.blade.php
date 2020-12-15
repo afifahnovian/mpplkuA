@@ -73,6 +73,7 @@
                           <option value="Selesai">Selesai</option>
                           <option value="Ditolak">Ditolak</option>
                           <option value="Diproses">Diproses</option>
+                          <option value="Diproses">Pending</option>
                         </select>
                       </div>
                       <div class="form-group">
@@ -84,7 +85,7 @@
                     </div>
                   </div>
                 </div>
-                
+
     <table class="table table-striped table-dark">
   <thead>
     <tr>
