@@ -52,11 +52,15 @@ class AdminController extends Controller
 
     public function viewSuratKeteranganAktif($id)
     {
-        //$daftarSKA = SuratKeteranganAktif::where('id', $id);
+        $daftarSKA         = SuratKeteranganAktif::where('id', $id)->first();
+        if($daftarSKA){
+            $user              = User::where('id',$daftarSKA->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSKA->users_id)->first();
+            return view('admin.detail.surat-keterangan-aktif-detail', compact('daftarSKA','user','biodata_user'));
+        }
+        abort(404);
 
-        //return view('admin.detail.surat-keterangan-aktif-detail', compact('daftarSKA'));
-
-        return view('admin.detail.surat-keterangan-aktif-detail');
+        //return view('admin.detail.surat-keterangan-aktif-detail');
     }
 
     public function viewLegalisir()

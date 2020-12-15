@@ -35,7 +35,7 @@
     <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
       <td>{{ $s->created_at }}</td>
       <td><span class="badge label-table badge-info">{{ $s->status_surat }}</span></td>
-      <td><a href="admin/detail/surat-keterangan-aktif-detail/{{$s->id}}"> DETAIL</a></td>
+      <td><a href="surat-keterangan-aktif-detail/{{$s->id}}"> DETAIL</a></td>
     </tr>
   @endforeach
 
@@ -44,7 +44,7 @@
     <th scope="row">Surat Keterangan Aktif Setelah Cuti</th>
       <td>{{ $b->created_at }}</td>
       <td><span class="badge label-table badge-info">{{ $b->status_surat }}</span></td>
-      <td><a href="/surat-keterangan-aktif-detail"> DETAIL</a></td>
+      <td><a href="surat-keterangan-aktif-detail"> DETAIL</a></td>
     </tr>
   @endforeach
 

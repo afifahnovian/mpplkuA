@@ -48,7 +48,7 @@ Route::prefix('admin')->group( function(){
     //Route::post('/login', 'App\Http\Controllers\AdminLoginController@postLogin')->name('admin-login');
     Route::post('/login', [AdminLoginController::class,'postLogin'])->name('admin-login');
 
-    Route::get('/surat-keterangan-aktif-detail', [AdminController::class, 'viewSuratKeteranganAktif'])->name('admin-suratketeranganaktif');
+    Route::get('/surat-keterangan-aktif-detail/{id}', [AdminController::class, 'viewSuratKeteranganAktif'])->name('admin-suratketeranganaktif');
     Route::get('/legalisir', [AdminController::class, 'viewLegalisir'])->name('admin-legalisir');
     Route::get('/surat-keterangan-cuti-detail', [AdminController::class, 'viewSuratKeteranganCuti'])->name('admin-suratketerangancuti');
     Route::get('/surat-keterangan-aktif-setelah-cuti', [AdminController::class, 'viewSuratKeteranganAktifSetelahCuti'])->name('admin-suratketeranganaktifsetelahcuti');
