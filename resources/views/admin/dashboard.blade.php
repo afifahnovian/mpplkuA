@@ -64,7 +64,27 @@
     </div>
   </div>
 
-
+                <div class="mb-3">
+                  <div class="row">
+                    <div class="col-12 text-sm-center form-inline">
+                      <div class="form-group mr-2">
+                        <select id="demo-foo-filter-status" class="custom-select">
+                          <option value="">Tampilkan Semua</option>
+                          <option value="Selesai">Selesai</option>
+                          <option value="Ditolak">Ditolak</option>
+                          <option value="Diproses">Diproses</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input id="demo-foo-search" type="text" placeholder="Cari Surat" class="form-control" autocomplete="on">
+                            <button class="btn" type="submit">
+                                <i class="fe-search"></i>
+                            </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
     <table class="table table-striped table-dark">
   <thead>
     <tr>
