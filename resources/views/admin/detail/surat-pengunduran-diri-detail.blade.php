@@ -44,7 +44,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Afifah Noviani
+                                                    {{ $user->nama }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -56,7 +56,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    G64170023
+                                                    {{ $user->nim }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -68,7 +68,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Perempuan
+                                                    {{ $biodata_user->jenis_Kelamin }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -80,7 +80,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    0895366362474
+                                                    {{ $biodata_user->nomor_Telepon }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -92,7 +92,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-5">
-                                                    afifah_novian@apps.ipb.ac.id
+                                                    {{ $user->email }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -104,7 +104,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    7/12/2020
+                                                    {{ $daftarSPD->tanggalPengunduran}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -116,7 +116,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    2017
+                                                    {{ $daftarSPD->tahunAkademikPengunduran}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -128,7 +128,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                   2017
+                                                    {{ $daftarSPD->tahunTerakhirAktif}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -140,7 +140,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> KTM.JPG </a>
+                                                    <a href = "#"> {{ $daftarSPD->fileKTM}}</a>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -152,7 +152,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> Surat Pengantar Dept.Pdf </a>
+                                                    <a href = "#"> {{ $daftarSPD->fileSuratPengantarDept}}</a>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -164,7 +164,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#">Surat Pengajuan Mahasiswa.Pdf </a>
+                                                    <a href = "#">{{ $daftarSPD->fileSuratPengajuanMahasiswa}}</a>
                                                     </div>
                                                 </div>
                                                 <br>

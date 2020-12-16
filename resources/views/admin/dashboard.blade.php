@@ -16,7 +16,7 @@
                 </th>
                 <td> 
                     <h3 class="card-title">Surat Masuk</h3> 
-                    <h0><p class="card-text">20</p></h0>
+                    <h0><p class="card-text">{{$pending}}</p></h0>
                 </td>
                   </tr>
                     </table>
@@ -35,7 +35,7 @@
                 </th>
                 <td> 
                     <h3 class="card-title">Surat Diproes</h3> 
-                    <h0><p class="card-text">20</p></h0>
+                    <h0><p class="card-text">{{$diproses}}</p></h0>
                 </td>
                   </tr>
                     </table>
@@ -54,7 +54,7 @@
                 </th>
                 <td> 
                     <h3 class="card-title">Surat Selesai</h3> 
-                    <h0><p class="card-text">20</p></h0>
+                    <h0><p class="card-text">{{$selesai}}</p></h0>
                 </td>
                   </tr>
                     </table>
@@ -97,33 +97,50 @@
   </thead>
   <tbody>
 
-    <tr>
-      <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
-      <td>May 26, 2019</td>
-      <td><span class="badge label-table badge-danger">Ditolak</span></td>
-      <td><a href="#"> DETAIL</a></td>
-    </tr>
-    
-    <tr>
-    <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
-      <td>May 26, 2019</td>
-      <td><span class="badge label-table badge-warning">Diproses</span></td>
-      <td><a href="#"> DETAIL</a></td>
-    </tr>
+  @foreach($daftarSurat->sortByDesc('created_at') as $s)
+      <tr>
+       <td>{{ $s->nama_surat }}</td>
+       <td>{{ $s->created_at->format('F d, Y') }}</td>
+       <td>
+        @if ($s -> status_surat == "Ditolak")
+          <span class="badge label-table badge-danger">{{ $s->status_surat }}</span>
+        @endif
+        @if ($s -> status_surat == "Diproses")
+          <span class="badge label-table badge-warning">{{ $s->status_surat }}</span>
+        @endif
+        @if ($s -> status_surat == "Selesai")
+        <span class="badge label-table badge-success">{{ $s->status_surat }}</span>
+        @endif
+        @if ($s -> status_surat == "Pending")
+          <span class="badge label-table badge-info">{{ $s->status_surat }}</span>
+        @endif
 
-    <tr>
-    <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
-      <td>May 26, 2019</td>
-      <td><span class="badge label-table badge-success">Selesai</span></td>
-      <td><a href="#"> DETAIL</a></td>
-    </tr>
-
-    <tr>
-    <th scope="row">Surat Keterangan Mahasiswa Aktif</th>
-      <td>May 26, 2019</td>
-      <td><span class="badge label-table badge-info">Pending</span></td>
-      <td><a href="#"> DETAIL</a></td>
-    </tr>
+       </td>
+       <td> 
+        @if ($s -> nama_surat == 'Surat Keterangan Aktif')
+          <a href="surat-keterangan-aktif-detail/{{$s->id}}"> DETAIL</a>
+        @endif
+        @if ($s -> nama_surat == 'Surat Keterangan Aktif Setelah Cuti')
+          <a href="surat-keterangan-aktif-setelah-cuti-detail/{{$s->id}}"> DETAIL</a>
+        @endif
+        @if ($s -> nama_surat == 'Surat Keterangan Cuti')
+          <a href="surat-keterangan-cuti-detail/{{$s->id}}"> DETAIL</a>
+        @endif
+        @if ($s -> nama_surat == 'Surat Keterangan Lulus')
+          <a href="surat-keterangan-lulus-detail/{{$s->id}}"> DETAIL</a>
+        @endif
+        @if ($s -> nama_surat == 'Surat Pengunduran Diri')
+          <a href="surat-pengunduran-diri-detail/{{$s->id}}"> DETAIL</a>
+        @endif
+        @if ($s -> nama_surat == 'Surat Perpanjangan Masa Studi')
+          <a href="surat-perpanjangan-masa-detail/{{$s->id}}"> DETAIL</a>
+        @endif
+        @if ($s -> nama_surat == 'Legalisir Transkrip')
+          <a href="legalisir-detail/{{$s->id}}"> DETAIL</a>
+        @endif
+       </td>
+      </tr>
+    @endforeach
 
   </tbody>
 </table>

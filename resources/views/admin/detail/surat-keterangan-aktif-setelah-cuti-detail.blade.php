@@ -16,7 +16,7 @@
 <button style="max-width: 10rem;" type="submit" class="btn btn-warning btn-block">PROSES</button>
 </a></div>
 
-    <a href="{{route('admin-ditolaksketeranganaktifsetelahcuti')}}">
+    <a href="{{route('admin-diprosesketeranganaktifsetelahcuti')}}">
         <button style="max-width: 10rem;" type="submit" class="btn btn-danger btn-block">TOLAK</button>
     </a>
 </div></div>
@@ -104,7 +104,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    2020
+                                                    {{ $daftarSKASC->waktuCuti_TahunAkademik}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -116,7 +116,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    7
+                                                    {{ $daftarSKASC->waktuCuti_Semester}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -128,7 +128,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-5">
-                                                    Alasan
+                                                    {{ $daftarSKASC->alasanCuti}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -140,7 +140,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    {{$biodata_user->tahun_Akademik}}
+                                                    {{ $daftarSKASC->waktuAktif_TahunAkademik}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -152,7 +152,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    7
+                                                    {{ $daftarSKASC->waktuAktif_Semester}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -165,7 +165,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> Surat Cuti.Pdf </a>
+                                                    <a href = "#"> {{ $daftarSKASC->fileSuratCuti}} </a>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -177,7 +177,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#"> Surat Pengantar Departemen.pdf </a>
+                                                    <a href = "#"> {{ $daftarSKASC->fileSuratPengantarDept}} </a>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -189,7 +189,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    <a href = "#">Bukti Pembayaran SPP.pdf </a>
+                                                    <a href = "#">{{ $daftarSKASC->fileBayarSPP}} </a>
                                                     </div>
                                                 </div>
  

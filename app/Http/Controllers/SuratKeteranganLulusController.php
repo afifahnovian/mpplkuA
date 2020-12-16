@@ -32,7 +32,7 @@ class SuratKeteranganLulusController extends Controller
             'fileTranskrip' => 'required',
             'fileSkripsi' => 'required',
             'fileBayarSPP' => 'required',
-            'fileBuktiBayarWisuda' => 'image|image|max : 1024',
+            'fileBuktiBayarWisuda' => 'required',
             'fileFoto' => 'image|image|max : 1024',
         ]);
         

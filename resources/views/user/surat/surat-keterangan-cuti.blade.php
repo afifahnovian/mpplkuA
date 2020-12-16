@@ -52,7 +52,7 @@
                         <div class="form-group col">
                             <label class="col" for="alasanCuti">Alasan Cuti</label>
                             <div class="col">
-                                <input type="text" id="alasanCuti" class="form-control" placeholder="Alasan cuti"  name="alasanCuti" >
+                                <input type="text" id="alasanCuti" class="form-control" placeholder="Alasan Cuti"  name="alasanCuti" >
                             </div>
                         </div>
                     </div>
