@@ -13,7 +13,7 @@ class SuratKeteranganAktifController extends Controller
     public function index()
     {
         $surat_keterangan_aktif = SuratKeteranganAktif::all();
-        return view('user.surat.surat-keterangan-aktif');
+        return view('user.surat.suratketeranganaktif');
     }
  
     public function create()

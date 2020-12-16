@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 use App\Models\SuratKeteranganAktif;
 use App\Models\SuratKeteranganAktifSetelahCuti;
+use App\Models\SuratKeteranganCuti;
+use App\Models\SuratKeteranganLulus;
+use App\Models\SuratPengunduranDiri;
+use App\Models\SuratPerpanjanganMasaStudi;
+use App\Models\LegalisasiTranskrip;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\BiodataUser;
@@ -13,7 +18,20 @@ class AdminController extends Controller
 {
     public function viewAdminDashboard()
     {
-        return view('admin.dashboard');
+        $daftarSurat = LegalisasiTranskrip::select('id','nama_surat','status_surat','created_at')
+                        ->unionAll(SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganLulus::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPengunduranDiri::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPerpanjanganMasaStudi::select('id','nama_surat','status_surat','created_at'))
+                        ->get();
+
+        $pending = $daftarSurat->where('status_surat','=','Pending')->count();
+        $diproses = $daftarSurat->where('status_surat','=','Diproses')->count();
+        $selesai = $daftarSurat->where('status_surat','=','Selesai')->count();
+
+        return view('admin.dashboard',compact('daftarSurat','pending','diproses','selesai'));
     }
 
     public function viewSuratDiproses()
@@ -23,9 +41,9 @@ class AdminController extends Controller
 
     public function viewSuratMasuk()
     {
-        $daftarSKA = SuratKeteranganAktif::all();
+        $daftarSKA = SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at');
 
-        $daftarSKAC = SuratKeteranganAktifSetelahCuti::all();
+        $daftarSKAC = SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at');
 
         return view('admin.surat-masuk', compact('daftarSKA', 'daftarSKAC'));
     }

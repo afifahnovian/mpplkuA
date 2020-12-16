@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\SuratKeteranganAktif;
+use App\Models\SuratKeteranganAktifSetelahCuti;
+use App\Models\SuratKeteranganCuti;
+use App\Models\SuratKeteranganLulus;
+use App\Models\SuratPengunduranDiri;
+use App\Models\SuratPerpanjanganMasaStudi;
+use App\Models\LegalisasiTranskrip;
 use App\Models\BiodataUser;
 use Auth;
 use App\Models\User;
@@ -20,9 +27,16 @@ class UserController extends Controller
 
     public function viewDashboard()
     {
-        
-        
-        return view('user.dashboard');
+        $daftarSurat = LegalisasiTranskrip::select('id','nama_surat','status_surat','created_at')
+                        ->unionAll(SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganLulus::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPengunduranDiri::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPerpanjanganMasaStudi::select('id','nama_surat','status_surat','created_at'))
+                        ->get();
+
+        return view('user.dashboard',compact('daftarSurat'));
     }
 
     public function viewBiodata()

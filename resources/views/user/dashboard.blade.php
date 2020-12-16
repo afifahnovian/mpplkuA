@@ -85,54 +85,48 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Legalisir Transkrip</td>
-                                            <td>15 November 2020</td>
-                                            <td><span class="badge label-table badge-warning">Diproses</span></td>
-                                            <td><a href = "{{route('user-legalisir-transkrip-detail')}}" span class="btn btn-link btn">Lihat Pengajuan</a> </span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Surat Keterangan Mahasiswa Aktif</td>
-                                            <td>10 November 2020</td>
-                                            <td><span class="badge label-table badge-success">Selesai</span></td>
-                                            <td><a href = "{{route('user-surat-keterangan-aktif-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Legalisir Transkrip</td>
-                                            <td>28 Oktober 2020</td>
-                                            <td><span class="badge label-table badge-danger">Ditolak</span></td>
-                                            <td><a href = "{{route('user-legalisir-transkrip-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Surat Keterangan Lulus</td>
-                                            <td>26 Oktober 2020</td>
-                                            <td><span class="badge label-table badge-success">Selesai</span></td>
-                                            <td><a href = "{{route('user-surat-keterangan-lulus-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Surat Perpanjangan Masa Studi</td>
-                                            <td>19 Juni 2020</td>
-                                            <td><span class="badge label-table badge-success">Selesai</span></td>
-                                            <td><a href = "{{route('user-surat-perpanjangan-masa-studi-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Surat Pengunduran Diri</td>
-                                            <td>17 Januari 2019</td>
-                                            <td><span class="badge label-table badge-danger">Ditolak</span></td>
-                                            <td><a href = "{{route('user-surat-pengunduran-diri-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Surat Keterangan Aktif Setelah Cuti</td>
-                                            <td>8 Desember 2018</td>
-                                            <td><span class="badge label-table badge-danger">Ditolak</span></td>
-                                            <td><a href = "{{route('user-surat-keterangan-aktif-cuti-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Surat Keterangan Cuti</td>
-                                            <td>31 Mei 2018</td>
-                                            <td><span class="badge label-table badge-danger">Ditolak</span></td>
-                                            <td><a href = "{{route('user-surat-keterangan-cuti-detail')}}" span class="btn btn-link btn"">Lihat Pengajuan</a> </span></td>
-                                        </tr>
+                                        @foreach($daftarSurat->sortByDesc('created_at') as $s)
+                                            <tr>
+                                                <td>{{ $s->nama_surat }}</td>
+                                                <td>{{ $s->created_at->format('F d, Y') }}</td>
+                                                <td>
+                                                    @if ($s -> status_surat == "Ditolak")
+                                                        <span class="badge label-table badge-danger">{{ $s->status_surat }}</span>
+                                                    @endif
+                                                     @if ($s -> status_surat == "Diproses")
+                                                        <span class="badge label-table badge-warning">{{ $s->status_surat }}</span>
+                                                    @endif
+                                                    @if ($s -> status_surat == "Selesai")
+                                                        <span class="badge label-table badge-success">{{ $s->status_surat }}</span>
+                                                    @endif
+                                                    @if ($s -> status_surat == "Pending")
+                                                        <span class="badge label-table badge-info">{{ $s->status_surat }}</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if ($s -> nama_surat == 'Surat Keterangan Aktif')
+                                                        <a href="surat/surat-keterangan-aktif-detail/{{$s->id}}" span class="btn btn-link btn"> Lihat Pengajuan</a></span></td>
+                                                    @endif
+                                                    @if ($s -> nama_surat == 'Surat Keterangan Aktif Setelah Cuti')
+                                                        <a href="surat/surat-keterangan-aktif-cuti-detail/{{$s->id}}" span class="btn btn-link btn"> Lihat Pengajuan</a></span></td>
+                                                    @endif
+                                                    @if ($s -> nama_surat == 'Surat Keterangan Cuti')
+                                                        <a href="surat/surat-keterangan-cuti-detail/{{$s->id}}" span class="btn btn-link btn"> Lihat Pengajuan</a></span></td>
+                                                    @endif
+                                                    @if ($s -> nama_surat == 'Surat Keterangan Lulus')
+                                                        <a href="surat/surat-keterangan-lulus-detail/{{$s->id}}" span class="btn btn-link btn"> Lihat Pengajuan</a></span></td>
+                                                    @endif
+                                                    @if ($s -> nama_surat == 'Surat Pengunduran Diri')
+                                                        <a href="surat/surat-pengunduran-diri-detail/{{$s->id}}" span class="btn btn-link btn"> Lihat Pengajuan</a></span></td>
+                                                    @endif
+                                                    @if ($s -> nama_surat == 'Surat Perpanjangan Masa Studi')
+                                                        <a href="surat/surat-perpanjangan-masa-studi-detail/{{$s->id}}" span class="btn btn-link btn"> Lihat Pengajuan</a></span></td>
+                                                    @endif
+                                                    @if ($s -> nama_surat == 'Legalisir Transkrip')
+                                                        <a href="surat/legalisir-transkrip-detail/{{$s->id}}" span class="btn btn-link btn"> Lihat Pengajuan</a></span></td>
+                                                    @endif
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                         <tfoot>
                                         <tr class="active">
