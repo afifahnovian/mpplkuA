@@ -44,7 +44,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Afifah Noviani
+                                                    {{ $user->nama }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -56,7 +56,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    G64170023
+                                                    {{ $user->nim }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -68,7 +68,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    Perempuan
+                                                    {{ $biodata_user->jenis_Kelamin }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -80,7 +80,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    0895366362474
+                                                    {{ $biodata_user->nomor_Telepon }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -92,7 +92,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-5">
-                                                    afifah_novian@apps.ipb.ac.id
+                                                    {{ $user->email }}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -104,7 +104,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    7/12/2020
+                                                    {{ $daftarSPMS->waktuAkhirPerpanjangan}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -116,7 +116,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-2">
-                                                    2020
+                                                    {{ $daftarSPMS->waktuAkhirPerpanjangan_TahunAkademik}}
                                                     </div>
                                                 </div>
                                                 <br>
@@ -128,7 +128,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-3">
-                                                    <a href = "#">Tabel Rencana Studi.pdf </a>
+                                                    <a href = "#">{{ $daftarSPMS->fileTabelRencanaStudi}}</a>
                                                     </div>
                                                 </div>
                                                

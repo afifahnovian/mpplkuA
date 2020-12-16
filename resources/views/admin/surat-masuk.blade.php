@@ -30,7 +30,7 @@
   </thead>
   </tbody>
 
-  @foreach($daftarSKA as $s)
+  @foreach($daftarSurat as $s)
   <tr>
     <th scope="row">{{$s->nama_surat}}</th>
       <td>{{ $s->created_at }}</td>
@@ -66,10 +66,10 @@
           <a href="surat-pengunduran-diri-detail/{{$s->id}}"> DETAIL</a>
         @endif
         @if ($s -> nama_surat == 'Surat Perpanjangan Masa Studi')
-          <a href="surat-perpanjangan-masa-studi-detail/{{$s->id}}"> DETAIL</a>
+          <a href="surat-perpanjangan-masa-detail/{{$s->id}}"> DETAIL</a>
         @endif
         @if ($s -> nama_surat == 'Legalisir Transkrip')
-          <a href="legalisir-transkrip-detail/{{$s->id}}"> DETAIL</a>
+          <a href="legalisir-detail/{{$s->id}}"> DETAIL</a>
         @endif
       </td>
     </tr>

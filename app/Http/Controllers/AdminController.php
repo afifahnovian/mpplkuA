@@ -36,16 +36,34 @@ class AdminController extends Controller
 
     public function viewSuratDiproses()
     {
-        return view('admin.surat-diproses');
+        $daftarSurat = LegalisasiTranskrip::select('id','nama_surat','status_surat','created_at')
+                        ->unionAll(SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganLulus::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPengunduranDiri::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPerpanjanganMasaStudi::select('id','nama_surat','status_surat','created_at'))
+                        ->get();
+
+        return view('admin.surat-diproses', compact('daftarSurat'));
     }
 
     public function viewSuratMasuk()
     {
-        $daftarSKA = SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at');
+        $daftarSurat = LegalisasiTranskrip::select('id','nama_surat','status_surat','created_at')
+                        ->unionAll(SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganLulus::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPengunduranDiri::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPerpanjanganMasaStudi::select('id','nama_surat','status_surat','created_at'))
+                        ->get();
 
-        $daftarSKAC = SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at');
+        // $daftarSKA = SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at');
 
-        return view('admin.surat-masuk', compact('daftarSKA', 'daftarSKAC'));
+        // $daftarSKAC = SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at');
+
+        return view('admin.surat-masuk', compact('daftarSurat'));
     }
     
     public function viewSuratSelesai()
@@ -55,7 +73,16 @@ class AdminController extends Controller
     
     public function viewSuratDitolak()
     {
-        return view('admin.surat-ditolak');
+        $daftarSurat = LegalisasiTranskrip::select('id','nama_surat','status_surat','created_at')
+                        ->unionAll(SuratKeteranganAktif::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganAktifSetelahCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganCuti::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratKeteranganLulus::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPengunduranDiri::select('id','nama_surat','status_surat','created_at'))
+                        ->unionAll(SuratPerpanjanganMasaStudi::select('id','nama_surat','status_surat','created_at'))
+                        ->get();
+
+        return view('admin.surat-ditolak', compact('daftarSurat'));
     }
     
     public function viewCreateAdmin()
@@ -70,7 +97,7 @@ class AdminController extends Controller
 
     public function viewSuratKeteranganAktif($id)
     {
-        $daftarSKA         = SuratKeteranganAktif::where('id', $id)->first();
+        $daftarSKA             = SuratKeteranganAktif::where('id', $id)->first();
         if($daftarSKA){
             $user              = User::where('id',$daftarSKA->users_id)->first();
             $biodata_user      = BiodataUser::where('users_id',$daftarSKA->users_id)->first();
@@ -78,37 +105,83 @@ class AdminController extends Controller
         }
         abort(404);
 
-        //return view('admin.detail.surat-keterangan-aktif-detail');
+        //return view('admin.detail.surat-keterangan-aktif-detail')
     }
 
-    public function viewLegalisir()
+    public function viewLegalisir($id)
     {
-        return view('admin.detail.legalisir-transkrip-detail');
+        $daftarSL              = LegalisasiTranskrip::where('id', $id)->first();
+        if($daftarSL){
+            $user              = User::where('id',$daftarSL->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSL->users_id)->first();
+            return view('admin.detail.legalisir-transkrip-detail', compact('daftarSL','user','biodata_user'));
+        }
+        abort(404);
+
+        //return view('admin.detail.legalisir-transkrip-detail');
     }
 
-    public function viewSuratKeteranganCuti()
+    public function viewSuratKeteranganCuti($id)
     {
-        return view('admin.detail.surat-keterangan-cuti-detail');
+        $daftarSKC             = SuratKeteranganCuti::where('id', $id)->first();
+        if($daftarSKC){
+            $user              = User::where('id',$daftarSKC->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSKC->users_id)->first();
+            return view('admin.detail.surat-keterangan-cuti-detail', compact('daftarSKC','user','biodata_user'));
+        }
+        abort(404);
+
+        //return view('admin.detail.surat-keterangan-cuti-detail');
     }
 
-    public function viewSuratKeteranganAktifSetelahCuti()
+    public function viewSuratKeteranganAktifSetelahCuti($id)
     {
-        return view('admin.detail.surat-keterangan-aktif-setelah-cuti-detail');
+        $daftarSKASC           = SuratKeteranganAktifSetelahCuti::where('id', $id)->first();
+        if($daftarSKASC){
+            $user              = User::where('id',$daftarSKASC->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSKASC->users_id)->first();
+            return view('admin.detail.surat-keterangan-aktif-setelah-cuti-detail', compact('daftarSKASC','user','biodata_user'));
+        }
+        abort(404);
+
+        //return view('admin.detail.surat-keterangan-aktif-setelah-cuti-detail');
     }
 
-    public function viewSuratKeteranganLulus()
+    public function viewSuratKeteranganLulus($id)
     {
-        return view('admin.detail.surat-keterangan-lulus-detail');
+        $daftarSKL           = SuratKeteranganLulus::where('id', $id)->first();
+        if($daftarSKL){
+            $user              = User::where('id',$daftarSKL->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSKL->users_id)->first();
+            return view('admin.detail.surat-keterangan-lulus-detail', compact('daftarSKL','user','biodata_user'));
+        }
+        abort(404);
+
+        //return view('admin.detail.surat-keterangan-lulus-detail');
     }
 
-    public function viewSuratPengunduranDiri()
+    public function viewSuratPengunduranDiri($id)
     {
-        return view('admin.detail.surat-pengunduran-diri-detail');
+        $daftarSPD           = SuratPengunduranDiri::where('id', $id)->first();
+        if($daftarSPD){
+            $user              = User::where('id',$daftarSPD->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSPD->users_id)->first();
+            return view('admin.detail.surat-pengunduran-diri-detail', compact('daftarSPD','user','biodata_user'));
+        }
+
+        //return view('admin.detail.surat-pengunduran-diri-detail');
     }
 
-    public function viewSuratPerpanjanganMasa()
+    public function viewSuratPerpanjanganMasa($id)
     {
-        return view('admin.detail.surat-perpanjangan-masa-studi-detail');
+        $daftarSPMS           = SuratPerpanjanganMasaStudi::where('id', $id)->first();
+        if($daftarSPMS){
+            $user              = User::where('id',$daftarSPMS->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSPMS->users_id)->first();
+            return view('admin.detail.surat-perpanjangan-masa-studi-detail', compact('daftarSPMS','user','biodata_user'));
+        }
+
+        //return view('admin.detail.surat-perpanjangan-masa-studi-detail');
     }
 
     public function viewDiprosesLegalisir()
@@ -121,9 +194,17 @@ class AdminController extends Controller
         return view('admin.detail.diproses.Diproses_keterangan_aktif_setelah_cuti');
     }
 
-    public function viewDiprosesKeteranganAktif()
+    public function viewDiprosesKeteranganAktif($id)
     {
-        return view('admin.detail.diproses.Diproses_keterangan_aktif');
+        $daftarSKA         = SuratKeteranganAktif::where('id', $id)->first();
+        if($daftarSKA){
+            $user              = User::where('id',$daftarSKA->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSKA->users_id)->first();
+            return view('admin.detail.diproses.Diproses_keterangan_aktif', compact('daftarSKA','user','biodata_user'));
+        }
+        abort(404);
+
+        //return view('admin.detail.diproses.Diproses_keterangan_aktif');
     }
 
     public function viewDiprosesKeteranganCuti()
@@ -156,9 +237,17 @@ class AdminController extends Controller
         return view('admin.detail.ditolak.ditolak_keterangan_aktif_setelah_cuti');
     }
 
-    public function viewDitolakKeteranganAktif()
+    public function viewDitolakKeteranganAktif($id)
     {
-        return view('admin.detail.ditolak.ditolak_keterangan_aktif');
+        $daftarSKA         = SuratKeteranganAktif::where('id', $id)->first();
+        if($daftarSKA){
+            $user              = User::where('id',$daftarSKA->users_id)->first();
+            $biodata_user      = BiodataUser::where('users_id',$daftarSKA->users_id)->first();
+            return view('admin.detail.ditolak.ditolak_keterangan_aktif', compact('daftarSKA','user','biodata_user'));
+        }
+        abort(404);
+
+        //return view('admin.detail.ditolak.ditolak_keterangan_aktif');
     }
 
     public function viewDitolakKeteranganCuti()

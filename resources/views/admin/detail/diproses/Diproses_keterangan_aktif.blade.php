@@ -103,7 +103,7 @@
                                                     :
                                                     </div>
                                                     <div class="col-5">
-                                                    alasan
+                                                    {{ $daftarSKA->keperluan}}
                                                     </div>
                                                 </div>
                                                 <br>                                         
