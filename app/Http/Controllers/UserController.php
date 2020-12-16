@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function viewBiodata()
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         $biodata_user = BiodataUser::where('users_id', $user->id)->first();
         // dd($user->id);
         // dd($biodata_user);
@@ -36,7 +36,7 @@ class UserController extends Controller
 
     public function viewBiodataEdit($id)
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         $biodata_user = BiodataUser::where('users_id', $user->id)->first();
         return view('user.biodata-edit', compact('biodata_user','user'));
     }

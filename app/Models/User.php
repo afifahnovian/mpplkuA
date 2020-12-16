@@ -18,13 +18,14 @@ class User extends Authenticatable
      */
     
 
-    protected $table = "users";
+    protected $table = 'users';
+    // protected $guard = 'users';
 
     protected $primaryKey = "id";
 
 
     protected $fillable = [
-        'nama', 'nim', 'email', 'password',
+        'nama', 'nim', 'email', 'password','foto_profil',
     ];
 
     /**

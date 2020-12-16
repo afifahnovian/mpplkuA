@@ -32,21 +32,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Email Service
-//Route::post('/send-email', 'MailController@sendEmail');
+
 Route::post('/send-email',[MailController::class, 'sendEmail']);
 //admin
 
-Route::prefix('admin')->group( function(){
-    Route::get('/admindashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function (){
+    Route::get('/dashboard', [AdminController::class, 'viewAdminDashboard'])->name('admin-dashboard');
     Route::get('/suratdiproses', [AdminController::class, 'viewSuratDiproses'])->name('admin-diproses');
     Route::get('/suratmasuk', [AdminController::class, 'viewSuratMasuk'])->name('admin-masuk');
     Route::get('/suratselesai', [AdminController::class, 'viewSuratSelesai'])->name('admin-selesai');
     Route::get('/suratditolak', [AdminController::class, 'viewSuratDitolak'])->name('admin-ditolak');
     Route::get('/createadmin', [AdminController::class, 'viewCreateAdmin'])->name('admin-create');
-
-    Route::get('/login', [AdminController::class, 'viewKeluar']);
-    //Route::post('/login', 'App\Http\Controllers\AdminLoginController@postLogin')->name('admin-login');
-    Route::post('/login', [AdminLoginController::class,'postLogin'])->name('admin-login');
 
     Route::get('/surat-keterangan-aktif-detail/{id}', [AdminController::class, 'viewSuratKeteranganAktif'])->name('admin-suratketeranganaktif');
     Route::get('/legalisir', [AdminController::class, 'viewLegalisir'])->name('admin-legalisir');
@@ -73,19 +69,21 @@ Route::prefix('admin')->group( function(){
     Route::get('/ditolak-perpanjangan-masa', [AdminController::class, 'viewDitolakPerpanjanganMasa'])->name('admin-ditolakperpanjanganmasa');
 });
    
+//admin
+Route::get('/admin/login', [AdminController::class, 'viewLogin']);
+Route::get('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin-logout');
+Route::post('/admin/login', [AdminLoginController::class,'postLogin'])->name('admin-login');
 //user
+Route::get('/login', [UserLoginController::class, 'getLogin']);
+Route::post('/login', [UserLoginController::class, 'postLogin'])->name('user-login');
 
-Route::prefix('user')->group( function(){
-    //Route::get('/login', [UserController::class, 'viewLogin'])->name('user-login');
-    Route::get('/login','App\Http\Controllers\UserLoginController@getLogin');
-    Route::post('/login', 'App\Http\Controllers\UserLoginController@postLogin')->name('user-login');
+Route::get('/user/register', [UsersRegistrationController::class, 'create']);
+Route::post('/user/register', [UsersRegistrationController::class, 'store'])->name('user-register');
 
-    //Route::get('/logout', 'App\Http\Controllers\UserLoginController@logout')->name('user-logout');
+Route::get('/logout', [UserLoginController::class, 'logout'])->name('user-logout');
 
-    //Route::get('/register', [UserController::class, 'viewRegister'])->name('user-register');
-    Route::get('/user/register','App\Http\Controllers\UsersRegistrationController@create');
-    Route::post('/user/register', 'App\Http\Controllers\UsersRegistrationController@store')->name('user-register');
-    
+
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function (){
     Route::get('/dashboard', [UserController::class, 'viewDashboard'])->name('user-dashboard');
 
     Route::get('/biodata', [UserController::class,'viewBiodata'])->name('user-biodata');

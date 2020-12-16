@@ -28,8 +28,14 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            <form class="form-horizontal" action="{{route('user-biodata-update')}}" method="post">
+                                            <form class="form-horizontal" action="{{route('user-biodata-update')}}" method="post" enctype="multipart/form-data">
                                             {{ csrf_field() }}
+                                                <div class="form-group col">
+                                                    <label class="col" for="foto_profil">Unggah Foto Profil</label>
+                                                    <div class="col">
+                                                        <input type="file" id="foto_profil" name="foto_profil" accept="image/*"  class="form-control" placeholder=".jpg / .png">
+                                                    </div>
+                                                </div>
                                                 <input type="number" name="id" value="{{ $biodata_user->id }}" hidden>
                                                 <div class="form-group row">
                                                     <label class="col-md-2 col-form-label" for="name" >Nama</label>
