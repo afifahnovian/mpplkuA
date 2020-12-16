@@ -53,22 +53,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function (){
     Route::get('/surat-perpanjangan-masa-detail/{id}', [AdminController::class, 'viewSuratPerpanjanganMasa'])->name('admin-suratperpanjanganmasa');
     
     //surat diproses
-    Route::get('/diproses-legalisir', [AdminController::class, 'viewDiprosesLegalisir'])->name('admin-diproseslegalisir');
-    Route::get('/diproses-keterangan-aktif-setelah-cuti', [AdminController::class, 'viewDiprosesKeteranganAktifSetelahCuti'])->name('admin-diprosesketeranganaktifsetelahcuti');
+    Route::get('/diproses-legalisir/{id}', [AdminController::class, 'viewDiprosesLegalisir'])->name('admin-diproseslegalisir');
+    Route::get('/diproses-keterangan-aktif-setelah-cuti/{id}', [AdminController::class, 'viewDiprosesKeteranganAktifSetelahCuti'])->name('admin-diprosesketeranganaktifsetelahcuti');
     Route::get('/diproses-keterangan-aktif/{id}', [AdminController::class, 'viewDiprosesKeteranganAktif'])->name('admin-diprosesketeranganaktif');
-    Route::get('/diproses-keterangan-cuti', [AdminController::class, 'viewDiprosesKeteranganCuti'])->name('admin-diprosesketerangancuti');
-    Route::get('/diproses-keterangan-lulus', [AdminController::class, 'viewDiprosesKeteranganLulus'])->name('admin-diprosesketeranganlulus');
-    Route::get('/diproses-pengunduran-diri', [AdminController::class, 'viewDiprosesPengunduranDiri'])->name('admin-diprosespengundurandiri');
-    Route::get('/diproses-perpanjangan-masa', [AdminController::class, 'viewDiprosesPerpanjanganMasa'])->name('admin-diprosesperpanjanganmasa');
+    Route::get('/diproses-keterangan-cuti/{id}', [AdminController::class, 'viewDiprosesKeteranganCuti'])->name('admin-diprosesketerangancuti');
+    Route::get('/diproses-keterangan-lulus/{id}', [AdminController::class, 'viewDiprosesKeteranganLulus'])->name('admin-diprosesketeranganlulus');
+    Route::get('/diproses-pengunduran-diri/{id}', [AdminController::class, 'viewDiprosesPengunduranDiri'])->name('admin-diprosespengundurandiri');
+    Route::get('/diproses-perpanjangan-masa/{id}', [AdminController::class, 'viewDiprosesPerpanjanganMasa'])->name('admin-diprosesperpanjanganmasa');
     
     //surat ditolak
-    Route::get('/ditolak-legalisir', [AdminController::class, 'viewDitolakLegalisir'])->name('admin-ditolaklegalisir');
-    Route::get('/ditolak-keterangan-aktif-setelah-cuti', [AdminController::class, 'viewDitolakKeteranganAktifSetelahCuti'])->name('admin-ditolakketeranganaktifsetelahcuti');
+    Route::get('/ditolak-legalisir/{id}', [AdminController::class, 'viewDitolakLegalisir'])->name('admin-ditolaklegalisir');
+    Route::get('/ditolak-keterangan-aktif-setelah-cuti/{id}', [AdminController::class, 'viewDitolakKeteranganAktifSetelahCuti'])->name('admin-ditolakketeranganaktifsetelahcuti');
     Route::get('/ditolak-keterangan-aktif/{id}', [AdminController::class, 'viewDitolakKeteranganAktif'])->name('admin-ditolakketeranganaktif');
-    Route::get('/ditolak-keterangan-cuti', [AdminController::class, 'viewDitolakKeteranganCuti'])->name('admin-ditolakketerangancuti');
-    Route::get('/ditolak-keterangan-lulus', [AdminController::class, 'viewDitolakKeteranganLulus'])->name('admin-ditolakketeranganlulus');
-    Route::get('/ditolak-pengunduran-diri', [AdminController::class, 'viewDitolakPengunduranDiri'])->name('admin-ditolakpengundurandiri');
-    Route::get('/ditolak-perpanjangan-masa', [AdminController::class, 'viewDitolakPerpanjanganMasa'])->name('admin-ditolakperpanjanganmasa');
+    Route::get('/ditolak-keterangan-cuti/{id}', [AdminController::class, 'viewDitolakKeteranganCuti'])->name('admin-ditolakketerangancuti');
+    Route::get('/ditolak-keterangan-lulus/{id}', [AdminController::class, 'viewDitolakKeteranganLulus'])->name('admin-ditolakketeranganlulus');
+    Route::get('/ditolak-pengunduran-diri/{id}', [AdminController::class, 'viewDitolakPengunduranDiri'])->name('admin-ditolakpengundurandiri');
+    Route::get('/ditolak-perpanjangan-masa/{id}', [AdminController::class, 'viewDitolakPerpanjanganMasa'])->name('admin-ditolakperpanjanganmasa');
 });
    
 //admin
